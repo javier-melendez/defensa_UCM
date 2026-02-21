@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFG - Moderno y Profesional UCM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --ucm-red: #B71234;
+            --ucm-dark-red: #8B0E27;
+            --ucm-black: #1A1A1A;
+            --ucm-white: #FFFFFF;
+            --off-white: #F9F9F8;
+            --ccinf-gray: #999A8F;
+            
+            --slide-width: 1920px;
+            --slide-height: 1080px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #121212;
+            color: var(--ucm-black);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #presentation-container {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background: var(--off-white);
+            position: relative;
+            transform-origin: center center;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.6);
+        }
+
+        /* Sistema de Capas y Slides */
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            transform: translateX(30px);
+            background: var(--off-white);
+            display: flex;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            z-index: 10;
+        }
+
+        /* Tipografía Dinámica */
+        h1 {
+            font-size: 140px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            color: var(--ucm-black);
+        }
+
+        h2 {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--ucm-red);
+        }
+
+        .serif { font-family: 'Libre+Baskerville', serif; }
+
+        /* Contenedores con Estilo "Cercano" */
+        .rounded-card {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .content-padding { padding: 100px 120px; }
+
+        .image-half {
+            width: 50%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .text-half {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Navegación y Progreso */
+        .nav-bar {
+            position: absolute;
+            bottom: 60px;
+            left: 120px;
+            right: 120px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .progress-container {
+            flex-grow: 1;
+            margin: 0 40px;
+            height: 4px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--ucm-red);
+            transition: width 0.6s ease;
+            border-radius: 2px;
+        }
+
+        .counter {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--ccinf-gray);
+        }
+
+        /* Estilos Portada */
+        .hero-title-container {
+            border-left: 12px solid var(--ucm-red);
+            padding-left: 60px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="presentation-container">
+        
+        <!-- Navegación Persistente -->
+        <div class="nav-bar">
+            <div class="counter" id="page-counter">01</div>
+            <div class="progress-container">
+                <div class="progress-fill" id="progress-bar" style="width: 20%"></div>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Escudo_de_la_Universidad_Complutense_de_Madrid.svg" alt="UCM" class="h-12 opacity-40">
+        </div>
+
+        <!-- SLIDE 1: PORTADA PROFESIONAL Y CERCANA -->
+        <section class="slide active" id="slide-1">
+            <div class="w-full h-full flex items-center content-padding">
+                <div class="w-2/3">
+                    <div class="hero-title-container">
+                        <p class="text-2xl font-bold text-[#B71234] tracking-[0.2em] uppercase mb-6">Trabajo de Fin de Grado</p>
+                        <h1>Convergencia<br>Mediática en la<br><span class="text-gray-400">Era Digital.</span></h1>
+                    </div>
+                    <div class="mt-20 flex gap-12 items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Escudo_de_la_Universidad_Complutense_de_Madrid.svg" alt="UCM" class="h-32">
+                        <div>
+                            <p class="text-3xl font-bold">Nombre del Estudiante</p>
+                            <p class="text-xl text-gray-400 font-medium">Grado en Periodismo / Comunicación Audiovisual</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 h-[700px]">
+                    <div class="rounded-card w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: INTRODUCCIÓN -->
+        <section class="slide" id="slide-2">
+            <div class="image-half">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=1200">
+            </div>
+            <div class="text-half content-padding">
+                <h2 class="mb-12">Contexto y<br>Oportunidad.</h2>
+                <p class="text-4xl font-light text-gray-700 leading-snug">
+                    No estamos ante un cambio de herramientas, sino ante una <span class="font-bold text-black italic">evolución de la audiencia</span> que demanda transparencia y participación activa.
+                </p>
+                <div class="mt-16 p-8 bg-white rounded-[20px] shadow-sm border-l-8 border-[#999A8F]">
+                    <p class="text-xl text-gray-500 italic">"El medio es el mensaje, pero el usuario es el protagonista."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: METODOLOGÍA -->
+        <section class="slide" id="slide-3">
+            <div class="w-full h-full content-padding">
+                <h2 class="mb-16">Metodología de trabajo</h2>
+                <div class="grid grid-cols-3 gap-12">
+                    <div class="bg-white p-12 rounded-[40px] shadow-sm">
+                        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mb-8">
+                            <span class="text-2xl font-bold text-[#B71234]">01</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Fase Documental</h3>
+                        <p class="text-xl text-gray-500 leading-relaxed">Revisión de más de 50 fuentes académicas y estudios de mercado del último bienio.</p>
+                    </div>
+                    <div class="bg-white p-12 rounded-[40px] shadow-sm">
+                        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mb-8">
+                            <span class="text-2xl font-bold text-[#B71234]">02</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Trabajo de Campo</h3>
+                        <p class="text-xl text-gray-500 leading-relaxed">Entrevistas a 12 profesionales en activo de grupos de comunicación nacionales.</p>
+                    </div>
+                    <div class="bg-white p-12 rounded-[40px] shadow-sm">
+                        <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mb-8">
+                            <span class="text-2xl font-bold text-[#B71234]">03</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-6">Análisis de Datos</h3>
+                        <p class="text-xl text-gray-500 leading-relaxed">Extracción y procesado de métricas sociales mediante herramientas de big data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: DATOS Y HALLAZGOS -->
+        <section class="slide" id="slide-4">
+            <div class="w-1/2 content-padding">
+                <h2 class="mb-16">Lo que dicen<br>los números.</h2>
+                <div class="space-y-12">
+                    <div class="flex items-center gap-10">
+                        <div class="text-7xl font-black text-[#B71234]">84%</div>
+                        <div class="text-2xl text-gray-600 font-medium">Usuarios que prefieren contenido transmedia.</div>
+                    </div>
+                    <div class="flex items-center gap-10">
+                        <div class="text-7xl font-black text-gray-300">3.2h</div>
+                        <div class="text-2xl text-gray-600 font-medium">Media de consumo diario en entornos móviles.</div>
+                    </div>
+                    <div class="flex items-center gap-10">
+                        <div class="text-7xl font-black text-[#999A8F]">x2</div>
+                        <div class="text-2xl text-gray-600 font-medium">Engagement en contenidos con video corto.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 p-20">
+                <div class="rounded-card h-full">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=1200" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: CONCLUSIÓN Y GRACIAS -->
+        <section class="slide" id="slide-5">
+            <div class="w-full h-full flex flex-col items-center justify-center text-center px-40">
+                <div class="w-24 h-2 bg-[#B71234] mb-12"></div>
+                <h2 class="text-9xl mb-12 text-black">Conclusiones.</h2>
+                <p class="text-5xl font-light text-gray-500 leading-tight max-w-5xl mb-20">
+                    La <span class="text-black font-bold">UCM</span> tiene la oportunidad de liderar este cambio mediante una comunicación más <span class="text-[#B71234] font-bold">humana, directa y adaptativa</span>.
+                </p>
+                <div class="flex flex-col items-center">
+                    <p class="text-3xl font-bold mb-4">Muchas gracias por su atención.</p>
+                    <p class="text-xl text-gray-400">¿Tienen alguna pregunta?</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const container = document.getElementById('presentation-container');
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progress-bar');
+        const pageCounter = document.getElementById('page-counter');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function scalePresentation() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const scale = Math.min(width / 1920, height / 1080);
+            container.style.transform = `scale(${scale})`;
+        }
+
+        function updateUI() {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentSlide);
+            });
+
+            // Actualizar barra y contador
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+            pageCounter.innerText = (currentSlide + 1).toString().padStart(2, '0');
+        }
+
+        function changeSlide(direction) {
+            const nextSlide = currentSlide + direction;
+            if (nextSlide >= 0 && nextSlide < totalSlides) {
+                currentSlide = nextSlide;
+                updateUI();
+            }
+        }
+
+        // Eventos
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') changeSlide(1);
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') changeSlide(-1);
+        });
+
+        container.addEventListener('mousedown', (e) => {
+            if (e.button === 0) changeSlide(1);
+            if (e.button === 2) changeSlide(-1);
+        });
+
+        container.addEventListener('contextmenu', e => e.preventDefault());
+        window.addEventListener('resize', scalePresentation);
+        
+        scalePresentation();
+        updateUI();
+    </script>
+</body>
+</html>
+
+podemos hacer un json que se llame ejemplos de diapositivas con esta información? 

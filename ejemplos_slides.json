@@ -1,0 +1,84 @@
+{
+"presentacion": {
+"institucion": "Universidad Complutense de Madrid",
+"estilo": "Moderno, Limpio y Cercano",
+"paleta_colores": {
+"primario": "#B71234",
+"fondo": "#F9F9F8",
+"texto": "#1A1A1A",
+"secundario": "#999A8F"
+}
+},
+"tipos_de_diapositivas": [
+{
+"id": 1,
+"tipo": "Portada Principal",
+"proposito": "Impacto inicial y presentacion de autores.",
+"elementos_clave": ["Título masivo", "Imagen lateral", "Logotipo oficial", "Créditos"],
+"contenido_sugerido": "Título del TFG, Nombre del alumno y Tutor."
+},
+{
+"id": 2,
+"tipo": "Separador de Sección",
+"proposito": "Indicar el cambio de bloque temático.",
+"elementos_clave": ["Fondo de color sólido (Rojo UCM)", "Texto blanco", "Jerarquía visual simple"],
+"contenido_sugerido": "Nombre del capítulo o fase (ej. Marco Teórico)."
+},
+{
+"id": 3,
+"tipo": "Texto y Multimedia",
+"proposito": "Explicar conceptos con apoyo visual equilibrado.",
+"elementos_clave": ["Caja de texto a la izquierda", "Imagen redondeada a la derecha", "Etiquetas descriptivas"],
+"contenido_sugerido": "Definición del problema o contexto histórico."
+},
+{
+"id": 4,
+"tipo": "Tres Columnas (Proceso)",
+"proposito": "Desglosar pasos, fases o pilares.",
+"elementos_clave": ["Grid de 3 tarjetas", "Iconografía o numeración", "Bordes de acento"],
+"contenido_sugerido": "Fases de la metodología: Auditoría, Estrategia y Ejecución."
+},
+{
+"id": 5,
+"tipo": "Gran Dato (Métrica)",
+"proposito": "Resaltar un hallazgo cuantitativo crítico.",
+"elementos_clave": ["Tipografía extra-bold", "Contraste de color", "Mínimo texto"],
+"contenido_sugerido": "Porcentaje de éxito, número de encuestados o ahorro de tiempo."
+},
+{
+"id": 6,
+"tipo": "Comparativa (Antes vs. Después)",
+"proposito": "Mostrar la evolución o mejora de una propuesta.",
+"elementos_clave": ["División central", "Listado de puntos", "Estado actual vs. Estado deseado"],
+"contenido_sugerido": "Cambios en el modelo de comunicación o resultados de test A/B."
+},
+{
+"id": 7,
+"tipo": "Cronograma / Timeline",
+"proposito": "Visualizar la planificación temporal.",
+"elementos_clave": ["Línea de tiempo horizontal", "Hitos marcados", "Fechas clave"],
+"contenido_sugerido": "Calendario de implementación del proyecto."
+},
+{
+"id": 8,
+"tipo": "Cita Destacada",
+"proposito": "Validar el discurso con autoridad externa.",
+"elementos_clave": ["Tipografía Serif", "Comillas grandes", "Estilo itálico"],
+"contenido_sugerido": "Frase de un experto, autor de referencia o conclusión clave."
+},
+{
+"id": 9,
+"tipo": "Equipo y Colaboradores",
+"proposito": "Dar rostro y responsabilidad a las partes del proyecto.",
+"elementos_clave": ["Retratos circulares o cuadrados redondeados", "Nombres y cargos", "Alineación en cuadrícula"],
+"contenido_sugerido": "Agradecimientos, colaboradores o tutores de la investigación."
+},
+{
+"id": 10,
+"tipo": "Cierre y Q&A",
+"proposito": "Finalizar la sesión y abrir turno de preguntas.",
+"elementos_clave": ["Llamada a la acción clara", "Información de contacto", "Agradecimiento"],
+"contenido_sugerido": "Email de contacto, facultad y despedida."
+}
+]
+}
