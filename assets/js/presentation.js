@@ -84,7 +84,22 @@ function changeSlide(direction) {
   updateUI();
 }
 
+function isInteractiveTarget(target) {
+  if (!(target instanceof Element)) {
+    return false;
+  }
+
+  return Boolean(target.closest("a, button, input, textarea, select, label, summary, [data-no-nav]"));
+}
+
 function bindEvents() {
+  const swipeThreshold = 44;
+  const tapThreshold = 12;
+  const ghostMouseWindow = 700;
+  let touchStartX = null;
+  let touchStartY = null;
+  let lastTouchInteractionAt = 0;
+
   document.addEventListener("keydown", (event) => {
     if (["ArrowRight", " ", "PageDown"].includes(event.key)) {
       event.preventDefault();
@@ -110,6 +125,10 @@ function bindEvents() {
   });
 
   container.addEventListener("mousedown", (event) => {
+    if (Date.now() - lastTouchInteractionAt < ghostMouseWindow || isInteractiveTarget(event.target)) {
+      return;
+    }
+
     if (event.button === 2) {
       changeSlide(-1);
       return;
@@ -120,6 +139,63 @@ function bindEvents() {
       changeSlide(clickOnLeftHalf ? -1 : 1);
     }
   });
+
+  container.addEventListener(
+    "touchstart",
+    (event) => {
+      if (event.touches.length !== 1 || isInteractiveTarget(event.target)) {
+        touchStartX = null;
+        touchStartY = null;
+        return;
+      }
+
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    },
+    { passive: true }
+  );
+
+  container.addEventListener(
+    "touchend",
+    (event) => {
+      if (touchStartX === null || touchStartY === null || event.changedTouches.length !== 1) {
+        touchStartX = null;
+        touchStartY = null;
+        return;
+      }
+
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+
+      touchStartX = null;
+      touchStartY = null;
+
+      if (absX > swipeThreshold && absX > absY) {
+        lastTouchInteractionAt = Date.now();
+        changeSlide(deltaX < 0 ? 1 : -1);
+        return;
+      }
+
+      if (absX < tapThreshold && absY < tapThreshold && !isInteractiveTarget(event.target)) {
+        lastTouchInteractionAt = Date.now();
+        const tapOnLeftHalf = touch.clientX < window.innerWidth / 2;
+        changeSlide(tapOnLeftHalf ? -1 : 1);
+      }
+    },
+    { passive: true }
+  );
+
+  container.addEventListener(
+    "touchcancel",
+    () => {
+      touchStartX = null;
+      touchStartY = null;
+    },
+    { passive: true }
+  );
 
   container.addEventListener("contextmenu", (event) => {
     event.preventDefault();

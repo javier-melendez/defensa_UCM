@@ -591,12 +591,41 @@ body {
 }
 
 @media (max-width: 980px) {
+  .slide,
+  .slide.active {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  .content-padding {
+    padding: clamp(14px, 4.8vw, 30px) clamp(14px, 4.6vw, 26px) clamp(96px, 20vh, 132px);
+  }
+
+  .layout-full,
+  .layout-split,
+  .layout-split-reverse,
+  .closing-wrap {
+    height: auto;
+    min-height: 100%;
+  }
+
   .layout-split,
   .layout-split-reverse,
   .closing-wrap,
   .layout-third,
-  .timeline {
+  .timeline,
+  .compare-grid {
     grid-template-columns: 1fr;
+  }
+
+  .layout-third,
+  .timeline,
+  .compare-grid,
+  .placeholder-stack,
+  .placeholder-triple {
+    gap: clamp(10px, 2.6vw, 18px);
   }
 
   .placeholder-stack,
@@ -605,15 +634,68 @@ body {
     grid-template-columns: 1fr;
   }
 
+  .placeholder-tall {
+    min-height: clamp(170px, 32vh, 320px);
+  }
+
+  .section-title {
+    font-size: clamp(28px, 6.6vw, 44px);
+  }
+
+  .display-title {
+    font-size: clamp(40px, 11vw, 72px);
+  }
+
+  .display-subtitle {
+    font-size: clamp(14px, 3.5vw, 20px);
+  }
+
+  .quote-panel blockquote {
+    font-size: clamp(20px, 5.6vw, 34px);
+  }
+
+  .slide[data-tipo-id="10"] .section-title {
+    font-size: clamp(38px, 10.5vw, 62px) !important;
+    line-height: 0.96;
+  }
+
+  .nav-bar {
+    left: 10px;
+    right: 10px;
+    bottom: calc(env(safe-area-inset-bottom) + 8px);
+    padding: 8px 10px;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(153, 154, 143, 0.38);
+    background: rgba(249, 249, 248, 0.88);
+    backdrop-filter: blur(8px);
+  }
+
+  .counter {
+    min-width: 44px;
+    text-align: center;
+  }
+
+  .brand-lockup,
   .brand-text {
     display: none;
   }
 }
 
 @media (max-width: 640px) {
+  .content-padding {
+    padding: 12px 12px 92px;
+  }
+
   .credit-row {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .highlight-chip {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
   .metric-row {
@@ -622,5 +704,24 @@ body {
 
   .metric-value {
     line-height: 1;
+  }
+
+  .slide-divider .section-title {
+    font-size: clamp(28px, 9.8vw, 42px);
+  }
+
+  .quote-panel {
+    padding: 14px;
+  }
+
+  .nav-bar {
+    left: 8px;
+    right: 8px;
+    bottom: calc(env(safe-area-inset-bottom) + 6px);
+    padding: 7px 8px;
+  }
+
+  .counter {
+    min-width: 38px;
   }
 }
