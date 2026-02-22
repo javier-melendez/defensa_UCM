@@ -193,6 +193,40 @@ body {
   color: #505050;
 }
 
+.slide[data-tipo-id="1"] .display-title.display-title-cover {
+  margin: 0;
+  font-size: clamp(24px, 3.15vw, 80px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+
+.display-subtitle-cover {
+  margin: 0;
+  font-size: clamp(13px, 1vw, 19px);
+  line-height: 1.28;
+  max-width: 95%;
+}
+
+.cover-author {
+  margin: 0;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.slide[data-tipo-id="1"] .section-kicker,
+.slide[data-tipo-id="1"] .meta-copy {
+  margin: 0;
+}
+
+.slide[data-tipo-id="1"] .hero-title-container {
+  gap: clamp(6px, 0.65vw, 12px);
+}
+
+.slide[data-tipo-id="1"] .credit-row {
+  margin-top: clamp(8px, 1.2vw, 20px);
+}
+
 .credit-row {
   margin-top: clamp(12px, 1.8vw, 28px);
   display: flex;
@@ -236,6 +270,30 @@ body {
   font-weight: 700;
   line-height: 1.3;
   color: #4a4a4a;
+}
+
+.cover-image-frame {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.cover-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.slide[data-tipo-id="1"] .media-card {
+  overflow: visible;
 }
 
 .placeholder-tall {
