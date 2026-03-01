@@ -22,7 +22,7 @@ body {
 body {
   font-family: "Circular Std", "Inter", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
   background: #121212;
-  color: var(--ucm-black);
+  color: var(--ucm-white);
   overflow: hidden;
 }
 
@@ -40,10 +40,14 @@ body {
   max-height: 100dvh;
   position: relative;
   transform-origin: center center;
-  transform: none !important;
   background: var(--off-white);
+  overflow: hidden;
   overflow: clip;
   box-shadow: none;
+}
+
+body:not(.reveal-mode) #presentation-container {
+  transform: none;
 }
 
 .slide-track {
@@ -62,7 +66,7 @@ body {
   color: var(--ccinf-gray);
 }
 
-.slide {
+body:not(.reveal-mode) .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -74,12 +78,93 @@ body {
   overflow: hidden;
 }
 
-.slide.active {
+body:not(.reveal-mode) .slide.active {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
   z-index: 10;
   overflow: hidden;
+}
+
+.reveal-mode .reveal .slides section {
+  margin: 0;
+}
+
+.reveal-mode .reveal .slides > section.slide {
+  box-sizing: border-box;
+  background: var(--off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.reveal-mode .reveal .slides > section.slide > * {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal-mode .reveal .slides > section.slide.slide-divider {
+  background: var(--ucm-dark-red) !important;
+  color: var(--ucm-white);
+  min-height: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.reveal-mode .reveal .slides > section.slide.slide-divider .section-kicker {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.reveal-mode .reveal .slides > section.slide.slide-divider .section-title {
+  color: var(--ucm-white) !important;
+}
+
+.reveal-mode .reveal .slides > section.slide.slide-divider .meta-copy {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.reveal-mode .reveal .slides > section.slide.slide-divider > .layout-full {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reveal-mode .reveal .slides > section.slide.slide-divider .content-padding {
+  padding: clamp(24px, 3vw, 64px);
+}
+
+.reveal-mode .reveal .controls {
+  color: var(--ucm-red);
+}
+
+.reveal-mode .content-padding {
+  padding: clamp(20px, 2.6vw, 56px) clamp(20px, 3.8vw, 72px) clamp(24px, 3.2vw, 58px);
+}
+
+.reveal-mode .reveal .slides > section.slide .layout-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.reveal-mode .reveal .slides > section.slide .content-padding {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.reveal-mode .reveal .slides > section.slide .layout-split,
+.reveal-mode .reveal .slides > section.slide .layout-split-reverse,
+.reveal-mode .reveal .slides > section.slide .layout-third,
+.reveal-mode .reveal .slides > section.slide .closing-wrap {
+  align-items: center;
 }
 
 .content-padding {
@@ -137,6 +222,25 @@ body {
 
 .section-title-accent {
   color: var(--ucm-red);
+}
+
+.slide:not(.slide-divider) .section-kicker,
+.slide:not(.slide-divider) .section-title,
+.slide:not(.slide-divider) .lead-copy,
+.slide:not(.slide-divider) .body-copy,
+.slide:not(.slide-divider) .meta-copy,
+.slide:not(.slide-divider) .contact-line {
+  text-align: left;
+}
+
+.slide:not(.slide-divider) .highlight-chip {
+  margin-right: auto;
+}
+
+.slide.slide-divider .section-kicker,
+.slide.slide-divider .section-title,
+.slide.slide-divider .meta-copy {
+  text-align: center;
 }
 
 .lead-copy {
@@ -545,7 +649,7 @@ body {
 }
 
 .slide-divider {
-  background: linear-gradient(145deg, var(--ucm-red), var(--ucm-dark-red));
+  background: var(--ucm-dark-red);
   color: var(--ucm-white);
   align-items: center;
   justify-content: center;
@@ -712,8 +816,8 @@ body {
     overscroll-behavior-y: none;
   }
 
-  .slide,
-  .slide.active {
+  body:not(.reveal-mode) .slide,
+  body:not(.reveal-mode) .slide.active {
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
@@ -871,5 +975,16 @@ body {
 
   .slide.slide-contexto-banner .context-banner-frame {
     width: min(100%, 430px, 45dvh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.reveal-mode) .slide {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .progress-fill {
+    transition: none !important;
   }
 }

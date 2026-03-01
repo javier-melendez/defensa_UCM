@@ -4,14 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Borrador Defensa UCM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
-  <body>
+  <body class="reveal-mode">
     <div id="presentation-shell">
       <div id="presentation-container" aria-live="polite">
-        <main id="slide-track" class="slide-track">
-          <div class="loading-state">Cargando presentación...</div>
-        </main>
+        <div class="reveal" id="reveal-root">
+          <div id="slide-track" class="slides">
+            <section>
+              <div class="loading-state">Cargando presentación...</div>
+            </section>
+          </div>
+        </div>
 
         <div class="nav-bar">
           <div class="counter" id="page-counter">01</div>
@@ -37,6 +42,7 @@
       <p class="noscript-warning">Activa JavaScript para visualizar la presentación.</p>
     </noscript>
 
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js" defer></script>
     <script src="assets/js/presentation.js" defer></script>
   </body>
 </html>

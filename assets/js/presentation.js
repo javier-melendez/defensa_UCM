@@ -19,197 +19,37 @@ const slideManifest = [
   "slides/18-cierre-qa.html"
 ];
 
-const state = {
-  currentSlide: 0,
-  totalSlides: 0,
-  slides: []
-};
-
-const container = document.getElementById("presentation-container");
 const track = document.getElementById("slide-track");
+const revealRoot = document.getElementById("reveal-root");
 const pageCounter = document.getElementById("page-counter");
 const progressBar = document.getElementById("progress-bar");
 
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
+function formatSlideNumber(value) {
+  return String(value).padStart(2, "0");
 }
 
-function scalePresentation() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const scale = Math.min(width / 1920, height / 1080);
-  container.style.transform = `scale(${scale})`;
-}
-
-function getHashSlideIndex() {
+function getLegacyHashSlideIndex() {
   const hash = window.location.hash;
   if (!hash.startsWith("#slide-")) {
-    return 0;
+    return null;
   }
 
   const value = Number(hash.replace("#slide-", ""));
   if (Number.isNaN(value) || value < 1) {
-    return 0;
+    return null;
   }
 
   return value - 1;
 }
 
-function syncHash() {
-  const hashValue = String(state.currentSlide + 1).padStart(2, "0");
-  window.history.replaceState(null, "", `#slide-${hashValue}`);
-}
+function updateCustomNav(deck) {
+  const indices = deck.getIndices();
+  const currentSlide = indices.h + 1;
+  const totalSlides = deck.getTotalSlides();
+  const progress = totalSlides > 0 ? (currentSlide / totalSlides) * 100 : 0;
 
-function updateUI() {
-  state.slides.forEach((slide, index) => {
-    slide.classList.toggle("active", index === state.currentSlide);
-    slide.setAttribute("aria-hidden", index === state.currentSlide ? "false" : "true");
-  });
-
-  pageCounter.innerText = String(state.currentSlide + 1).padStart(2, "0");
-
-  const progress = ((state.currentSlide + 1) / state.totalSlides) * 100;
+  pageCounter.innerText = formatSlideNumber(currentSlide);
   progressBar.style.width = `${progress}%`;
-
-  syncHash();
-}
-
-function changeSlide(direction) {
-  const nextSlide = state.currentSlide + direction;
-  if (nextSlide < 0 || nextSlide >= state.totalSlides) {
-    return;
-  }
-
-  state.currentSlide = nextSlide;
-  updateUI();
-}
-
-function isInteractiveTarget(target) {
-  if (!(target instanceof Element)) {
-    return false;
-  }
-
-  return Boolean(target.closest("a, button, input, textarea, select, label, summary, [data-no-nav]"));
-}
-
-function bindEvents() {
-  const swipeThreshold = 44;
-  const tapThreshold = 12;
-  const ghostMouseWindow = 700;
-  let touchStartX = null;
-  let touchStartY = null;
-  let lastTouchInteractionAt = 0;
-
-  document.addEventListener("keydown", (event) => {
-    if (isInteractiveTarget(event.target)) {
-      return;
-    }
-
-    if (["ArrowRight", " ", "PageDown"].includes(event.key)) {
-      event.preventDefault();
-      changeSlide(1);
-    }
-
-    if (["ArrowLeft", "PageUp"].includes(event.key)) {
-      event.preventDefault();
-      changeSlide(-1);
-    }
-
-    if (event.key === "Home") {
-      event.preventDefault();
-      state.currentSlide = 0;
-      updateUI();
-    }
-
-    if (event.key === "End") {
-      event.preventDefault();
-      state.currentSlide = state.totalSlides - 1;
-      updateUI();
-    }
-  });
-
-  container.addEventListener("mousedown", (event) => {
-    if (Date.now() - lastTouchInteractionAt < ghostMouseWindow || isInteractiveTarget(event.target)) {
-      return;
-    }
-
-    if (event.button === 2) {
-      changeSlide(-1);
-      return;
-    }
-
-    if (event.button === 0) {
-      const clickOnLeftHalf = event.clientX < window.innerWidth / 2;
-      changeSlide(clickOnLeftHalf ? -1 : 1);
-    }
-  });
-
-  container.addEventListener(
-    "touchstart",
-    (event) => {
-      if (event.touches.length !== 1 || isInteractiveTarget(event.target)) {
-        touchStartX = null;
-        touchStartY = null;
-        return;
-      }
-
-      touchStartX = event.touches[0].clientX;
-      touchStartY = event.touches[0].clientY;
-    },
-    { passive: true }
-  );
-
-  container.addEventListener(
-    "touchend",
-    (event) => {
-      if (touchStartX === null || touchStartY === null || event.changedTouches.length !== 1) {
-        touchStartX = null;
-        touchStartY = null;
-        return;
-      }
-
-      const touch = event.changedTouches[0];
-      const deltaX = touch.clientX - touchStartX;
-      const deltaY = touch.clientY - touchStartY;
-      const absX = Math.abs(deltaX);
-      const absY = Math.abs(deltaY);
-
-      touchStartX = null;
-      touchStartY = null;
-
-      if (absX > swipeThreshold && absX > absY) {
-        lastTouchInteractionAt = Date.now();
-        changeSlide(deltaX < 0 ? 1 : -1);
-        return;
-      }
-
-      if (absX < tapThreshold && absY < tapThreshold && !isInteractiveTarget(event.target)) {
-        lastTouchInteractionAt = Date.now();
-        const tapOnLeftHalf = touch.clientX < window.innerWidth / 2;
-        changeSlide(tapOnLeftHalf ? -1 : 1);
-      }
-    },
-    { passive: true }
-  );
-
-  container.addEventListener(
-    "touchcancel",
-    () => {
-      touchStartX = null;
-      touchStartY = null;
-    },
-    { passive: true }
-  );
-
-  container.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-  });
-
-  window.addEventListener("resize", scalePresentation);
-  window.addEventListener("hashchange", () => {
-    state.currentSlide = clamp(getHashSlideIndex(), 0, state.totalSlides - 1);
-    updateUI();
-  });
 }
 
 async function fetchSlide(path) {
@@ -223,7 +63,6 @@ async function fetchSlide(path) {
 
 async function loadSlides() {
   const rawSlides = await Promise.all(slideManifest.map((path) => fetchSlide(path)));
-
   track.innerHTML = "";
 
   rawSlides.forEach((markup, index) => {
@@ -234,24 +73,50 @@ async function loadSlides() {
       return;
     }
 
-    slide.id = `slide-${String(index + 1).padStart(2, "0")}`;
+    slide.id = `slide-${formatSlideNumber(index + 1)}`;
     track.appendChild(slide);
   });
+}
 
-  state.slides = Array.from(track.querySelectorAll(".slide"));
-  state.totalSlides = state.slides.length;
+function createRevealDeck() {
+  if (typeof window.Reveal !== "function") {
+    throw new Error("Reveal.js no está disponible.");
+  }
+
+  return new window.Reveal(revealRoot, {
+    disableLayout: true,
+    controls: false,
+    progress: false,
+    slideNumber: false,
+    center: false,
+    hash: true,
+    navigationMode: "linear",
+    transition: "slide",
+    backgroundTransition: "fade",
+    touch: true,
+    keyboard: true
+  });
 }
 
 async function init() {
   try {
     await loadSlides();
-    bindEvents();
-    scalePresentation();
 
-    state.currentSlide = clamp(getHashSlideIndex(), 0, state.totalSlides - 1);
-    updateUI();
+    const deck = createRevealDeck();
+    await deck.initialize();
+
+    const legacyHashSlideIndex = getLegacyHashSlideIndex();
+    if (legacyHashSlideIndex !== null) {
+      const lastSlideIndex = deck.getTotalSlides() - 1;
+      const safeIndex = Math.min(Math.max(legacyHashSlideIndex, 0), lastSlideIndex);
+      deck.slide(safeIndex);
+    }
+
+    deck.on("ready", () => updateCustomNav(deck));
+    deck.on("slidechanged", () => updateCustomNav(deck));
+    updateCustomNav(deck);
   } catch (error) {
-    track.innerHTML = `<div class="loading-state">Error cargando la presentación modular.</div>`;
+    track.innerHTML = `<section><div class="loading-state">Error cargando la presentación modular.</div></section>`;
     console.error(error);
   }
 }
