@@ -325,6 +325,8 @@ body:not(.reveal-mode) .slide.active {
 
 .slide[data-tipo-id="1"] .hero-title-container {
   gap: clamp(6px, 0.65vw, 12px);
+  align-items: flex-start;
+  text-align: left;
 }
 
 .slide[data-tipo-id="1"] .credit-row {
@@ -394,62 +396,6 @@ body:not(.reveal-mode) .slide.active {
   object-fit: cover;
   object-position: center center;
   display: block;
-}
-
-.context-banner-frame {
-  position: relative;
-  width: min(100%, 490px, 49dvh);
-  aspect-ratio: 800 / 390;
-  border-radius: clamp(10px, 1.1vw, 20px);
-  overflow: hidden;
-  background: #e8e8e3;
-}
-
-.context-banner-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center center;
-  display: block;
-}
-
-.slide.slide-contexto-banner .contexto-banner-layout {
-  height: 100%;
-  justify-content: flex-start;
-  gap: clamp(8px, 0.85vw, 14px);
-}
-
-.slide.slide-contexto-banner .contexto-banner-copy {
-  width: 100%;
-  max-width: 100%;
-  gap: clamp(8px, 0.75vw, 14px);
-}
-
-.slide.slide-contexto-banner .contexto-copy-columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(10px, 1vw, 18px);
-}
-
-.slide.slide-contexto-banner .contexto-copy-columns .body-copy {
-  margin: 0;
-  font-size: clamp(12px, 0.9vw, 16px);
-  line-height: 1.34;
-}
-
-.slide.slide-contexto-banner .context-banner-card {
-  width: 100%;
-  max-width: min(1060px, 100%);
-  margin-inline: auto;
-  height: auto;
-  padding: clamp(8px, 0.85vw, 16px);
-  flex-shrink: 0;
-}
-
-.slide.slide-contexto-banner .context-banner-frame {
-  margin-inline: auto;
 }
 
 .slide[data-tipo-id="1"] .media-card {
@@ -866,15 +812,6 @@ body:not(.reveal-mode) .slide.active {
     min-height: clamp(170px, 32vh, 320px);
   }
 
-  .slide.slide-contexto-banner .contexto-copy-columns {
-    grid-template-columns: 1fr;
-    gap: clamp(8px, 2.2vw, 14px);
-  }
-
-  .slide.slide-contexto-banner .context-banner-card {
-    max-width: 100%;
-  }
-
   .section-title {
     font-size: clamp(28px, 6.6vw, 44px);
   }
@@ -960,21 +897,6 @@ body:not(.reveal-mode) .slide.active {
 
   .counter {
     min-width: 38px;
-  }
-}
-
-@media (max-height: 820px) {
-  .slide.slide-contexto-banner .contexto-banner-layout {
-    gap: 8px;
-  }
-
-  .slide.slide-contexto-banner .contexto-copy-columns .body-copy {
-    font-size: clamp(11px, 0.82vw, 14px);
-    line-height: 1.28;
-  }
-
-  .slide.slide-contexto-banner .context-banner-frame {
-    width: min(100%, 430px, 45dvh);
   }
 }
 
