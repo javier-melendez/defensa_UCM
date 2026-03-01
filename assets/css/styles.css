@@ -415,9 +415,15 @@ body:not(.reveal-mode) .slide.active {
 }
 
 .placeholder-stack {
+  --placeholder-stack-height: auto;
+  --placeholder-stack-max-height: none;
+  --placeholder-stack-gap: clamp(8px, 0.8vw, 14px);
+  --placeholder-stack-rows: 1fr 1fr;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: clamp(8px, 0.8vw, 14px);
+  grid-template-rows: var(--placeholder-stack-rows);
+  gap: var(--placeholder-stack-gap);
+  height: var(--placeholder-stack-height);
+  max-height: var(--placeholder-stack-max-height);
 }
 
 .placeholder-triple {
