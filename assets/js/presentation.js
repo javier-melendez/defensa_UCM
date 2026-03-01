@@ -101,6 +101,10 @@ function bindEvents() {
   let lastTouchInteractionAt = 0;
 
   document.addEventListener("keydown", (event) => {
+    if (isInteractiveTarget(event.target)) {
+      return;
+    }
+
     if (["ArrowRight", " ", "PageDown"].includes(event.key)) {
       event.preventDefault();
       changeSlide(1);
