@@ -3,19 +3,19 @@ const slideManifest = [
   "slides/02-separador-problema.html",
   "slides/03-problema-contexto.html",
   "slides/04-problema-relevancia-objetivos.html",
-  "slides/05-problema-metrica.html",
   "slides/06-separador-marco-teorico.html",
   "slides/07-marco-corrientes.html",
   "slides/08-marco-referencias.html",
   "slides/09-separador-metodologia.html",
   "slides/10-metodologia-bases.html",
   "slides/11-metodologia-enfoque.html",
-  "slides/12-separador-triangulacion.html",
   "slides/13-triangulacion-comparativa.html",
+  "slides/13b-triangulacion-herramienta.html",
   "slides/14-triangulacion-visualizaciones.html",
   "slides/15-separador-resultados.html",
   "slides/16-resultados-hallazgos.html",
   "slides/17-resultados-discusion-conclusiones.html",
+  "slides/16b-limitaciones-futuras-lineas.html",
   "slides/18-cierre-qa.html"
 ];
 
