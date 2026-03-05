@@ -3,46 +3,1121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Borrador Defensa UCM</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-  </head>
-  <body class="reveal-mode">
-    <div id="presentation-shell">
-      <div id="presentation-container" aria-live="polite">
-        <div class="reveal" id="reveal-root">
-          <div id="slide-track" class="slides">
-            <section>
-              <div class="loading-state">Cargando presentación...</div>
-            </section>
-          </div>
-        </div>
+    <title>Tesis Doctoral de Javier Andrés Meléndez Ordóñez | UCM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ucm-red: #bf1e2d;
+        --ucm-dark: #1a1a1a;
+      }
 
-        <div class="nav-bar">
-          <div class="counter" id="page-counter">01</div>
-          <div class="progress-container" aria-hidden="true">
-            <div class="progress-fill" id="progress-bar"></div>
-          </div>
-          <div class="brand-lockup" aria-label="Marca institucional UCM">
-            <img
-              class="brand-shield"
-              src="https://upload.wikimedia.org/wikipedia/commons/9/91/Escudo_de_la_Universidad_Complutense_de_Madrid.svg"
-              alt="Escudo oficial UCM"
-            />
-            <div class="brand-text">
-              <p>Universidad Complutense de Madrid</p>
-              <p>Facultad de Ciencias de la Información</p>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: white;
+        color: var(--ucm-dark);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      .serif {
+        font-family: "Libre+Baskerville", serif;
+      }
+
+      /* Ajuste de scroll para los enlaces del menú */
+      .scroll-mt {
+        scroll-margin-top: 100px;
+      }
+
+      /* Barra de progreso superior */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--ucm-red);
+        z-index: 100;
+      }
+
+      /* Animaciones de entrada suave */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(15px);
+        transition:
+          opacity 0.7s ease-out,
+          transform 0.7s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .zoomable-image {
+        cursor: zoom-in;
+      }
+
+      .image-lightbox {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.86);
+        z-index: 120;
+      }
+
+      .image-lightbox.open {
+        display: flex;
+      }
+
+      .image-lightbox img {
+        max-width: min(1200px, 100%);
+        max-height: 88vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 0.5rem;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 9999px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .lightbox-close:hover {
+        background: rgba(0, 0, 0, 0.75);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div id="progress-bar"></div>
+
+    <!-- =============================================
+         NAVEGACIÓN 
+         ============================================= -->
+    <nav
+      class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex justify-between items-center"
+      >
+        <!-- Logo UCM -->
+        <a href="#inicio" class="flex items-center">
+          <img
+            src="https://www.ucm.es/themes/ucm24/media/img/logo.svg"
+            alt="Universidad Complutense de Madrid"
+            data-no-zoom="true"
+            class="h-10 md:h-12 w-auto"
+          />
+        </a>
+
+        <!-- Menú de Secciones -->
+        <div
+          class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-gray-500"
+        >
+          <a
+            href="#contexto"
+            class="hover:text-red-700 transition-colors hidden md:block"
+            >Contexto</a
+          >
+          <a href="#metodologia" class="hover:text-red-700 transition-colors"
+            >Estado de la Cuestión</a
+          >
+          <a href="#resultados" class="hover:text-red-700 transition-colors"
+            >Metodología</a
+          >
+          <a href="#conclusiones" class="hover:text-red-700 transition-colors"
+            >Resultados, discusión y conclusiones</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- =============================================
+         PORTADA (HERO SECTION)
+         ============================================= -->
+    <header id="inicio" class="pt-40 pb-20 px-6 lg:px-12 scroll-mt">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl">
+          <p class="text-sm md:text-base text-red-700 font-bold mb-3">
+            Tesis doctoral
+          </p>
+          <div class="w-12 h-[2px] bg-red-700 mb-8"></div>
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8">
+            La construcción de líneas de precedente deodontológico en las
+            instancias de autorregulación publicitaria
+          </h1>
+          <p
+            class="text-lg md:text-xl text-gray-500 font-light italic mb-12 max-w-2xl"
+          >
+            Análisis de los dictámenes de CONARP en Colombia (1980-2018)
+          </p>
+
+          <!-- Datos del Candidato -->
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 border-t border-gray-100"
+          >
+            <div>
+              <span
+                class="block text-[10px] uppercase tracking-widest text-red-700 font-bold mb-2"
+                >Doctorando</span
+              >
+              <span class="text-sm font-semibold text-gray-800"
+                >Javier Andrés Meléndez Ordóñez</span
+              >
+            </div>
+            <div>
+              <span
+                class="block text-[10px] uppercase tracking-widest text-red-700 font-bold mb-2"
+                >Director</span
+              >
+              <span class="text-sm font-semibold text-gray-800"
+                >Luis Mañas Viniegra</span
+              >
+            </div>
+            <div>
+              <span
+                class="block text-[10px] uppercase tracking-widest text-red-700 font-bold mb-2"
+                >Facultad</span
+              >
+              <span class="text-sm font-semibold text-gray-800"
+                >Ciencias de la Información</span
+              >
+            </div>
+            <div>
+              <span
+                class="block text-[10px] uppercase tracking-widest text-red-700 font-bold mb-2"
+                >Fecha</span
+              >
+              <span class="text-sm font-semibold text-gray-800"
+                >Madrid, 26 de marzo de 2026</span
+              >
             </div>
           </div>
         </div>
       </div>
+    </header>
+
+    <!-- =============================================
+     SECCIÓN 1: CONTEXTO
+     ============================================= -->
+    <section id="contexto" class="py-24 px-6 lg:px-12 bg-gray-50 scroll-mt">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-16 items-start">
+          <!-- Columna 1: Texto -->
+          <div class="lg:col-span-7 fade-in">
+            <div class="flex items-center gap-3 mb-6">
+              <span
+                class="text-red-700 font-bold tracking-widest text-xs uppercase"
+                >Sección 01</span
+              >
+              <div class="h-[1px] w-8 bg-gray-300"></div>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl mb-8">Contexto</h2>
+
+            <div class="space-y-6 text-gray-600">
+              <p>
+                El entorno global actual está marcado por las secuelas de la
+                pandemia de COVID-19 y el surgimiento de la Inteligencia
+                Artificial Generativa (GenAI).
+              </p>
+
+              <div>
+                <p class="font-semibold text-gray-800">Disrupción glocal</p>
+                <p class="mt-2">
+                  A pesar del crecimiento de la publicidad digital, la confianza
+                  del consumidor en Colombia permanece en niveles bajos,
+                  alimentada por la desinformación y los riesgos éticos de las
+                  nuevas tecnologías.
+                </p>
+              </div>
+
+              <div>
+                <p class="font-semibold text-gray-800">Crisis de confianza</p>
+                <p class="mt-2">
+                  A diferencia del sistema judicial respaldado por el Estado, la
+                  eficacia de la autorregulación depende del prestigio, la
+                  claridad de estándares y el reconocimiento de la comunidad
+                  profesional.
+                </p>
+              </div>
+
+              <div>
+                <p class="font-semibold text-gray-800">
+                  Legitimidad por aceptación
+                </p>
+                <p class="mt-2">
+                  La percepción de justicia, equidad y coherencia en los fallos
+                  de los tribunales éticos es crucial para generar confianza
+                  pública e institucional.
+                </p>
+              </div>
+
+              <div>
+                <p class="font-semibold text-gray-800">Relevo institucional</p>
+                <p class="mt-2">
+                  Tras la disolución de la CONARP en 2018 y la creación de
+                  AUTOCONTROL Colombia en 2019, existe el riesgo de perder casi
+                  40 años de memoria argumentativa y acervo ético.
+                </p>
+              </div>
+
+              <!-- Destacado (solo como destacado, sin repetición) -->
+              <div
+                class="mt-2 rounded border-l-4 border-red-700 bg-white px-5 py-4 shadow-sm"
+              >
+                <p class="serif text-gray-800 italic">
+                  La percepción de justicia, equidad y coherencia en los fallos
+                  de los tribunales éticos es crucial para generar confianza
+                  pública e institucional.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2: Imágenes apiladas -->
+          <div
+            class="lg:col-span-5 fade-in space-y-10"
+            style="transition-delay: 200ms"
+          >
+            <figure>
+              <img
+                src="imagenes/crea_conarp.jpg"
+                alt="Acto protocolario de creación de CONARP"
+                loading="lazy"
+                class="h-64 md:h-80 w-full rounded-lg shadow-sm border border-gray-200 bg-gray-100 object-cover"
+              />
+              <figcaption
+                class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest text-center"
+              >
+                Imagen 1: Acto protocolario de la creación de CONARP
+              </figcaption>
+              <div
+                class="text-[10px] text-gray-400 uppercase tracking-widest text-center"
+              >
+                Fuente: https://autocontrolcolombia.org/
+              </div>
+            </figure>
+
+            <figure class="m-0 w-full">
+              <img
+                src="imagenes/publicaciones_por_anio.png"
+                alt="Evolución de publicaciones relacionadas con autorregulación"
+                loading="lazy"
+                class="h-64 md:h-80 w-full rounded-lg shadow-sm border border-gray-200 bg-gray-100 object-cover"
+              />
+              <figcaption
+                class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest text-center"
+              >
+                Imagen 2: Evolución del interés académico sobre el nodo ética +
+                publicidad. Fuente: Lens.org (1980-2025)
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+     SECCIÓN INTERMEDIA: CITA (ENTRE 01 Y 02)
+     ============================================= -->
+    <section class="py-20 px-6 lg:px-12 bg-white">
+      <div class="max-w-5xl mx-auto text-center fade-in">
+        <div class="w-12 h-[2px] bg-red-700 mx-auto mb-10"></div>
+
+        <blockquote
+          class="serif text-2xl md:text-4xl text-gray-800 italic leading-relaxed"
+        >
+          «La confianza es el principal recurso moral de una sociedad y del
+          mundo empresarial».
+        </blockquote>
+
+        <div
+          class="mt-6 text-[10px] md:text-xs uppercase tracking-widest text-gray-400 font-bold"
+        >
+          Adela Cortina
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+     SECCIÓN 2: ESTADO DE LA CUESTIÓN
+     ============================================= -->
+    <section id="metodologia" class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+          <!-- Columna izquierda (texto) -->
+          <div class="lg:col-span-6 fade-in">
+            <span
+              class="text-red-700 font-bold tracking-widest text-xs uppercase"
+            >
+              Sección 02
+            </span>
+
+            <h2 class="text-3xl md:text-4xl mt-2 font-bold text-red-700">
+              Estado de la cuestión
+            </h2>
+
+            <p class="mt-4 text-sm text-gray-500 max-w-md">
+              Confianza, autorregulación y misreading metodológico.
+            </p>
+
+            <p class="mt-6 text-gray-600 max-w-lg">
+              A continuación, se presentan las corrientes de pensamiento que
+              definen la legitimidad de los sistemas normativos y los
+              dispositivos técnicos del Análisis Dinámico de Precedentes (ADP).
+            </p>
+            <div
+              class="mt-10 rounded border-l-4 border-red-700 bg-white px-6 py-5 shadow-sm max-w-lg"
+            >
+              <p class="text-sm font-semibold text-gray-900 mb-2">
+                Análisis Estático vs. Dinámico
+              </p>
+
+              <p class="text-gray-600 text-sm leading-relaxed">
+                El análisis estático se centra en una sentencia individual,
+                mientras que el análisis dinámico reconstruye la evolución de
+                reglas jurídicas a través de una red de decisiones relacionadas
+                en el tiempo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Columna derecha (visual / círculos) -->
+          <div class="lg:col-span-6 fade-in" style="transition-delay: 200ms">
+            <div class="grid grid-cols-2 gap-10 items-center">
+              <!-- círculo central (autor) -->
+              <div class="flex flex-col items-center text-center space-y-3">
+                <img
+                  src="imagenes/diego_lopez.png"
+                  alt="Retrato de Diego López Medina"
+                  loading="lazy"
+                  class="w-40 h-40 rounded-full shadow-sm border border-gray-100 bg-gray-200 object-cover"
+                />
+
+                <p class="text-sm font-semibold text-gray-900">
+                  Diego López Medina
+                </p>
+
+                <p class="text-xs text-gray-500 italic">
+                  “El Derecho de los jueces”
+                </p>
+              </div>
+
+              <!-- círculo 1 -->
+              <div class="flex flex-col items-center text-center space-y-3">
+                <img
+                  src="imagenes/manos.png"
+                  alt="Autorregulación y confianza"
+                  loading="lazy"
+                  class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
+                />
+
+                <p class="text-sm font-semibold text-gray-800 max-w-[140px]">
+                  Autorregulación y confianza
+                </p>
+              </div>
+
+              <!-- círculo 3 -->
+              <div
+                class="flex flex-col items-center text-center space-y-3 col-span-2 lg:col-span-1"
+              >
+                <img
+                  src="imagenes/globo.png"
+                  alt="Teorías críticas"
+                  loading="lazy"
+                  class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
+                />
+
+                <p class="text-sm font-semibold text-gray-800 max-w-[140px]">
+                  Teorías críticas
+                </p>
+              </div>
+
+              <!-- círculo 4 -->
+              <div
+                class="flex flex-col items-center text-center space-y-3 col-span-2 lg:col-span-1"
+              >
+                <img
+                  src="imagenes/contextocolombiano.png"
+                  alt="Teorías críticas"
+                  loading="lazy"
+                  class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
+                />
+
+                <p class="text-sm font-semibold text-gray-800 max-w-[140px]">
+                  Autorregulación en el contexto colombiano
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-6 lg:px-12 bg-white">
+      <div class="max-w-7xl mx-auto fade-in">
+        <div class="text-center md:text-left mb-8">
+          <h3 class="serif text-2xl md:text-3xl text-gray-900">
+            Resumen de estudios sobre autorregulación y confianza del consumidor
+          </h3>
+          <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">
+            Fuente: Elaboración propia.
+          </p>
+        </div>
+
+        <div
+          class="overflow-x-auto rounded-lg border border-gray-100 shadow-sm"
+        >
+          <table class="min-w-[900px] w-full bg-white">
+            <thead class="sticky top-0 bg-white">
+              <tr class="border-b border-gray-100">
+                <th
+                  class="text-left text-[11px] uppercase tracking-widest text-gray-500 font-bold p-4 w-[22%]"
+                >
+                  Autor/Estudio
+                </th>
+                <th
+                  class="text-left text-[11px] uppercase tracking-widest text-gray-500 font-bold p-4 w-[22%]"
+                >
+                  Metodología
+                </th>
+                <th
+                  class="text-left text-[11px] uppercase tracking-widest text-gray-500 font-bold p-4 w-[28%]"
+                >
+                  Factores que aumentan la confianza
+                </th>
+                <th
+                  class="text-left text-[11px] uppercase tracking-widest text-gray-500 font-bold p-4 w-[28%]"
+                >
+                  Factores que disminuyen la confianza
+                </th>
+              </tr>
+            </thead>
+
+            <tbody class="text-sm text-gray-700">
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">Boddewyn (1983)</td>
+                <td class="p-4 text-gray-600">
+                  Entrevistas, análisis documental
+                </td>
+                <td class="p-4 text-gray-600">
+                  Participación de miembros externos, independencia financiera,
+                  eficacia y transparencia en decisiones
+                </td>
+                <td class="p-4 text-gray-600">
+                  Falta de supervisión gubernamental efectiva, limitada
+                  consideración de precedentes
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">Boddewyn (1983)</td>
+                <td class="p-4 text-gray-600">
+                  Entrevistas, análisis documental y legal
+                </td>
+                <td class="p-4 text-gray-600">
+                  Reconocimiento gubernamental, decisiones jurídicas
+                  fundamentadas, publicación de resoluciones
+                </td>
+                <td class="p-4 text-gray-600">
+                  Falta de representación externa significativa, concertación
+                  limitada
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">
+                  Fusi y Boddewyn (1986)
+                </td>
+                <td class="p-4 text-gray-600">
+                  Análisis histórico-institucional, estudio de casos
+                </td>
+                <td class="p-4 text-gray-600">
+                  Control exclusivo de expertos independientes, activación del
+                  comité de investigación, jurisprudencia innovadora
+                </td>
+                <td class="p-4 text-gray-600">
+                  Fricción con la industria, percepción de severidad, falta de
+                  mecanismo de apelación
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">de Lange (2016)</td>
+                <td class="p-4 text-gray-600">
+                  Estudio de caso, análisis normativo y comparado
+                </td>
+                <td class="p-4 text-gray-600">
+                  Sistema independiente, uso inicial de estándares éticos
+                </td>
+                <td class="p-4 text-gray-600">
+                  Aceptación de evidencia deficiente, falta de criterios claros,
+                  inconsistencia en decisiones
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">Gray (2020)</td>
+                <td class="p-4 text-gray-600">
+                  Análisis jurídico, estudios de caso, encuestas
+                </td>
+                <td class="p-4 text-gray-600">
+                  Transparencia, participación de interesados, coherencia
+                  normativa
+                </td>
+                <td class="p-4 text-gray-600">
+                  Falta de control institucional sobre normas privadas, opacidad
+                  en resolución de conflictos
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">
+                  Jiménez et al. (2016)
+                </td>
+                <td class="p-4 text-gray-600">
+                  Estudio de caso, análisis normativo
+                </td>
+                <td class="p-4 text-gray-600">
+                  Adhesión a códigos éticos, legitimidad social de CONAR,
+                  coherencia con ley de competencia
+                </td>
+                <td class="p-4 text-gray-600">
+                  Aplicación a terceros no adheridos, decisiones no vinculantes
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">
+                  López Jiménez et al. (2022)
+                </td>
+                <td class="p-4 text-gray-600">
+                  Análisis normativo, revisión documental
+                </td>
+                <td class="p-4 text-gray-600">
+                  MERCs rápidos y accesibles, sanción reputacional, arbitraje
+                  virtual
+                </td>
+                <td class="p-4 text-gray-600">
+                  Decisiones automatizadas sin intervención humana, falta de
+                  obligatoriedad
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">
+                  Mathews-Hunt (2016)
+                </td>
+                <td class="p-4 text-gray-600">
+                  Análisis documental, entrevistas, comparación internacional
+                </td>
+                <td class="p-4 text-gray-600">
+                  Intención de establecer estándares de transparencia
+                </td>
+                <td class="p-4 text-gray-600">
+                  Falta de mecanismos de implementación, consentimiento débil,
+                  ausencia de sanciones
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">Reeve (2018)</td>
+                <td class="p-4 text-gray-600">
+                  Análisis de resoluciones, normativa y estructura institucional
+                </td>
+                <td class="p-4 text-gray-600">
+                  Desarrollo de precedentes, reglas mejoradas de ubicación
+                </td>
+                <td class="p-4 text-gray-600">
+                  Falta de monitoreo independiente, exclusión del patrocinio,
+                  falta de sanciones formales
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">Ryan (2004)</td>
+                <td class="p-4 text-gray-600">Análisis conceptual y crítico</td>
+                <td class="p-4 text-gray-600">
+                  Consenso institucional, alineamiento normativo
+                </td>
+                <td class="p-4 text-gray-600">
+                  Fragmentación de roles, debilidad ética, ambigüedad normativa
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">
+                  Herbst et al. (2013)
+                </td>
+                <td class="p-4 text-gray-600">Estudio experimental</td>
+                <td class="p-4 text-gray-600">
+                  Familiaridad con la marca, presentación clara de exenciones
+                </td>
+                <td class="p-4 text-gray-600">
+                  Exenciones rápidas en marcas no familiares, baja transparencia
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-50 align-top">
+                <td class="p-4 font-semibold text-gray-900">Snyder (2011)</td>
+                <td class="p-4 text-gray-600">
+                  Revisión de estudios previos y casos
+                </td>
+                <td class="p-4 text-gray-600">
+                  Compromiso ético visible, transparencia en autorregulación
+                </td>
+                <td class="p-4 text-gray-600">
+                  Percepción general de falta de ética, brecha entre
+                  expectativas y prácticas
+                </td>
+              </tr>
+
+              <tr class="align-top">
+                <td class="p-4 font-semibold text-gray-900">
+                  Zimand-Sheiner et al. (2020)
+                </td>
+                <td class="p-4 text-gray-600">
+                  Investigación en tres países, encuestas
+                </td>
+                <td class="p-4 text-gray-600">
+                  Transparencia sobre la intención persuasiva
+                </td>
+                <td class="p-4 text-gray-600">
+                  Publicidad nativa sin divulgación, falta de conocimiento de
+                  persuasión objetiva
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-16 fade-in">
+          <div class="text-center md:text-left mb-10">
+            <h3 class="serif text-2xl md:text-3xl text-gray-900">
+              La autorregulación publicitaria en el contexto colombiano
+            </h3>
+            <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">
+              Síntesis de la literatura revisada
+            </p>
+          </div>
+
+          <!-- Bullets -->
+          <div
+            class="grid md:grid-cols-2 gap-x-16 text-sm text-gray-600 w-full"
+          >
+            <div class="space-y-4">
+              <p>
+                • Campo institucional aún <strong>en construcción</strong>, con
+                avances normativos pero impacto limitado.
+              </p>
+              <p>
+                • Los códigos presentan
+                <strong
+                  >baja capacidad de implementación, seguimiento y
+                  sanción</strong
+                >.
+              </p>
+              <p>
+                • Existe <strong>débil difusión y pedagogía</strong> del sistema
+                entre anunciantes y ciudadanía.
+              </p>
+              <p>
+                • Persisten
+                <strong
+                  >confusiones sobre actores, roles y alcance
+                  institucional</strong
+                >.
+              </p>
+              <p>
+                • La autorregulación ha sido
+                <strong
+                  >insuficiente frente a nuevas prácticas publicitarias</strong
+                >.
+              </p>
+            </div>
+            <div class="space-y-4 mt-4 md:mt-0">
+              <p>
+                • Baja apropiación gremial y
+                <strong
+                  >escasa articulación con el sistema jurídico formal</strong
+                >.
+              </p>
+              <p>
+                • Integración limitada con
+                <strong>marcos de protección de derechos fundamentales</strong>,
+                especialmente infancia.
+              </p>
+              <p>
+                • El debate entre
+                <strong>autorregulación y co-regulación</strong> sigue abierto
+                en la literatura.
+              </p>
+              <p>
+                • Su consolidación depende del
+                <strong
+                  >fortalecimiento institucional, profesionalización gremial y
+                  ética compartida</strong
+                >.
+              </p>
+            </div>
+          </div>
+
+          <!-- Gráfico centrado -->
+          <figure class="mt-14 max-w-3xl mx-auto text-center">
+            <img
+              src="imagenes/articulos_anio_colombia.png"
+              alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
+              loading="lazy"
+              class="w-full rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
+            />
+
+            <figcaption
+              class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest"
+            >
+              Evolución del interés académico sobre el nodo ética + publicidad
+              en Colombia. Fuente: Lens.org
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="mt-20 fade-in">
+          <div class="text-center md:text-left mb-10">
+            <h3 class="serif text-2xl md:text-3xl text-gray-900">
+              Cartografía conceptual del análisis dinámico de precedentes como
+              metodología de análisis jurisprudencial
+            </h3>
+            <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">
+              Síntesis del corpus revisado
+            </p>
+          </div>
+
+          <!-- Gráfico centrado -->
+          <figure class="max-w-5xl mx-auto text-center">
+            <img
+              src="imagenes/cartografia.png"
+              alt="Cartografía conceptual del análisis dinámico de precedentes"
+              loading="lazy"
+              class="w-full rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
+            />
+            <figcaption
+              class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest"
+            >
+              Cartografía conceptual del análisis dinámico de precedentes como
+              metodología de análisis jurisprudencial.
+            </figcaption>
+          </figure>
+
+          <!-- Bullets -->
+          <ul
+            class="mt-12 grid md:grid-cols-2 gap-x-16 gap-y-4 text-sm text-gray-600 list-disc list-inside max-w-6xl mx-auto"
+          >
+            <li>
+              El <strong>análisis dinámico de precedentes</strong>, formulado
+              por Diego López Medina, se ha consolidado como herramienta para
+              estudiar la jurisprudencia latinoamericana.
+            </li>
+
+            <li>
+              Permite <strong>reconstruir líneas jurisprudenciales</strong>,
+              identificar subreglas y observar la evolución doctrinal de los
+              tribunales.
+            </li>
+
+            <li>
+              Su uso se extiende a múltiples campos del derecho, desde
+              <strong>derechos fundamentales</strong> hasta ámbitos
+              especializados.
+            </li>
+
+            <li>
+              Facilita la
+              <strong>organización sistemática del precedente</strong> y
+              fortalece la argumentación jurídica.
+            </li>
+
+            <li>
+              Presenta limitaciones asociadas a la
+              <strong
+                >subjetividad en la identificación de la ratio decidendi</strong
+              >.
+            </li>
+
+            <li>
+              Existe riesgo de
+              <strong>formalismo en la clasificación de sentencias</strong>.
+            </li>
+
+            <li>
+              Tiene capacidad limitada para evaluar el
+              <strong>contenido sustantivo o la legitimidad material</strong> de
+              los precedentes.
+            </li>
+
+            <li>
+              Se propone complementarlo con enfoques
+              <strong
+                >deliberativos, constructivistas, procesales y
+                narrativos</strong
+              >.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 3: METODOLOGÍA
+         ============================================= -->
+    <section
+      id="resultados"
+      class="py-24 px-6 lg:px-12 bg-gray-900 text-white scroll-mt"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+          <div class="lg:col-span-5 order-2 lg:order-1 fade-in">
+            <!-- Cuadrícula de fotos pequeñas -->
+            <div class="grid grid-cols-2 gap-4">
+              <img
+                src="imagenes/data-viz-1.jpg"
+                alt="Visualización de datos 1"
+                loading="lazy"
+                class="h-32 w-full rounded border border-gray-700 bg-gray-800 object-cover"
+              />
+              <img
+                src="imagenes/data-viz-2.jpg"
+                alt="Visualización de datos 2"
+                loading="lazy"
+                class="h-32 w-full rounded border border-gray-700 bg-gray-800 object-cover"
+              />
+              <img
+                src="imagenes/data-viz-3.jpg"
+                alt="Visualización de datos 3"
+                loading="lazy"
+                class="h-32 w-full rounded border border-gray-700 bg-gray-800 object-cover"
+              />
+              <img
+                src="imagenes/data-viz-4.jpg"
+                alt="Visualización de datos 4"
+                loading="lazy"
+                class="h-32 w-full rounded border border-gray-700 bg-gray-800 object-cover"
+              />
+            </div>
+          </div>
+          <div class="lg:col-span-7 order-1 lg:order-2 fade-in">
+            <span
+              class="text-red-500 font-bold tracking-widest text-xs uppercase"
+              >Sección 03</span
+            >
+            <h2 class="text-3xl md:text-4xl mt-2 mb-8">Metodología</h2>
+            <ul class="space-y-6">
+              <li class="flex gap-4">
+                <span class="text-red-500 font-bold">/01</span>
+                <p class="text-gray-400 text-sm">
+                  Hallazgo significativo sobre la correlación entre variables de
+                  entorno y rendimiento.
+                </p>
+              </li>
+              <li class="flex gap-4">
+                <span class="text-red-500 font-bold">/02</span>
+                <p class="text-gray-400 text-sm">
+                  Identificación de patrones atípicos en la muestra del segundo
+                  trimestre.
+                </p>
+              </li>
+              <li class="flex gap-4">
+                <span class="text-red-500 font-bold">/03</span>
+                <p class="text-gray-400 text-sm">
+                  Validación del modelo teórico propuesto con un 95% de
+                  confianza.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         SECCIÓN 4: RESULTADOS, DISCUSIÓN Y CONCLUSIONES
+         ============================================= -->
+    <section id="conclusiones" class="py-24 px-6 lg:px-12 scroll-mt">
+      <div class="max-w-4xl mx-auto text-center fade-in">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12">
+          Resultados, discusión y conclusiones
+        </h2>
+        <div class="bg-gray-50 p-12 rounded-sm border-t-4 border-red-700">
+          <p
+            class="serif text-xl md:text-2xl text-gray-700 leading-relaxed italic mb-8"
+          >
+            "La investigación concluye que la adaptabilidad de las estructuras
+            académicas es el factor determinante para el éxito de la integración
+            digital."
+          </p>
+          <div class="h-[1px] w-24 bg-gray-200 mx-auto mb-8"></div>
+          <div
+            class="grid md:grid-cols-2 gap-8 text-left text-sm text-gray-600"
+          >
+            <div>
+              <h4
+                class="font-bold text-gray-900 mb-2 uppercase tracking-tighter"
+              >
+                Aportación Teórica
+              </h4>
+              <p>
+                Propuesta de un nuevo marco conceptual para entender la
+                mediación tecnológica en la tesis.
+              </p>
+            </div>
+            <div>
+              <h4
+                class="font-bold text-gray-900 mb-2 uppercase tracking-tighter"
+              >
+                Líneas Futuras
+              </h4>
+              <p>
+                Exploración del impacto de la IA generativa en procesos de
+                recolección de datos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FOOTER INSTITUCIONAL
+         ============================================= -->
+    <footer class="py-12 px-6 lg:px-12 border-t border-gray-100 bg-white">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8"
+      >
+        <div class="text-center md:text-left">
+          <span
+            class="block text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-1"
+            >Universidad Complutense de Madrid</span
+          >
+          <span class="block text-[9px] text-gray-400 uppercase tracking-widest"
+            >Todos los derechos reservados © 2026</span
+          >
+        </div>
+        <!-- Botón removido a petición del usuario -->
+        <div
+          class="text-[9px] text-gray-300 uppercase tracking-widest font-bold"
+        >
+          Tesis Doctoral | Javier Andrés Meléndez Ordóñez
+        </div>
+      </div>
+    </footer>
+
+    <div
+      id="image-lightbox"
+      class="image-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+    >
+      <button
+        id="lightbox-close"
+        class="lightbox-close"
+        type="button"
+        aria-label="Cerrar imagen"
+      >
+        &times;
+      </button>
+      <img id="lightbox-image" data-no-zoom="true" src="" alt="" />
     </div>
 
-    <noscript>
-      <p class="noscript-warning">Activa JavaScript para visualizar la presentación.</p>
-    </noscript>
+    <!-- =============================================
+         SCRIPTS 
+         ============================================= -->
+    <script>
+      // Lógica para la barra de progreso y animaciones de scroll
+      window.addEventListener("scroll", () => {
+        // Progreso
+        let winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        let height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js" defer></script>
-    <script src="assets/js/presentation.js" defer></script>
+        // Animaciones (Fade In)
+        document.querySelectorAll(".fade-in").forEach((element) => {
+          let position = element.getBoundingClientRect().top;
+          let screenHeight = window.innerHeight;
+          if (position < screenHeight - 100) {
+            element.classList.add("visible");
+          }
+        });
+      });
+
+      // Asegurar que la primera animación ocurra al cargar
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".fade-in")[0]?.classList.add("visible");
+
+        const lightbox = document.getElementById("image-lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        const closeButton = document.getElementById("lightbox-close");
+        const zoomableImages = document.querySelectorAll(
+          'img:not([data-no-zoom="true"])',
+        );
+
+        const openLightbox = (img) => {
+          lightboxImage.src = img.currentSrc || img.src;
+          lightboxImage.alt = img.alt || "Imagen ampliada";
+          lightbox.classList.add("open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        };
+
+        const closeLightbox = () => {
+          lightbox.classList.remove("open");
+          lightbox.setAttribute("aria-hidden", "true");
+          lightboxImage.src = "";
+          lightboxImage.alt = "";
+          document.body.style.overflow = "";
+        };
+
+        zoomableImages.forEach((img) => {
+          img.classList.add("zoomable-image");
+          img.addEventListener("click", () => openLightbox(img));
+        });
+
+        closeButton.addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && lightbox.classList.contains("open")) {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
