@@ -215,6 +215,47 @@
   </head>
 
   <body class="antialiased">
+    <!-- =============================================
+     BLOQUE: AVISO DE VISUALIZACIÓN EN MÓVIL
+     INICIO
+     Este bloque muestra un aviso cuando la página
+     se abre en pantallas pequeñas.
+     Se oculta automáticamente en escritorio.
+     ============================================= -->
+    <div
+      class="fixed inset-0 z-[200] bg-white flex items-center justify-center px-6 lg:hidden"
+    >
+      <div class="max-w-md text-center">
+        <!-- Logo UCM -->
+        <img
+          src="https://logos-world.net/wp-content/uploads/2020/04/UCM-Logo.png"
+          alt="Universidad Complutense de Madrid"
+          class="h-20 w-auto mx-auto mb-8"
+        />
+
+        <!-- Etiqueta -->
+        <p
+          class="text-[10px] uppercase tracking-[0.24em] text-red-700 font-bold mb-4"
+        >
+          Aviso de visualización
+        </p>
+
+        <!-- Título -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">
+          Esta página no cuenta actualmente con versión móvil
+        </h2>
+
+        <!-- Mensaje -->
+        <p class="text-sm text-gray-600 leading-relaxed">
+          Usa un PC o una pantalla de escritorio para disfrutar correctamente la
+          experiencia de navegación de esta presentación.
+        </p>
+      </div>
+    </div>
+    <!-- =============================================
+     BLOQUE: AVISO DE VISUALIZACIÓN EN MÓVIL
+     FIN
+     ============================================= -->
     <div id="progress-bar"></div>
 
     <!-- =============================================
