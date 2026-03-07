@@ -1,0 +1,1130 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatoria CONARP | Tesis Doctoral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ucm-red: #bf1e2d;
+        --ucm-dark: #1a1a1a;
+        --panel-border: rgba(229, 231, 235, 0.95);
+        --panel-bg: rgba(255, 255, 255, 0.94);
+        --panel-bg-soft: rgba(249, 250, 251, 0.96);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body.relatoria-body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 8% 0%, rgba(191, 30, 45, 0.12), transparent 38%),
+          radial-gradient(circle at 100% 0%, rgba(209, 213, 219, 0.24), transparent 42%),
+          #f9fafb;
+        color: #374151;
+        line-height: 1.6;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      .section-title {
+        font-family: "Libre Baskerville", serif;
+      }
+
+      .relatoria-shell {
+        width: min(1320px, 100%);
+        margin: 0 auto;
+        padding: clamp(20px, 2.4vw, 38px);
+        padding-top: calc(clamp(20px, 2.4vw, 38px) + 88px);
+        display: grid;
+        gap: clamp(14px, 1.5vw, 22px);
+      }
+
+      .panel {
+        border-radius: 16px;
+        border: 1px solid var(--panel-border);
+        background: var(--panel-bg);
+        box-shadow: 0 14px 36px rgba(15, 23, 42, 0.08);
+        padding: clamp(14px, 1.45vw, 24px);
+      }
+
+      .panel-title {
+        margin: 0;
+      }
+
+      .section-kicker {
+        margin: 0 0 8px;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #b91c1c;
+      }
+
+      .section-title {
+        margin: 0;
+        color: #1f2937;
+        line-height: 1.2;
+        font-size: clamp(28px, 3vw, 42px);
+      }
+
+      .lead-copy {
+        margin: 14px 0 0;
+        color: #4b5563;
+        max-width: none;
+        width: 100%;
+      }
+
+      .meta-copy {
+        color: #6b7280;
+        font-size: 0.86rem;
+      }
+
+      .source-link {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #b91c1c;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-decoration: none;
+      }
+
+      .source-link:hover {
+        color: #991b1b;
+      }
+
+      .article-details {
+        margin-top: 14px;
+        border-top: 1px solid rgba(209, 213, 219, 0.95);
+        padding-top: 10px;
+      }
+
+      .article-details summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: #1f2937;
+      }
+
+      .article-list {
+        margin: 10px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 9px;
+      }
+
+      .article-item {
+        border-left: 3px solid rgba(185, 28, 28, 0.5);
+        padding: 8px 10px;
+        background: var(--panel-bg-soft);
+        border-radius: 9px;
+        color: #4b5563;
+      }
+
+      .article-item strong {
+        color: #7f1d1d;
+      }
+
+      .control-grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: minmax(220px, 1fr) auto;
+        align-items: end;
+      }
+
+      .field-block {
+        display: grid;
+        gap: 6px;
+      }
+
+      .field-block label {
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        color: #4b5563;
+      }
+
+      .field-block select,
+      .field-block input {
+        width: 100%;
+        min-height: 44px;
+        border-radius: 10px;
+        border: 1px solid rgba(209, 213, 219, 0.95);
+        background: #fff;
+        padding: 0 12px;
+        font: inherit;
+        color: #1f2937;
+      }
+
+      .field-block input::placeholder,
+      .field-block select::placeholder {
+        color: #9ca3af;
+      }
+
+      .field-block input:focus,
+      .field-block select:focus {
+        outline: 2px solid rgba(239, 68, 68, 0.2);
+        border-color: rgba(239, 68, 68, 0.65);
+      }
+
+      .clear-btn {
+        min-height: 44px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--ucm-red);
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 0 16px;
+        transition:
+          background 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .clear-btn:hover {
+        background: #8f1823;
+        transform: translateY(-1px);
+      }
+
+      .filters-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .active-filters {
+        min-height: 38px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .chip-btn {
+        border: 1px solid rgba(248, 113, 113, 0.5);
+        background: rgba(254, 226, 226, 0.8);
+        color: #991b1b;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      .chip-btn:hover {
+        background: rgba(254, 202, 202, 0.86);
+      }
+
+      .filters-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        margin-top: 10px;
+      }
+
+      .filter-box {
+        border: 1px solid rgba(229, 231, 235, 0.95);
+        border-radius: 12px;
+        background: #fff;
+        padding: 10px;
+      }
+
+      .filter-title {
+        margin: 0 0 8px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #1f2937;
+      }
+
+      .filter-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        max-height: 190px;
+        overflow: auto;
+        padding-right: 4px;
+      }
+
+      .filter-option {
+        border: 1px solid rgba(209, 213, 219, 0.95);
+        background: #f9fafb;
+        color: #4b5563;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        padding: 4px 9px;
+        cursor: pointer;
+      }
+
+      .filter-option:hover {
+        border-color: rgba(248, 113, 113, 0.85);
+      }
+
+      .filter-option.active {
+        border-color: #dc2626;
+        background: rgba(254, 226, 226, 0.9);
+        color: #991b1b;
+        font-weight: 700;
+      }
+
+      .results-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+
+      .results-count {
+        margin: 0;
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+
+      .results-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .show-more-wrap {
+        margin-top: 14px;
+      }
+
+      .show-more-btn {
+        min-height: 42px;
+        border: 1px solid rgba(220, 38, 38, 0.45);
+        border-radius: 10px;
+        background: rgba(254, 242, 242, 0.95);
+        color: #991b1b;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 0 16px;
+        transition: background 0.2s ease;
+      }
+
+      .show-more-btn:hover {
+        background: rgba(254, 226, 226, 0.95);
+      }
+
+      .result-card {
+        border-radius: 14px;
+        border: 1px solid rgba(229, 231, 235, 0.95);
+        background: #fff;
+        padding: 12px;
+      }
+
+      .result-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .result-title {
+        margin: 0;
+        font-size: 1rem;
+        color: #111827;
+      }
+
+      .result-subtitle {
+        margin: 4px 0 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+
+      .meta-chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 9px;
+      }
+
+      .meta-chip {
+        border-radius: 999px;
+        border: 1px solid rgba(209, 213, 219, 0.95);
+        background: #f9fafb;
+        padding: 4px 8px;
+        font-size: 0.74rem;
+        color: #4b5563;
+      }
+
+      .summary {
+        margin: 10px 0 0;
+        font-size: 0.9rem;
+        line-height: 1.45;
+        color: #374151;
+      }
+
+      .details-toggle {
+        margin-top: 10px;
+        border-top: 1px dashed rgba(209, 213, 219, 0.95);
+        padding-top: 8px;
+      }
+
+      .details-toggle summary {
+        cursor: pointer;
+        font-size: 0.84rem;
+        font-weight: 700;
+        color: #374151;
+      }
+
+      .detail-grid {
+        margin-top: 8px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .detail-row {
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.36;
+        color: #374151;
+      }
+
+      .detail-row strong {
+        color: #111827;
+      }
+
+      .empty-state {
+        margin: 0;
+        padding: 16px;
+        border-radius: 10px;
+        border: 1px dashed rgba(209, 213, 219, 0.95);
+        background: #f9fafb;
+        color: #6b7280;
+      }
+
+      @media (max-width: 980px) {
+        .control-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .clear-btn {
+          width: 100%;
+        }
+
+        .filters-header,
+        .results-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .relatoria-shell {
+          padding-top: calc(clamp(20px, 2.4vw, 38px) + 104px);
+        }
+      }
+    </style>
+  </head>
+  <body class="relatoria-body antialiased">
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex justify-between items-center">
+        <a href="../index.html#inicio" class="flex items-center">
+          <img
+            src="https://biblioteca.ucm.es/data/cont/docs/60-2016-09-20-Marca%20UCM%20Secundaria%20logo%20negro%20RGB.jpg"
+            alt="Universidad Complutense de Madrid"
+            class="h-10 md:h-12 w-auto"
+          />
+        </a>
+        <div class="flex items-center gap-4 md:gap-8 text-[10px] md:text-[11px] font-bold uppercase tracking-widest text-gray-500">
+          <a href="../index.html#discusion" class="hover:text-red-700 transition-colors">Resultados</a>
+          <a href="../index.html#inicio" class="hover:text-red-700 transition-colors">Inicio</a>
+        </div>
+      </div>
+    </nav>
+    <main class="relatoria-shell">
+      <section class="panel">
+        <p class="section-kicker">Display interactivo</p>
+        <h1 id="md-title" class="section-title panel-title">Relatoria CONARP</h1>
+        <p id="md-intro" class="lead-copy">Cargando contexto...</p>
+        <p id="md-source" class="source-link"></p>
+        <details class="article-details" hidden>
+          <summary>Ver articulos del CCAP</summary>
+          <ul id="md-articles" class="article-list"></ul>
+        </details>
+      </section>
+
+      <section class="panel">
+        <div class="control-grid">
+          <div class="field-block">
+            <label for="search-input">Buscador global</label>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Buscar por concepto, resumen, denunciado, medio, fuente..."
+              autocomplete="off"
+            />
+          </div>
+          <button id="clear-filters-btn" class="clear-btn" type="button">Limpiar filtros</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="filters-header">
+          <h2 class="section-title panel-title" style="font-size: clamp(22px, 2.2vw, 32px)">Filtros acumulativos</h2>
+          <p class="meta-copy" style="margin: 0">Seleccione los filtros deseados para precisar su búsqueda.</p>
+        </div>
+        <div id="active-filters" class="active-filters"></div>
+        <div id="filters-grid" class="filters-grid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="results-head">
+          <h2 class="section-title panel-title" style="font-size: clamp(22px, 2.2vw, 32px)">Resultados</h2>
+          <p id="results-count" class="results-count">0 registros</p>
+        </div>
+        <div id="results-list" class="results-list"></div>
+        <div class="show-more-wrap">
+          <button id="show-more-btn" class="show-more-btn" type="button" hidden>
+            Mostrar más resultados
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const CSV_CANDIDATES = [
+          "Relatoría CONARP 95bfc7d1be74430f9554a6835eeebc52.csv",
+          "Relatoría CONARP 95bfc7d1be74430f9554a6835eeebc52.csv"
+        ];
+
+        const MARKDOWN_CANDIDATES = ["Relatoria CONARP 7456486033bd4fdc9186276eeb2caa05.md"];
+
+        const INITIAL_RESULTS_LIMIT = 5;
+        const RESULTS_BATCH_SIZE = 5;
+
+        const PREFERRED_FILTER_COLUMNS = [
+          "Año",
+          "Categoría de producto",
+          "Origen de la reclamación",
+          "Tipo de anunciante reclamado",
+          "Medio",
+          "Infracción al código (Artículos)",
+          "Objeto de la reclamación",
+          "Resolución de la reclamación"
+        ];
+
+        const META_COLUMNS = [
+          "Año",
+          "Categoría de producto",
+          "Origen de la reclamación",
+          "Resolución de la reclamación"
+        ];
+
+        const DETAIL_COLUMNS = [
+          "Solicitante",
+          "Denunciado",
+          "Tipo de anunciante reclamado",
+          "Medio",
+          "Infracción legal",
+          "Infracción al código (Artículos)",
+          "Objeto de la reclamación",
+          "Nicho citacional",
+          "Fuentes"
+        ];
+
+        const state = {
+          dataset: null,
+          query: "",
+          selectedFilters: new Map(),
+          visibleResults: INITIAL_RESULTS_LIMIT,
+          markdown: {
+            title: "Relatoria CONARP",
+            intro: "",
+            link: null,
+            articles: []
+          }
+        };
+
+        const refs = {
+          searchInput: document.getElementById("search-input"),
+          clearButton: document.getElementById("clear-filters-btn"),
+          filtersGrid: document.getElementById("filters-grid"),
+          activeFilters: document.getElementById("active-filters"),
+          resultsCount: document.getElementById("results-count"),
+          resultsList: document.getElementById("results-list"),
+          showMoreButton: document.getElementById("show-more-btn"),
+          mdTitle: document.getElementById("md-title"),
+          mdIntro: document.getElementById("md-intro"),
+          mdSource: document.getElementById("md-source"),
+          mdArticles: document.getElementById("md-articles")
+        };
+
+        function normalize(value) {
+          return String(value || "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .trim();
+        }
+
+        function escapeHtml(value) {
+          return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+        }
+
+        function formatText(value) {
+          return escapeHtml(value).replace(/\n+/g, "<br />");
+        }
+
+        function splitCellValues(rawValue) {
+          const text = String(rawValue || "").trim();
+          if (!text || /^N\/A$/i.test(text)) {
+            return [];
+          }
+          return text
+            .split(",")
+            .map((item) => item.trim())
+            .filter((item) => item && !/^N\/A$/i.test(item));
+        }
+
+        function parseCSV(text) {
+          const rows = [];
+          let row = [];
+          let field = "";
+          let inQuotes = false;
+          const input = String(text || "").replace(/^\uFEFF/, "");
+
+          for (let i = 0; i < input.length; i += 1) {
+            const char = input[i];
+
+            if (inQuotes) {
+              if (char === '"') {
+                if (input[i + 1] === '"') {
+                  field += '"';
+                  i += 1;
+                } else {
+                  inQuotes = false;
+                }
+              } else {
+                field += char;
+              }
+            } else if (char === '"') {
+              inQuotes = true;
+            } else if (char === ",") {
+              row.push(field);
+              field = "";
+            } else if (char === "\n") {
+              row.push(field);
+              rows.push(row);
+              row = [];
+              field = "";
+            } else if (char === "\r") {
+              continue;
+            } else {
+              field += char;
+            }
+          }
+
+          if (field.length > 0 || row.length > 0) {
+            row.push(field);
+            rows.push(row);
+          }
+
+          return rows;
+        }
+
+        function parseMarkdown(markdown) {
+          const lines = String(markdown || "")
+            .replace(/^\uFEFF/, "")
+            .split(/\r?\n/)
+            .map((line) => line.trim());
+
+          const titleLine = lines.find((line) => line.startsWith("# "));
+          const title = titleLine ? titleLine.replace(/^#\s+/, "") : "Relatoria CONARP";
+
+          const intro =
+            lines.find(
+              (line) =>
+                line &&
+                !line.startsWith("#") &&
+                !line.startsWith("[") &&
+                !line.startsWith("**Artículo")
+            ) || "";
+
+          const linkLine = lines.find((line) => /^\[.+\]\(.+\)$/.test(line));
+          let link = null;
+          if (linkLine) {
+            const match = linkLine.match(/^\[(.+)\]\((.+)\)$/);
+            if (match) {
+              link = { label: match[1], href: match[2] };
+            }
+          }
+
+          const articles = lines
+            .map((line) => {
+              const match = line.match(/^\*\*(Artículo\s+\d+)\*\*:\s*(.+)$/);
+              if (!match) {
+                return null;
+              }
+              return { article: match[1], text: match[2] };
+            })
+            .filter(Boolean);
+
+          return { title, intro, link, articles };
+        }
+
+        function markdownInlineToHtml(text) {
+          return escapeHtml(text).replace(
+            /\[([^\]]+)\]\(([^)]+)\)/g,
+            '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+          );
+        }
+
+        async function fetchFirstAvailable(candidates) {
+          let lastError = null;
+
+          for (const fileName of candidates) {
+            try {
+              const response = await fetch(encodeURI(fileName), { cache: "no-store" });
+              if (response.ok) {
+                return { fileName, text: await response.text() };
+              }
+              lastError = new Error(`No se pudo leer ${fileName} (status ${response.status})`);
+            } catch (error) {
+              lastError = error;
+            }
+          }
+
+          throw (
+            lastError ||
+            new Error(`No se encontro ningun archivo valido entre: ${candidates.join(", ")}`)
+          );
+        }
+
+        function sortOptions(a, b) {
+          return a.raw.localeCompare(b.raw, "es", { numeric: true, sensitivity: "base" });
+        }
+
+        function toNumberOrNull(value) {
+          const numeric = Number.parseInt(String(value || "").replace(/[^\d]/g, ""), 10);
+          return Number.isNaN(numeric) ? null : numeric;
+        }
+
+        function buildDataset(csvText, fileName) {
+          const parsedRows = parseCSV(csvText);
+          if (parsedRows.length < 2) {
+            throw new Error(`El archivo ${fileName} no tiene filas suficientes.`);
+          }
+
+          const headers = parsedRows[0].map((header, index) => {
+            const cleanHeader = String(header || "").trim();
+            if (index === 0) {
+              return cleanHeader.replace(/^\uFEFF/, "");
+            }
+            return cleanHeader;
+          });
+
+          const records = parsedRows
+            .slice(1)
+            .filter((row) => row.some((cell) => String(cell || "").trim() !== ""))
+            .map((row, index) => {
+              const values = {};
+              headers.forEach((header, headerIndex) => {
+                values[header] = String(row[headerIndex] || "").trim();
+              });
+
+              return {
+                id: `row-${index + 1}`,
+                values,
+                tokens: {},
+                searchable: normalize(headers.map((header) => values[header]).join(" | "))
+              };
+            })
+            .sort((a, b) => {
+              const yearA = toNumberOrNull(a.values["Año"]);
+              const yearB = toNumberOrNull(b.values["Año"]);
+              if (yearA !== null && yearB !== null && yearA !== yearB) {
+                return yearA - yearB;
+              }
+
+              const conceptA = toNumberOrNull(a.values["Número de concepto"]);
+              const conceptB = toNumberOrNull(b.values["Número de concepto"]);
+              if (conceptA !== null && conceptB !== null && conceptA !== conceptB) {
+                return conceptA - conceptB;
+              }
+              return String(a.values["Número de concepto"] || "").localeCompare(
+                String(b.values["Número de concepto"] || ""),
+                "es",
+                { numeric: true, sensitivity: "base" }
+              );
+            });
+
+          const filterColumns = PREFERRED_FILTER_COLUMNS.filter((column) => headers.includes(column));
+          const optionsByColumn = new Map();
+          const labelsByColumn = new Map();
+
+          filterColumns.forEach((column) => {
+            const countMap = new Map();
+
+            records.forEach((record) => {
+              const values = splitCellValues(record.values[column]);
+              const tokenSet = new Set();
+
+              values.forEach((value) => {
+                const key = normalize(value);
+                if (!key) {
+                  return;
+                }
+                tokenSet.add(key);
+                if (!countMap.has(key)) {
+                  countMap.set(key, { raw: value, norm: key, count: 0 });
+                }
+                countMap.get(key).count += 1;
+              });
+
+              record.tokens[column] = tokenSet;
+            });
+
+            const options = Array.from(countMap.values()).sort(sortOptions);
+            optionsByColumn.set(column, options);
+            labelsByColumn.set(
+              column,
+              new Map(options.map((option) => [option.norm, option.raw]))
+            );
+          });
+
+          return {
+            fileName,
+            headers,
+            records,
+            filterColumns,
+            optionsByColumn,
+            labelsByColumn
+          };
+        }
+
+        function clearFilters() {
+          state.query = "";
+          state.selectedFilters = new Map();
+          refs.searchInput.value = "";
+        }
+
+        function resetVisibleResults() {
+          state.visibleResults = INITIAL_RESULTS_LIMIT;
+        }
+
+        function getFilteredRecords(dataset, excludedColumn = null) {
+          const query = normalize(state.query);
+          return dataset.records.filter((record) => {
+            if (query && !record.searchable.includes(query)) {
+              return false;
+            }
+
+            for (const [column, selectedTokens] of state.selectedFilters.entries()) {
+              if (excludedColumn && column === excludedColumn) {
+                continue;
+              }
+              if (!selectedTokens.size) {
+                continue;
+              }
+              const rowTokenSet = record.tokens[column] || new Set();
+              for (const token of selectedTokens) {
+                if (!rowTokenSet.has(token)) {
+                  return false;
+                }
+              }
+            }
+
+            return true;
+          });
+        }
+
+        function renderActiveFilters(dataset) {
+          const chips = [];
+          for (const [column, selectedTokens] of state.selectedFilters.entries()) {
+            const labelMap = dataset.labelsByColumn.get(column) || new Map();
+            selectedTokens.forEach((token) => {
+              const text = labelMap.get(token) || token;
+              chips.push(
+                `<button class="chip-btn" type="button" data-remove-column="${escapeHtml(column)}" data-remove-token="${escapeHtml(token)}">${escapeHtml(column)}: ${escapeHtml(text)} ×</button>`
+              );
+            });
+          }
+
+          if (!chips.length) {
+            refs.activeFilters.innerHTML = "";
+            return;
+          }
+
+          refs.activeFilters.innerHTML = chips.join("");
+        }
+
+        function renderFilters(dataset) {
+          if (!dataset.filterColumns.length) {
+            refs.filtersGrid.innerHTML =
+              '<p class="empty-state">No hay columnas configuradas para filtros en este archivo.</p>';
+            return;
+          }
+
+          const blocks = dataset.filterColumns.map((column) => {
+            const labelMap = dataset.labelsByColumn.get(column) || new Map();
+            const selectedSet = state.selectedFilters.get(column) || new Set();
+            const contextRecords = getFilteredRecords(dataset, column);
+            const dynamicCounts = new Map();
+
+            contextRecords.forEach((record) => {
+              const rowTokenSet = record.tokens[column] || new Set();
+              rowTokenSet.forEach((token) => {
+                dynamicCounts.set(token, (dynamicCounts.get(token) || 0) + 1);
+              });
+            });
+
+            const optionTokens = new Set([...dynamicCounts.keys(), ...selectedSet]);
+            const options = Array.from(optionTokens)
+              .map((token) => ({
+                norm: token,
+                raw: labelMap.get(token) || token,
+                count: dynamicCounts.get(token) || 0
+              }))
+              .filter((option) => option.count > 0 || selectedSet.has(option.norm))
+              .sort(sortOptions);
+
+            const optionButtons = options
+              .map((option) => {
+                const activeClass = selectedSet.has(option.norm) ? "active" : "";
+                return `<button class="filter-option ${activeClass}" type="button" data-column="${escapeHtml(column)}" data-token="${escapeHtml(option.norm)}">${escapeHtml(option.raw)} (${option.count})</button>`;
+              })
+              .join("");
+
+            return `
+              <article class="filter-box">
+                <h3 class="filter-title">${escapeHtml(column)}</h3>
+                <div class="filter-options">${optionButtons || '<p class="meta-copy" style="margin:0">Sin opciones</p>'}</div>
+              </article>
+            `;
+          });
+
+          refs.filtersGrid.innerHTML = blocks.join("");
+        }
+
+        function renderDetails(record, dataset) {
+          const fields = DETAIL_COLUMNS.filter((column) => dataset.headers.includes(column));
+          const rows = fields
+            .map((column) => {
+              const value = record.values[column];
+              if (!value || /^N\/A$/i.test(value)) {
+                return "";
+              }
+              return `<p class="detail-row"><strong>${escapeHtml(column)}:</strong> ${formatText(value)}</p>`;
+            })
+            .filter(Boolean);
+
+          if (!rows.length) {
+            return "";
+          }
+
+          return `
+            <details class="details-toggle">
+              <summary>Ver detalle del registro</summary>
+              <div class="detail-grid">${rows.join("")}</div>
+            </details>
+          `;
+        }
+
+        function renderResults(dataset) {
+          const filteredRecords = getFilteredRecords(dataset);
+          const visibleCount = Math.min(filteredRecords.length, state.visibleResults);
+          refs.resultsCount.textContent = `Mostrando ${visibleCount} de ${filteredRecords.length} registros`;
+
+          if (!filteredRecords.length) {
+            refs.resultsList.innerHTML =
+              '<p class="empty-state">No hay coincidencias con estos filtros y busqueda.</p>';
+            refs.showMoreButton.hidden = true;
+            return;
+          }
+
+          const resultCards = filteredRecords.slice(0, visibleCount).map((record) => {
+            const concept = record.values["Número de concepto"] || "Sin numero";
+            const category = record.values["Categoría de producto"] || "Sin categoria";
+            const summary = record.values.Resumen || "Sin resumen disponible.";
+
+            const metaChips = META_COLUMNS.filter((column) => dataset.headers.includes(column))
+              .map((column) => {
+                const value = record.values[column];
+                if (!value || /^N\/A$/i.test(value)) {
+                  return "";
+                }
+                return `<span class="meta-chip"><strong>${escapeHtml(column)}:</strong> ${escapeHtml(value)}</span>`;
+              })
+              .filter(Boolean)
+              .join("");
+
+            return `
+              <article class="result-card">
+                <div class="result-head">
+                  <div>
+                    <h3 class="result-title">Concepto ${escapeHtml(concept)}</h3>
+                    <p class="result-subtitle">${escapeHtml(category)}</p>
+                  </div>
+                </div>
+                <div class="meta-chip-list">${metaChips}</div>
+                <p class="summary">${formatText(summary)}</p>
+                ${renderDetails(record, dataset)}
+              </article>
+            `;
+          });
+
+          refs.resultsList.innerHTML = resultCards.join("");
+          refs.showMoreButton.hidden = visibleCount >= filteredRecords.length;
+        }
+
+        function refresh() {
+          const dataset = state.dataset;
+          if (!dataset) {
+            refs.filtersGrid.innerHTML = "";
+            refs.resultsList.innerHTML =
+              '<p class="empty-state">No hay datos cargados para mostrar.</p>';
+            refs.resultsCount.textContent = "0 registros";
+            refs.showMoreButton.hidden = true;
+            return;
+          }
+
+          renderFilters(dataset);
+          renderActiveFilters(dataset);
+          renderResults(dataset);
+        }
+
+        function renderMarkdown() {
+          refs.mdTitle.textContent = state.markdown.title || "Relatoria CONARP";
+          refs.mdIntro.innerHTML =
+            markdownInlineToHtml(state.markdown.intro) || "Sin introduccion disponible.";
+          refs.mdSource.textContent = "Fuente: Unión Colombiana de Empresas Publicitarias UCEP.";
+
+          if (!state.markdown.articles.length) {
+            refs.mdArticles.innerHTML = '<li class="article-item">No se encontraron articulos en el markdown.</li>';
+            return;
+          }
+
+          refs.mdArticles.innerHTML = state.markdown.articles
+            .map(
+              (item) =>
+                `<li class="article-item"><strong>${escapeHtml(item.article)}:</strong> ${escapeHtml(
+                  item.text
+                )}</li>`
+            )
+            .join("");
+        }
+
+        function bindEvents() {
+          refs.searchInput.addEventListener("input", (event) => {
+            state.query = event.target.value;
+            resetVisibleResults();
+            refresh();
+          });
+
+          refs.clearButton.addEventListener("click", () => {
+            clearFilters();
+            resetVisibleResults();
+            refresh();
+          });
+
+          refs.showMoreButton.addEventListener("click", () => {
+            if (!state.dataset) {
+              return;
+            }
+            state.visibleResults += RESULTS_BATCH_SIZE;
+            renderResults(state.dataset);
+          });
+
+          refs.filtersGrid.addEventListener("click", (event) => {
+            const option = event.target.closest("button[data-column][data-token]");
+            if (!option) {
+              return;
+            }
+
+            const column = option.dataset.column;
+            const token = option.dataset.token;
+            if (!column || !token) {
+              return;
+            }
+
+            const selectedSet = state.selectedFilters.get(column) || new Set();
+            if (selectedSet.has(token)) {
+              selectedSet.delete(token);
+            } else {
+              selectedSet.add(token);
+            }
+
+            if (selectedSet.size) {
+              state.selectedFilters.set(column, selectedSet);
+            } else {
+              state.selectedFilters.delete(column);
+            }
+
+            resetVisibleResults();
+            refresh();
+          });
+
+          refs.activeFilters.addEventListener("click", (event) => {
+            const chip = event.target.closest("button[data-remove-column][data-remove-token]");
+            if (!chip) {
+              return;
+            }
+
+            const column = chip.dataset.removeColumn;
+            const token = chip.dataset.removeToken;
+            if (!column || !token) {
+              return;
+            }
+
+            const selectedSet = state.selectedFilters.get(column);
+            if (!selectedSet) {
+              return;
+            }
+
+            selectedSet.delete(token);
+            if (!selectedSet.size) {
+              state.selectedFilters.delete(column);
+            }
+            resetVisibleResults();
+            refresh();
+          });
+        }
+
+        async function init() {
+          bindEvents();
+
+          try {
+            const [markdownResult, csvResult] = await Promise.all([
+              fetchFirstAvailable(MARKDOWN_CANDIDATES),
+              fetchFirstAvailable(CSV_CANDIDATES)
+            ]);
+
+            state.markdown = parseMarkdown(markdownResult.text);
+            state.dataset = buildDataset(csvResult.text, csvResult.fileName);
+
+            renderMarkdown();
+            refresh();
+          } catch (error) {
+            console.error(error);
+            refs.resultsList.innerHTML =
+              '<p class="empty-state">Error al cargar los datos. Revisa la consola del navegador para mas detalle.</p>';
+          }
+        }
+
+        init();
+      })();
+    </script>
+  </body>
+</html>
