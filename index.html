@@ -106,8 +106,114 @@
       .lightbox-close:hover {
         background: rgba(0, 0, 0, 0.75);
       }
+
+      .results-carousel-track {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .results-carousel-track::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .results-carousel-track::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 9999px;
+      }
+
+      .results-slide {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+      }
+
+      .results-carousel-btn {
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 1px solid #d1d5db;
+        border-radius: 9999px;
+        background: #fff;
+        color: #7f1d1d;
+        font-size: 1.1rem;
+        line-height: 1;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .results-carousel-btn:hover {
+        background: #fef2f2;
+        border-color: #fca5a5;
+      }
+
+      .results-carousel-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      .results-carousel-dots {
+        margin-top: 0.6rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.45rem;
+      }
+
+      .results-carousel-dot {
+        width: 0.55rem;
+        height: 0.55rem;
+        border: 0;
+        border-radius: 9999px;
+        background: #d1d5db;
+        cursor: pointer;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .results-carousel-dot.active {
+        background: #b91c1c;
+        transform: scale(1.18);
+      }
+
+      .summary-carousel-track {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+
+      .summary-carousel-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .summary-carousel-slide {
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+      }
+
+      @media (min-width: 768px) {
+        .summary-carousel-slide {
+          flex-basis: calc((100% - 1.5rem) / 2);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .summary-carousel-slide {
+          flex-basis: calc((100% - 3rem) / 3);
+        }
+      }
     </style>
   </head>
+
   <body class="antialiased">
     <div id="progress-bar"></div>
 
@@ -139,17 +245,19 @@
             class="hover:text-red-700 transition-colors hidden md:block"
             >Contexto</a
           >
-          <a href="#metodologia" class="hover:text-red-700 transition-colors"
+          <a
+            href="#estado-cuestion"
+            class="hover:text-red-700 transition-colors"
             >Estado de la Cuestión</a
           >
-          <a href="#resultados" class="hover:text-red-700 transition-colors"
+          <a href="#metodologia" class="hover:text-red-700 transition-colors"
             >Metodología</a
           >
-          <a href="#discusion" class="hover:text-red-700 transition-colors"
+          <a href="#resultados" class="hover:text-red-700 transition-colors"
             >Resultados</a
           >
           <a href="#conclusiones" class="hover:text-red-700 transition-colors"
-            >Discusión y conclusiones</a
+            >Hipótesis y conclusiones</a
           >
         </div>
       </div>
@@ -241,7 +349,9 @@
               <div class="h-[1px] w-8 bg-gray-300"></div>
             </div>
 
-            <h2 class="text-3xl md:text-4xl mb-8">Contexto</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Contexto
+            </h2>
 
             <!-- Subbloque: Diagnóstico contextual -->
             <div class="space-y-6 text-gray-600">
@@ -318,12 +428,12 @@
                 class="h-64 md:h-80 w-full rounded-lg shadow-sm border border-gray-200 bg-gray-100 object-cover"
               />
               <figcaption
-                class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest text-center"
+                class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest text-center"
               >
                 Imagen 1: Acto protocolario de la creación de CONARP
               </figcaption>
               <div
-                class="text-[10px] text-gray-400 uppercase tracking-widest text-center"
+                class="text-[10px] text-gray-600 uppercase tracking-widest text-center"
               >
                 Fuente: https://autocontrolcolombia.org/
               </div>
@@ -338,7 +448,7 @@
                 class="h-64 md:h-80 w-full rounded-lg shadow-sm border border-gray-200 bg-gray-100 object-cover"
               />
               <figcaption
-                class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest text-center"
+                class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest text-center"
               >
                 Imagen 2: Evolución del interés académico sobre el nodo ética +
                 publicidad. Fuente: Lens.org (1980-2025)
@@ -364,7 +474,7 @@
         </blockquote>
 
         <div
-          class="mt-6 text-[10px] md:text-xs uppercase tracking-widest text-gray-400 font-bold"
+          class="mt-6 text-[10px] md:text-xs uppercase tracking-widest text-gray-600 font-bold"
         >
           Adela Cortina
         </div>
@@ -374,7 +484,10 @@
     <!-- =============================================
      SECCIÓN 2: ESTADO DE LA CUESTIÓN
      ============================================= -->
-    <section id="metodologia" class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50">
+    <section
+      id="estado-cuestion"
+      class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50"
+    >
       <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-12 gap-16 items-center">
           <!-- Columna izquierda (texto) -->
@@ -385,15 +498,15 @@
               Sección 02
             </span>
 
-            <h2 class="text-3xl md:text-4xl mt-2 font-bold text-red-700">
+            <h2 class="text-4xl md:text-5xl mt-2 mb-6 font-bold text-gray-900">
               Estado de la cuestión
             </h2>
 
-            <p class="mt-4 text-sm text-gray-500 max-w-md">
+            <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
               Confianza, autorregulación y misreading metodológico.
             </p>
 
-            <p class="mt-6 text-gray-600 max-w-lg">
+            <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
               A continuación, se presentan las corrientes de pensamiento que
               definen la legitimidad de los sistemas normativos y los
               dispositivos técnicos del Análisis Dinámico de Precedentes (ADP).
@@ -493,10 +606,10 @@
       <div class="max-w-7xl mx-auto fade-in">
         <!-- Subbloque: Encabezado de tabla -->
         <div class="text-center md:text-left mb-8">
-          <h3 class="serif text-2xl md:text-3xl text-gray-900">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
             Resumen de estudios sobre autorregulación y confianza del consumidor
           </h3>
-          <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">
+          <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
             Fuente: Elaboración propia.
           </p>
         </div>
@@ -733,10 +846,10 @@
              ============================================= -->
         <div class="mt-16 fade-in">
           <div class="text-center md:text-left mb-10">
-            <h3 class="serif text-2xl md:text-3xl text-gray-900">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
               La autorregulación publicitaria en el contexto colombiano
             </h3>
-            <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">
+            <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
               Síntesis de la literatura revisada
             </p>
           </div>
@@ -808,11 +921,11 @@
               src="imagenes/articulos_anio_colombia.png"
               alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
               loading="lazy"
-              class="w-full rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
+              class="w-full aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
             />
 
             <figcaption
-              class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest"
+              class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
             >
               Evolución del interés académico sobre el nodo ética + publicidad
               en Colombia. Fuente: Lens.org
@@ -825,11 +938,11 @@
              ============================================= -->
         <div class="mt-20 fade-in">
           <div class="text-center md:text-left mb-10">
-            <h3 class="serif text-2xl md:text-3xl text-gray-900">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
               Cartografía conceptual del análisis dinámico de precedentes como
               metodología de análisis jurisprudencial
             </h3>
-            <p class="mt-2 text-xs uppercase tracking-widest text-gray-400">
+            <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
               Síntesis del corpus revisado
             </p>
           </div>
@@ -840,10 +953,10 @@
               src="imagenes/cartografia.png"
               alt="Cartografía conceptual del análisis dinámico de precedentes"
               loading="lazy"
-              class="w-full rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
+              class="w-full aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
             />
             <figcaption
-              class="mt-4 text-[10px] text-gray-400 uppercase tracking-widest"
+              class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
             >
               Cartografía conceptual del análisis dinámico de precedentes como
               metodología de análisis jurisprudencial.
@@ -914,7 +1027,7 @@
      ========================================================= -->
     <section
       id="metodologia"
-      class="py-24 px-6 lg:px-12 bg-gray-900 text-white scroll-mt"
+      class="py-24 px-6 lg:px-12 bg-gray-50 scroll-mt"
     >
       <div class="max-w-7xl mx-auto">
         <!-- =====================================================
@@ -923,18 +1036,20 @@
          ===================================================== -->
         <div class="fade-in max-w-4xl">
           <span
-            class="text-red-500 font-bold tracking-widest text-xs uppercase"
+            class="text-red-700 font-bold tracking-widest text-xs uppercase"
           >
             Sección 03
           </span>
 
-          <h2 class="text-3xl md:text-5xl mt-2 mb-6">Metodología</h2>
+          <h2 class="text-4xl md:text-5xl mt-2 mb-6 font-bold text-gray-900">
+            Metodología
+          </h2>
 
           <p
-            class="text-lg md:text-xl text-gray-300 font-light max-w-3xl leading-relaxed"
+            class="text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed"
           >
             La investigación explora la aplicabilidad del
-            <strong class="text-white"
+            <strong class="text-gray-900"
               >Análisis Dinámico de Precedentes (ADP)</strong
             >
             al sistema de autorregulación publicitaria colombiano, mediante un
@@ -955,80 +1070,80 @@
         <div class="mt-14 fade-in">
           <div class="flex items-center gap-3 mb-6">
             <span
-              class="text-red-500 font-bold tracking-widest text-xs uppercase"
+              class="text-red-700 font-bold tracking-widest text-xs uppercase"
             >
               Ruta general
             </span>
-            <div class="h-[1px] w-10 bg-gray-700"></div>
+            <div class="h-[1px] w-10 bg-gray-300"></div>
           </div>
 
           <div class="grid md:grid-cols-5 gap-4">
-            <div class="rounded-xl border border-gray-800 bg-gray-950/60 p-5">
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
               >
                 Fase 01
               </p>
-              <h3 class="text-base font-semibold text-white mb-2">
+              <h3 class="text-base font-semibold text-gray-900 mb-2">
                 Revisión de literatura
               </h3>
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 Revisión de alcance para mapear el estado del conocimiento.
               </p>
             </div>
 
-            <div class="rounded-xl border border-gray-800 bg-gray-950/60 p-5">
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
               >
                 Fase 02
               </p>
-              <h3 class="text-base font-semibold text-white mb-2">
+              <h3 class="text-base font-semibold text-gray-900 mb-2">
                 Construcción del corpus
               </h3>
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 Inventario y depuración de decisiones de la CONARP.
               </p>
             </div>
 
-            <div class="rounded-xl border border-gray-800 bg-gray-950/60 p-5">
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
               >
                 Fase 03
               </p>
-              <h3 class="text-base font-semibold text-white mb-2">
+              <h3 class="text-base font-semibold text-gray-900 mb-2">
                 Encuesta cuantitativa
               </h3>
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 Identificación de temas éticos prioritarios para el sector.
               </p>
             </div>
 
-            <div class="rounded-xl border border-gray-800 bg-gray-950/60 p-5">
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
               >
                 Fase 04
               </p>
-              <h3 class="text-base font-semibold text-white mb-2">
+              <h3 class="text-base font-semibold text-gray-900 mb-2">
                 Entrevistas a expertos
               </h3>
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 Validación cualitativa y contraste de perspectivas.
               </p>
             </div>
 
-            <div class="rounded-xl border border-gray-800 bg-gray-950/60 p-5">
+            <div class="rounded-xl border border-gray-200 bg-white p-5">
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
               >
                 Fase 05
               </p>
-              <h3 class="text-base font-semibold text-white mb-2">
+              <h3 class="text-base font-semibold text-gray-900 mb-2">
                 Aplicación del ADP
               </h3>
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 Reconstrucción de líneas de precedente y subreglas.
               </p>
             </div>
@@ -1049,14 +1164,14 @@
        ===================================================== -->
           <div class="flex items-center gap-3 mb-6">
             <span
-              class="text-red-500 font-bold tracking-widest text-xs uppercase"
+              class="text-red-700 font-bold tracking-widest text-xs uppercase"
             >
               3.1 a 3.3
             </span>
-            <div class="h-[1px] w-10 bg-gray-700"></div>
+            <div class="h-[1px] w-10 bg-gray-300"></div>
           </div>
 
-          <h3 class="text-2xl md:text-3xl text-white mb-8">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
             Fundamentación teórica y objetivos
           </h3>
 
@@ -1065,20 +1180,20 @@
        (Dimensión epistemológica + enfoque mixto)
        ===================================================== -->
           <p
-            class="text-[10px] uppercase tracking-[0.22em] text-gray-400 font-bold mb-4"
+            class="text-[10px] uppercase tracking-[0.22em] text-gray-600 font-bold mb-4"
           >
             Marco epistemológico
           </p>
 
           <div class="grid md:grid-cols-2 gap-5 mb-10">
             <article
-              class="rounded-xl border border-gray-800 bg-gray-950/60 p-5"
+              class="rounded-xl border border-gray-200 bg-white p-5"
             >
-              <h4 class="text-sm font-semibold text-white mb-3">
+              <h4 class="text-base font-semibold text-gray-900 mb-4">
                 Dimensión epistemológica
               </h4>
 
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 El estudio se sitúa en el campo de las ciencias sociales y
                 humanas, donde el conocimiento se entiende como una construcción
                 situada e interpretativa.
@@ -1086,13 +1201,13 @@
             </article>
 
             <article
-              class="rounded-xl border border-gray-800 bg-gray-950/60 p-5"
+              class="rounded-xl border border-gray-200 bg-white p-5"
             >
-              <h4 class="text-sm font-semibold text-white mb-3">
+              <h4 class="text-base font-semibold text-gray-900 mb-4">
                 Enfoque mixto
               </h4>
 
-              <p class="text-sm text-gray-400 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 La investigación combina dimensiones cuantitativas y
                 cualitativas para captar tanto aspectos medibles como lógicas
                 comprensivas del fenómeno.
@@ -1109,7 +1224,7 @@
          ===================================================== -->
             <div class="lg:col-span-6 fade-in">
               <!-- Texto introductorio -->
-              <p class="text-gray-400 leading-relaxed mb-5">
+              <p class="text-gray-600 leading-relaxed mb-5">
                 La investigación se estructura a partir de un objetivo general y
                 un conjunto de objetivos específicos que orientan la revisión de
                 literatura, la construcción del corpus, la indagación empírica y
@@ -1119,17 +1234,17 @@
 
               <!-- Objetivo general -->
               <div
-                class="mb-5 rounded-xl border border-gray-800 bg-gray-950/60 p-5"
+                class="mb-5 rounded-xl border border-gray-200 bg-white p-5"
               >
                 <p
-                  class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                  class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
                 >
                   Objetivo general
                 </p>
 
-                <p class="text-sm text-gray-300 leading-relaxed">
+                <p class="text-sm text-gray-600 leading-relaxed">
                   Explorar la aplicabilidad del
-                  <strong class="text-white">
+                  <strong class="text-gray-900">
                     Análisis Dinámico de Precedentes (ADP)
                   </strong>
                   al contexto de la autorregulación publicitaria colombiana, con
@@ -1142,26 +1257,26 @@
            OBJETIVOS ESPECÍFICOS (COLAPSABLE)
            ===================================================== -->
               <details
-                class="group rounded-2xl border border-gray-800 bg-gray-950/70 p-6"
+                class="group rounded-2xl border border-gray-200 bg-white p-6"
               >
                 <summary
                   class="flex cursor-pointer list-none items-center justify-between gap-4"
                 >
                   <div>
                     <p
-                      class="text-[11px] uppercase tracking-[0.22em] text-red-400 font-bold mb-1"
+                      class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-1"
                     >
                       Objetivos específicos
                     </p>
 
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-600">
                       Mostrar los siete objetivos específicos de la
                       investigación
                     </p>
                   </div>
 
                   <span
-                    class="shrink-0 text-red-400 text-xl leading-none transition-transform duration-300 group-open:rotate-45"
+                    class="shrink-0 text-red-700 text-xl leading-none transition-transform duration-300 group-open:rotate-45"
                   >
                     +
                   </span>
@@ -1169,8 +1284,8 @@
 
                 <div class="mt-6 grid gap-4">
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE1</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE1</p>
+                    <p class="text-sm text-gray-600">
                       Realizar una revisión de alcance del campo académico sobre
                       autorregulación publicitaria, ética profesional y análisis
                       de precedentes para detectar vacíos de conocimiento.
@@ -1178,8 +1293,8 @@
                   </div>
 
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE2</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE2</p>
+                    <p class="text-sm text-gray-600">
                       Construir y analizar un corpus representativo de las
                       decisiones históricas de la CONARP para identificar
                       patrones éticos y argumentativos.
@@ -1187,16 +1302,16 @@
                   </div>
 
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE3</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE3</p>
+                    <p class="text-sm text-gray-600">
                       Aplicar una encuesta cuantitativa a profesionales del
                       sector para identificar los temas éticos prioritarios.
                     </p>
                   </div>
 
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE4</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE4</p>
+                    <p class="text-sm text-gray-600">
                       Realizar entrevistas cualitativas a expertos nacionales e
                       internacionales para comprender la función normativa de la
                       autorregulación.
@@ -1204,16 +1319,16 @@
                   </div>
 
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE5</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE5</p>
+                    <p class="text-sm text-gray-600">
                       Explorar la aplicabilidad técnica del análisis dinámico de
                       precedentes en el corpus de la CONARP.
                     </p>
                   </div>
 
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE6</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE6</p>
+                    <p class="text-sm text-gray-600">
                       Evaluar la utilidad y las limitaciones del método para
                       fortalecer la coherencia y predictibilidad de las
                       decisiones.
@@ -1221,8 +1336,8 @@
                   </div>
 
                   <div class="border-l-2 border-red-500/60 pl-4">
-                    <p class="text-sm text-white font-semibold">OE7</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold">OE7</p>
+                    <p class="text-sm text-gray-600">
                       Triangular los hallazgos empíricos y documentales para
                       formular recomendaciones metodológicas.
                     </p>
@@ -1239,7 +1354,7 @@
          ===================================================== -->
             <div class="lg:col-span-6 fade-in">
               <!-- Texto introductorio -->
-              <p class="text-gray-400 leading-relaxed mb-5">
+              <p class="text-gray-600 leading-relaxed mb-5">
                 La investigación se guía por una hipótesis general sobre la
                 relación entre precedentes y confianza institucional,
                 complementada por hipótesis secundarias que permiten explorar
@@ -1248,15 +1363,15 @@
 
               <!-- Hipótesis general -->
               <div
-                class="mb-5 rounded-xl border border-gray-800 bg-gray-950/60 p-5"
+                class="mb-5 rounded-xl border border-gray-200 bg-white p-5"
               >
                 <p
-                  class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-3"
+                  class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
                 >
                   Hipótesis general
                 </p>
 
-                <p class="text-sm text-gray-300 leading-relaxed">
+                <p class="text-sm text-gray-600 leading-relaxed">
                   Los sistemas que incorporan metodologías estructuradas de
                   precedentes generan una mayor percepción de confianza entre
                   sus usuarios.
@@ -1267,25 +1382,25 @@
            HIPÓTESIS SECUNDARIAS (COLAPSABLE)
            ===================================================== -->
               <details
-                class="group rounded-2xl border border-gray-800 bg-gray-950/70 p-6"
+                class="group rounded-2xl border border-gray-200 bg-white p-6"
               >
                 <summary
                   class="flex cursor-pointer list-none items-center justify-between gap-4"
                 >
                   <div>
                     <p
-                      class="text-[11px] uppercase tracking-[0.22em] text-red-400 font-bold mb-1"
+                      class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-1"
                     >
                       Hipótesis secundarias
                     </p>
 
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-600">
                       Mostrar las cuatro hipótesis secundarias
                     </p>
                   </div>
 
                   <span
-                    class="shrink-0 text-red-400 text-xl leading-none transition-transform duration-300 group-open:rotate-45"
+                    class="shrink-0 text-red-700 text-xl leading-none transition-transform duration-300 group-open:rotate-45"
                   >
                     +
                   </span>
@@ -1293,40 +1408,40 @@
 
                 <div class="mt-6 grid md:grid-cols-2 gap-4">
                   <div
-                    class="rounded-lg border border-gray-800 bg-gray-900 p-4"
+                    class="rounded-lg border border-gray-200 bg-gray-50 p-4"
                   >
-                    <p class="text-sm text-white font-semibold mb-2">H1</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold mb-2">H1</p>
+                    <p class="text-sm text-gray-600">
                       La consistencia en la aplicación de principios éticos a lo
                       largo del tiempo influye en la percepción de confianza.
                     </p>
                   </div>
 
                   <div
-                    class="rounded-lg border border-gray-800 bg-gray-900 p-4"
+                    class="rounded-lg border border-gray-200 bg-gray-50 p-4"
                   >
-                    <p class="text-sm text-white font-semibold mb-2">H2</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold mb-2">H2</p>
+                    <p class="text-sm text-gray-600">
                       Las decisiones estructuradas aumentan la percepción de
                       legitimidad.
                     </p>
                   </div>
 
                   <div
-                    class="rounded-lg border border-gray-800 bg-gray-900 p-4"
+                    class="rounded-lg border border-gray-200 bg-gray-50 p-4"
                   >
-                    <p class="text-sm text-white font-semibold mb-2">H3</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold mb-2">H3</p>
+                    <p class="text-sm text-gray-600">
                       Justificar explícitamente el precedente aumenta la
                       aceptación entre anunciantes y agencias.
                     </p>
                   </div>
 
                   <div
-                    class="rounded-lg border border-gray-800 bg-gray-900 p-4"
+                    class="rounded-lg border border-gray-200 bg-gray-50 p-4"
                   >
-                    <p class="text-sm text-white font-semibold mb-2">H4</p>
-                    <p class="text-sm text-gray-400">
+                    <p class="text-sm text-gray-900 font-semibold mb-2">H4</p>
+                    <p class="text-sm text-gray-600">
                       A mayor complejidad decisional, mayor necesidad de
                       incorporar metodologías estructuradas de precedentes.
                     </p>
@@ -1353,22 +1468,22 @@
           <div class="max-w-4xl mb-8">
             <div class="flex items-center gap-3 mb-6">
               <span
-                class="text-red-500 font-bold tracking-widest text-xs uppercase"
+                class="text-red-700 font-bold tracking-widest text-xs uppercase"
               >
                 3.4
               </span>
-              <div class="h-[1px] w-10 bg-gray-700"></div>
+              <div class="h-[1px] w-10 bg-gray-300"></div>
             </div>
 
-            <h3 class="text-2xl md:text-3xl text-white mb-5">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Diseño metodológico y triangulación
             </h3>
 
-            <p class="text-gray-300 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed">
               La investigación distingue entre
-              <strong class="text-white">metodología</strong>, entendida como la
+              <strong class="text-gray-900">metodología</strong>, entendida como la
               estrategia global del estudio, y
-              <strong class="text-white">métodos</strong>, referidos a las
+              <strong class="text-gray-900">métodos</strong>, referidos a las
               herramientas operativas utilizadas para recolectar y analizar la
               información. El diseño se fundamenta en una estrategia de
               triangulación para fortalecer la validez interna y la robustez
@@ -1378,14 +1493,14 @@
 
           <div class="grid md:grid-cols-3 gap-6">
             <article
-              class="rounded-2xl border border-gray-800 bg-gray-950/60 p-6"
+              class="rounded-2xl border border-gray-200 bg-white p-6"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-4"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-4"
               >
                 Triangulación de métodos
               </p>
-              <ul class="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• Encuesta estructurada a profesionales del sector</li>
                 <li>• Entrevistas semiestructuradas a expertos</li>
                 <li>• Análisis documental de decisiones institucionales</li>
@@ -1394,14 +1509,14 @@
             </article>
 
             <article
-              class="rounded-2xl border border-gray-800 bg-gray-950/60 p-6"
+              class="rounded-2xl border border-gray-200 bg-white p-6"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-4"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-4"
               >
                 Triangulación de fuentes
               </p>
-              <ul class="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• Documentos históricos de la CONARP</li>
                 <li>• Testimonios de expertos nacionales e internacionales</li>
                 <li>• Percepciones actuales del ecosistema publicitario</li>
@@ -1409,14 +1524,14 @@
             </article>
 
             <article
-              class="rounded-2xl border border-gray-800 bg-gray-950/60 p-6"
+              class="rounded-2xl border border-gray-200 bg-white p-6"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-4"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-4"
               >
                 Triangulación teórica
               </p>
-              <ul class="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• Ética aplicada</li>
                 <li>• Análisis jurisprudencial</li>
                 <li>• Teoría de la autorregulación</li>
@@ -1432,6 +1547,27 @@
          ===================================================== -->
 
         <!-- =====================================================
+     BLOQUE VISUAL INTERMEDIO
+     Imagen conceptual entre 3.3 y 3.4
+     ===================================================== -->
+        <div class="mt-20 mb-20 flex justify-center fade-in">
+          <figure class="max-w-4xl mx-auto text-center">
+            <img
+              src="imagenes/discusión_chart.png"
+              alt="Representación conceptual del diseño metodológico"
+              loading="lazy"
+              class="mx-auto w-full rounded-3xl shadow-lg border border-gray-200 bg-white object-contain"
+            />
+
+            <figcaption
+              class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
+            >
+              Representación conceptual del diseño metodológico
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- =====================================================
          BLOQUE 3.4: FASE DE REVISIÓN Y CONSTRUCCIÓN DEL CORPUS
          INICIO
          ===================================================== -->
@@ -1440,21 +1576,21 @@
           <div class="lg:col-span-6 fade-in">
             <div class="flex items-center gap-3 mb-6">
               <span
-                class="text-red-500 font-bold tracking-widest text-xs uppercase"
+                class="text-red-700 font-bold tracking-widest text-xs uppercase"
               >
                 3.5 a 3.6
               </span>
-              <div class="h-[1px] w-10 bg-gray-700"></div>
+              <div class="h-[1px] w-10 bg-gray-300"></div>
             </div>
 
-            <h3 class="text-2xl md:text-3xl text-white mb-5">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Revisión de alcance y construcción del corpus
             </h3>
 
-            <div class="space-y-5 text-gray-300 leading-relaxed">
+            <div class="space-y-5 text-gray-600 leading-relaxed">
               <p>
                 La investigación inicia con una
-                <strong class="text-white"
+                <strong class="text-gray-900"
                   >revisión de alcance (Scoping Review)</strong
                 >
                 destinada a mapear el estado del conocimiento sobre ética
@@ -1463,19 +1599,19 @@
 
               <p>
                 El procedimiento siguió el protocolo
-                <strong class="text-white">PRISMA-ScR</strong> y utilizó
+                <strong class="text-gray-900">PRISMA-ScR</strong> y utilizó
                 búsquedas sistemáticas en bases de datos académicas como
-                <strong class="text-white">Scopus</strong>,
-                <strong class="text-white">Web of Science</strong> y
-                <strong class="text-white">Google Scholar</strong>.
+                <strong class="text-gray-900">Scopus</strong>,
+                <strong class="text-gray-900">Web of Science</strong> y
+                <strong class="text-gray-900">Google Scholar</strong>.
               </p>
 
               <p>
                 Posteriormente se construyó un inventario documental de
                 decisiones de la
-                <strong class="text-white">CONARP</strong>, del que se derivó un
+                <strong class="text-gray-900">CONARP</strong>, del que se derivó un
                 corpus analítico de
-                <strong class="text-white"
+                <strong class="text-gray-900"
                   >46 conceptos emitidos entre 1998 y 2013</strong
                 >.
               </p>
@@ -1490,51 +1626,43 @@
 
           <!-- Columna visual -->
           <div class="lg:col-span-6 fade-in" style="transition-delay: 150ms">
-            <div class="rounded-2xl border border-gray-800 bg-gray-950/60 p-6">
-              <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-4"
-              >
-                Síntesis visual
-              </p>
-
-              <div class="space-y-4">
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <p class="text-sm font-semibold text-white mb-1">
-                    Scoping Review
-                  </p>
-                  <p class="text-sm text-gray-400">
-                    Mapeo de evidencia académica y detección de vacíos de
-                    conocimiento.
-                  </p>
-                </div>
-
-                <div class="flex justify-center text-gray-600 text-xl">↓</div>
-
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <p class="text-sm font-semibold text-white mb-1">
-                    Inventario CONARP
-                  </p>
-                  <p class="text-sm text-gray-400">
-                    Selección y depuración del archivo institucional disponible.
-                  </p>
-                </div>
-
-                <div class="flex justify-center text-gray-600 text-xl">↓</div>
-
-                <a
-                  href="relatoria/relatoria.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="group block rounded-lg border border-red-900/50 bg-red-950/20 p-4 transition-colors hover:border-red-700/70 hover:bg-red-950/35 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950"
-                >
-                  <p class="text-sm font-semibold text-white mb-1">
-                    Corpus definitivo
-                  </p>
-                  <p class="text-sm text-gray-300 group-hover:text-gray-200">
-                    46 decisiones de fondo emitidas entre 1998 y 2013.
-                  </p>
-                </a>
+            <div class="space-y-4">
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <p class="text-sm font-semibold text-gray-900 mb-1">
+                  Scoping Review
+                </p>
+                <p class="text-sm text-gray-600">
+                  Mapeo de evidencia académica y detección de vacíos de
+                  conocimiento.
+                </p>
               </div>
+
+              <div class="flex justify-center text-gray-600 text-xl">↓</div>
+
+              <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <p class="text-sm font-semibold text-gray-900 mb-1">
+                  Inventario CONARP
+                </p>
+                <p class="text-sm text-gray-600">
+                  Selección y depuración del archivo institucional disponible.
+                </p>
+              </div>
+
+              <div class="flex justify-center text-gray-600 text-xl">↓</div>
+
+              <a
+                href="relatoria/relatoria.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group block rounded-lg border border-red-200 bg-red-50 p-4 transition-colors hover:border-red-300 hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
+                <p class="text-sm font-semibold text-gray-900 mb-1">
+                  Corpus definitivo
+                </p>
+                <p class="text-sm text-gray-600 group-hover:text-gray-700">
+                  46 decisiones de fondo emitidas entre 1998 y 2013.
+                </p>
+              </a>
             </div>
           </div>
         </div>
@@ -1552,18 +1680,18 @@
           <div class="max-w-4xl mb-8">
             <div class="flex items-center gap-3 mb-6">
               <span
-                class="text-red-500 font-bold tracking-widest text-xs uppercase"
+                class="text-red-700 font-bold tracking-widest text-xs uppercase"
               >
                 3.7 a 3.8
               </span>
-              <div class="h-[1px] w-10 bg-gray-700"></div>
+              <div class="h-[1px] w-10 bg-gray-300"></div>
             </div>
 
-            <h3 class="text-2xl md:text-3xl text-white mb-5">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Fase empírica: encuesta y entrevistas
             </h3>
 
-            <p class="text-gray-300 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed">
               La fase empírica combinó una encuesta cuantitativa orientada a
               identificar los temas éticos prioritarios del sector y una
               exploración cualitativa basada en entrevistas semiestructuradas a
@@ -1574,21 +1702,21 @@
           <div class="grid lg:grid-cols-2 gap-6">
             <!-- Tarjeta encuesta -->
             <article
-              class="rounded-2xl border border-gray-800 bg-gray-950/60 p-7"
+              class="rounded-2xl border border-gray-200 bg-white p-7"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-4"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-4"
               >
                 Encuesta cuantitativa
               </p>
 
-              <p class="text-sm text-gray-300 leading-relaxed mb-5">
+              <p class="text-sm text-gray-600 leading-relaxed mb-5">
                 El cuestionario se diseñó para identificar los temas éticos
                 percibidos como prioritarios entre los profesionales del
                 ecosistema publicitario.
               </p>
 
-              <ul class="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• Aplicación virtual</li>
                 <li>• 44 participantes</li>
                 <li>• Perfil: abogados, publicistas y académicos</li>
@@ -1601,22 +1729,22 @@
 
             <!-- Tarjeta entrevistas -->
             <article
-              class="rounded-2xl border border-gray-800 bg-gray-950/60 p-7"
+              class="rounded-2xl border border-gray-200 bg-white p-7"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-4"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-4"
               >
                 Entrevistas semiestructuradas
               </p>
 
-              <p class="text-sm text-gray-300 leading-relaxed mb-5">
+              <p class="text-sm text-gray-600 leading-relaxed mb-5">
                 La validación cualitativa se desarrolló mediante entrevistas a
                 expertos con el fin de recoger experiencias, perspectivas
                 críticas y valoraciones sobre la función normativa de la
                 autorregulación.
               </p>
 
-              <ul class="space-y-3 text-sm text-gray-400 leading-relaxed">
+              <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• 11 expertos nacionales e internacionales</li>
                 <li>• Juristas, académicos y directivos de autorregulación</li>
                 <li>• Funcionamiento institucional de la autorregulación</li>
@@ -1641,26 +1769,26 @@
           <div class="lg:col-span-4 fade-in">
             <div class="flex items-center gap-3 mb-6">
               <span
-                class="text-red-500 font-bold tracking-widest text-xs uppercase"
+                class="text-red-700 font-bold tracking-widest text-xs uppercase"
               >
                 3.9
               </span>
-              <div class="h-[1px] w-10 bg-gray-700"></div>
+              <div class="h-[1px] w-10 bg-gray-300"></div>
             </div>
 
-            <h3 class="text-2xl md:text-3xl text-white mb-5">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Análisis estructural: aplicación del ADP
             </h3>
 
-            <p class="text-gray-300 leading-relaxed mb-5">
+            <p class="text-gray-600 leading-relaxed mb-5">
               La fase final adapta el
-              <strong class="text-white"
+              <strong class="text-gray-900"
                 >Análisis Dinámico de Precedentes</strong
               >, desarrollado por Diego López Medina, al estudio de las
               decisiones éticas emitidas por la CONARP.
             </p>
 
-            <p class="text-gray-400 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed">
               El propósito es reconstruir la evolución de reglas normativas
               mediante una red de decisiones relacionadas, identificando
               subreglas y balances normativos predominantes.
@@ -1670,78 +1798,77 @@
           <!-- Columna de pasos -->
           <div class="lg:col-span-8 fade-in" style="transition-delay: 150ms">
             <div
-              class="rounded-2xl border border-gray-800 bg-gray-950/60 p-6 md:p-8"
+              class="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold mb-6"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-6"
               >
                 Ruta analítica
               </p>
 
               <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">01</span>
-                  <p class="text-sm text-gray-300 mt-2">
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">01</span>
+                  <p class="text-sm text-gray-600 mt-2">
                     Formulación del problema ético-jurídico
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">02</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Selección de una decisión arquimédica
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">02</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Identificación del escenario deontológico
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">03</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Construcción del nicho citacional
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">03</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Selección de la decisión arquimédica
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">04</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Elaboración del mapa decisional o “telaraña”
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">04</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Construcción del nicho citacional (o referencial)
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">05</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Identificación de decisiones relacionadas
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">05</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Elaboración de la telaraña o mapa decisional
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">06</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Reconstrucción de la trayectoria argumentativa
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">06</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Clasificación de decisiones relevantes
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">07</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Determinación de subreglas decisionales
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">07</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Análisis individual (estático) de decisiones clave
                   </p>
                 </div>
 
-                <div class="rounded-lg border border-gray-800 bg-gray-900 p-4">
-                  <span class="text-red-400 font-bold text-sm">08</span>
-                  <p class="text-sm text-gray-300 mt-2">
-                    Identificación de balances normativos predominantes
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                  <span class="text-red-700 font-bold text-sm">08</span>
+                  <p class="text-sm text-gray-600 mt-2">
+                    Determinación de la subregla decisional
                   </p>
                 </div>
 
                 <div
-                  class="rounded-lg border border-red-900/50 bg-red-950/20 p-4"
+                  class="rounded-lg border border-red-200 bg-red-50 p-4"
                 >
                   <span class="text-red-300 font-bold text-sm">09</span>
-                  <p class="text-sm text-gray-200 mt-2">
-                    Interpretación de la evolución de los criterios éticos en la
-                    CONARP
+                  <p class="text-sm text-gray-700 mt-2">
+                    Identificación del balance normativo predominante
                   </p>
                 </div>
               </div>
@@ -1759,10 +1886,10 @@
          ===================================================== -->
         <div class="mt-16 fade-in">
           <div
-            class="rounded-2xl border-l-4 border-red-500 bg-white/5 px-6 py-6"
+            class="rounded-2xl border-l-4 border-red-500 bg-gray-50 px-6 py-6"
           >
             <p
-              class="serif text-xl md:text-2xl text-white italic leading-relaxed"
+              class="serif text-xl md:text-2xl text-gray-900 italic leading-relaxed"
             >
               La metodología articula revisión documental, consulta al sector,
               validación experta y análisis estructural de precedentes para
@@ -1784,21 +1911,21 @@
           <div class="grid lg:grid-cols-12 gap-8 items-start">
             <div class="lg:col-span-3">
               <p
-                class="text-[10px] uppercase tracking-[0.22em] text-red-400 font-bold"
+                class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold"
               >
                 Consideraciones éticas
               </p>
             </div>
 
             <div
-              class="lg:col-span-9 rounded-xl border border-gray-800 bg-gray-950/60 p-6"
+              class="lg:col-span-9 rounded-xl border border-gray-200 bg-white p-6"
             >
-              <p class="text-sm text-gray-300 leading-relaxed">
+              <p class="text-sm text-gray-600 leading-relaxed">
                 El diseño de investigación se desarrolló respetando los
                 principios de
-                <strong class="text-white">confidencialidad</strong>,
-                <strong class="text-white">consentimiento informado</strong> y
-                <strong class="text-white"
+                <strong class="text-gray-900">confidencialidad</strong>,
+                <strong class="text-gray-900">consentimiento informado</strong> y
+                <strong class="text-gray-900"
                   >autonomía de los participantes</strong
                 >.
               </p>
@@ -1819,14 +1946,16 @@
     <!-- =============================================
          SECCIÓN 4: RESULTADOS
          ============================================= -->
-    <section id="discusion" class="py-24 px-6 lg:px-12 scroll-mt bg-white">
+    <section id="resultados" class="py-24 px-6 lg:px-12 scroll-mt bg-white">
       <div class="max-w-7xl mx-auto">
         <div class="fade-in text-center md:text-left">
           <span class="text-red-700 font-bold tracking-widest text-xs uppercase"
             >Sección 04</span
           >
-          <h2 class="text-4xl md:text-5xl font-bold mt-2">Resultados</h2>
-          <p class="mt-6 text-sm md:text-base text-gray-600 max-w-3xl">
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
+            Resultados
+          </h2>
+          <p class="text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             posuere, nisl at pellentesque efficitur, tortor augue egestas
             ligula, non luctus arcu lorem vel velit. Curabitur euismod ante vel
@@ -1877,7 +2006,7 @@
                   class="w-full h-full border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-center"
                 >
                   <p
-                    class="text-[11px] uppercase tracking-[0.18em] text-gray-400 font-semibold"
+                    class="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold"
                   >
                     Placeholder de imagen principal<br />
                     Sección 4
@@ -1885,7 +2014,7 @@
                 </div>
               </div>
               <figcaption
-                class="px-4 py-3 text-[10px] text-gray-400 uppercase tracking-widest"
+                class="px-4 py-3 text-[10px] text-gray-600 uppercase tracking-widest"
               >
                 Espacio reservado para figura central de resultados.
               </figcaption>
@@ -1893,183 +2022,1235 @@
           </aside>
         </div>
 
-        <div class="mt-10 fade-in">
-          <h3
-            class="text-[11px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
-          >
-            Galería de soporte visual
-          </h3>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div
-              class="aspect-square rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center"
-              data-slot="galeria-discusion-1"
-            >
-              <span class="text-[10px] uppercase tracking-widest text-gray-400"
-                >Foto / Gráfico 01</span
-              >
-            </div>
-            <div
-              class="aspect-square rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center"
-              data-slot="galeria-discusion-2"
-            >
-              <span class="text-[10px] uppercase tracking-widest text-gray-400"
-                >Foto / Gráfico 02</span
-              >
-            </div>
-            <div
-              class="aspect-square rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center"
-              data-slot="galeria-discusion-3"
-            >
-              <span class="text-[10px] uppercase tracking-widest text-gray-400"
-                >Foto / Gráfico 03</span
-              >
-            </div>
-            <div
-              class="aspect-square rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 flex items-center justify-center"
-              data-slot="galeria-discusion-4"
-            >
-              <span class="text-[10px] uppercase tracking-widest text-gray-400"
-                >Foto / Gráfico 04</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =============================================
-         SECCIÓN 5: DISCUSIÓN Y CONCLUSIONES
-         ============================================= -->
-    <section id="conclusiones" class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="fade-in text-center">
-          <span class="text-red-700 font-bold tracking-widest text-xs uppercase"
-            >Sección 05</span
-          >
-          <h2 class="text-4xl md:text-5xl font-bold mt-2 mb-6">
-            Discusión y conclusiones
-          </h2>
-          <p class="max-w-3xl mx-auto text-sm md:text-base text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non
-            sem finibus, sodales enim sed, vehicula metus. Integer ac enim
-            suscipit, posuere lectus non, convallis nunc.
-          </p>
-        </div>
-
         <div class="mt-12 fade-in">
-          <div
-            class="bg-white border border-gray-200 rounded-xl p-8 md:p-10 border-l-4 border-l-red-700"
-          >
-            <p
-              class="serif text-xl md:text-2xl text-gray-700 italic leading-relaxed"
-            >
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              efficitur lectus vel sem convallis, et fermentum nisl elementum."
-            </p>
+          <div class="mb-4">
+            <div>
+              <h3
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold"
+              >
+                Tablas de resultados
+              </h3>
+              <p class="text-sm text-gray-600 mt-2">
+                Navega horizontalmente entre tablas para mantener la sección más
+                compacta.
+              </p>
+            </div>
           </div>
-        </div>
 
-        <div class="mt-10 grid md:grid-cols-3 gap-6 fade-in">
-          <article class="bg-white border border-gray-200 rounded-xl p-6">
-            <h3
-              class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+          <div class="relative">
+            <button
+              class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-carousel="resultados-tablas"
+              data-direction="prev"
+              aria-label="Tabla anterior"
             >
-              Aporte teórico
-            </h3>
-            <p class="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              iaculis elit et congue dictum. Vivamus tincidunt, nisl vel
-              consequat efficitur, nisl justo fermentum turpis.
-            </p>
-          </article>
+              ‹
+            </button>
 
-          <article class="bg-white border border-gray-200 rounded-xl p-6">
-            <h3
-              class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
-            >
-              Limitaciones
-            </h3>
-            <p class="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              faucibus arcu sit amet est posuere, vitae malesuada sapien
-              malesuada. Aenean rutrum luctus nunc, in volutpat neque.
-            </p>
-          </article>
-
-          <article class="bg-white border border-gray-200 rounded-xl p-6">
-            <h3
-              class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
-            >
-              Proyección futura
-            </h3>
-            <p class="text-sm text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              feugiat erat eget nisl posuere, a facilisis ipsum aliquet. Donec
-              ut sem at lectus accumsan varius.
-            </p>
-          </article>
-        </div>
-
-        <div class="mt-10 grid lg:grid-cols-12 gap-6 fade-in">
-          <figure
-            class="lg:col-span-7 rounded-xl border border-gray-200 bg-white"
-          >
             <div
-              class="aspect-[16/9] p-5 bg-gradient-to-br from-gray-100 via-gray-50 to-white"
-              data-slot="conclusion-imagen-cierre"
+              id="resultados-tablas"
+              class="results-carousel-track"
+              aria-label="Carrusel de tablas de resultados"
             >
-              <div
-                class="h-full border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-center"
-              >
-                <p
-                  class="text-[11px] uppercase tracking-[0.18em] text-gray-400 font-semibold"
-                >
-                  Placeholder de imagen de cierre
-                </p>
-              </div>
-            </div>
-            <figcaption
-              class="px-4 py-3 text-[10px] text-gray-400 uppercase tracking-widest"
-            >
-              Espacio listo para integrar imagen final o esquema de síntesis.
-            </figcaption>
-          </figure>
-
-          <div class="lg:col-span-5 grid grid-cols-2 gap-4">
-            <div
-              class="aspect-square rounded-lg border-2 border-dashed border-gray-300 bg-white flex items-center justify-center text-center"
-              data-slot="conclusion-galeria-1"
-            >
-              <span class="text-[10px] uppercase tracking-widest text-gray-400"
-                >Anexo visual 01</span
-              >
-            </div>
-            <div
-              class="aspect-square rounded-lg border-2 border-dashed border-gray-300 bg-white flex items-center justify-center text-center"
-              data-slot="conclusion-galeria-2"
-            >
-              <span class="text-[10px] uppercase tracking-widest text-gray-400"
-                >Anexo visual 02</span
-              >
-            </div>
-            <div
-              class="col-span-2 rounded-lg border border-gray-200 bg-white px-5 py-4"
+            <article
+              class="results-slide rounded-xl border border-gray-200 bg-white p-5"
             >
               <p
-                class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-2"
+                class="text-[10px] uppercase tracking-[0.2em] text-red-700 font-bold mb-3"
               >
-                Nota de edición
+                Tabla 01
               </p>
-              <p class="text-sm text-gray-600">
-                Este bloque puede usarse para cerrar con una interpretación
-                final, una implicación práctica o una recomendación para futuras
-                líneas de investigación.
+              <h4 class="text-base font-semibold text-gray-900 mb-4">
+                Distribución de dictámenes por año
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="min-w-[620px] w-full text-sm">
+                  <thead class="bg-gray-50 text-gray-600">
+                    <tr>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Año
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        N. de conceptos
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        % del total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-700">
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">1999</td>
+                      <td class="px-3 py-2 border border-gray-200">8</td>
+                      <td class="px-3 py-2 border border-gray-200">14.8%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">2005</td>
+                      <td class="px-3 py-2 border border-gray-200">7</td>
+                      <td class="px-3 py-2 border border-gray-200">13.0%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">2011</td>
+                      <td class="px-3 py-2 border border-gray-200">6</td>
+                      <td class="px-3 py-2 border border-gray-200">11.1%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article
+              class="results-slide rounded-xl border border-gray-200 bg-white p-5"
+            >
+              <p
+                class="text-[10px] uppercase tracking-[0.2em] text-red-700 font-bold mb-3"
+              >
+                Tabla 02
               </p>
+              <h4 class="text-base font-semibold text-gray-900 mb-4">
+                Tipos de infracción invocada
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="min-w-[620px] w-full text-sm">
+                  <thead class="bg-gray-50 text-gray-600">
+                    <tr>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Tipo
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Frecuencia
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        % del total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-700">
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Principio de veracidad
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">31</td>
+                      <td class="px-3 py-2 border border-gray-200">57.4%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Leal competencia
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">18</td>
+                      <td class="px-3 py-2 border border-gray-200">33.3%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Protección de la infancia
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">5</td>
+                      <td class="px-3 py-2 border border-gray-200">9.3%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article
+              class="results-slide rounded-xl border border-gray-200 bg-white p-5"
+            >
+              <p
+                class="text-[10px] uppercase tracking-[0.2em] text-red-700 font-bold mb-3"
+              >
+                Tabla 03
+              </p>
+              <h4 class="text-base font-semibold text-gray-900 mb-4">
+                Resultado de las reclamaciones
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="min-w-[620px] w-full text-sm">
+                  <thead class="bg-gray-50 text-gray-600">
+                    <tr>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Decisión
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Casos
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        % del total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-700">
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Rectificación
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">20</td>
+                      <td class="px-3 py-2 border border-gray-200">37.0%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Desestimado
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">16</td>
+                      <td class="px-3 py-2 border border-gray-200">29.6%</td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Cesación temporal/definitiva
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">11</td>
+                      <td class="px-3 py-2 border border-gray-200">20.4%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article
+              class="results-slide rounded-xl border border-gray-200 bg-white p-5"
+            >
+              <p
+                class="text-[10px] uppercase tracking-[0.2em] text-red-700 font-bold mb-3"
+              >
+                Tabla 04
+              </p>
+              <h4 class="text-base font-semibold text-gray-900 mb-4">
+                Actores reclamantes más frecuentes
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="min-w-[620px] w-full text-sm">
+                  <thead class="bg-gray-50 text-gray-600">
+                    <tr>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Actor
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Casos
+                      </th>
+                      <th
+                        class="text-left font-semibold px-3 py-2 border border-gray-200"
+                      >
+                        Tipo predominante
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-700">
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Empresas competidoras
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">34</td>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Veracidad comparativa
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Particulares
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">11</td>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Dignidad / niñez
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Organismos públicos
+                      </td>
+                      <td class="px-3 py-2 border border-gray-200">9</td>
+                      <td class="px-3 py-2 border border-gray-200">
+                        Interés general
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
             </div>
+
+            <button
+              class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-carousel="resultados-tablas"
+              data-direction="next"
+              aria-label="Tabla siguiente"
+            >
+              ›
+            </button>
           </div>
+
         </div>
       </div>
     </section>
+    <!-- =============================================
+     SECCIÓN 5: HIPÓTESIS, CONCLUSIONES Y CIERRE
+     INICIO
+     ============================================= -->
+    <section id="conclusiones" class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <!-- =============================================
+         BLOQUE 5.0: ENCABEZADO GENERAL
+         INICIO
+         ============================================= -->
+        <div class="fade-in text-center">
+          <span
+            class="text-red-700 font-bold tracking-widest text-xs uppercase"
+          >
+            Sección 05
+          </span>
+          <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
+            Hipótesis, conclusiones y cierre
+          </h2>
+          <p
+            class="max-w-3xl mx-auto text-sm md:text-base text-gray-600 leading-relaxed"
+          >
+            Esta sección integra el contraste de hipótesis del estudio y una
+            síntesis final de hallazgos, límites metodológicos y líneas de
+            investigación derivadas.
+          </p>
+        </div>
+        <!-- =============================================
+         BLOQUE 5.0: ENCABEZADO GENERAL
+         FIN
+         ============================================= -->
+        <!-- =============================================
+     BLOQUE 5.1: SLIDER DE HIPÓTESIS
+     INICIO
+     Nota:
+     - Una sola vista por hipótesis.
+     - Sustituir contenido dummy por contenido final.
+     - H0 a H4.
+     ============================================= -->
+        <div class="mt-16 fade-in">
+          <!-- Contenedor general del slider -->
+          <div class="relative">
+            <button
+              id="hypothesis-prev"
+              class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              aria-label="Hipótesis anterior"
+            >
+              ‹
+            </button>
+
+            <div class="overflow-hidden">
+              <div
+                id="hypothesis-track"
+                class="flex transition-transform duration-500 ease-out"
+                style="transform: translateX(0%)"
+              >
+              <!-- =============================================
+     SLIDE H0
+     INICIO
+     ============================================= -->
+              <article class="w-full flex-shrink-0">
+                <div
+                  class="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
+                >
+                  <div class="max-w-5xl mx-auto">
+                    <p
+                      class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+                    >
+                      H0 · Hipótesis general
+                    </p>
+
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+                    >
+                      Hipótesis general del estudio
+                    </h4>
+
+                    <div
+                      class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
+                    >
+                      <p
+                        class="serif text-xl md:text-2xl text-gray-800 italic leading-relaxed"
+                      >
+                        “H0. Al mantener constantes las demás condiciones
+                        (ceteris paribus), los sistemas deontológicos que
+                        incorporan metodologías específicas para la creación y
+                        el respeto de precedentes decisionales generan una mayor
+                        percepción de confianza entre sus usuarios, en
+                        comparación con aquellos que no lo hacen”.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p
+                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
+                      >
+                        Ideas fuerza
+                      </p>
+
+                      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La hipótesis se valida con matices: el precedente
+                            fortalece la legitimidad y la previsibilidad, aunque
+                            no explica por sí solo toda la confianza.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La coherencia funciona como un piso ético mínimo: no
+                            se premia como un valor extra, se exige como
+                            condición básica de legitimidad.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            El precedente reduce la arbitrariedad y aumenta la
+                            predictibilidad, permitiendo anticipar criterios
+                            éticos y orientar la conducta del sector.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La confianza es multifactorial: la coherencia debe
+                            articularse con transparencia, independencia,
+                            diversidad institucional y memoria decisional.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- =============================================
+     SLIDE H0
+     FIN
+     ============================================= -->
+              <!-- =============================================
+     SLIDE H1
+     INICIO
+     ============================================= -->
+              <article class="w-full flex-shrink-0">
+                <div
+                  class="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
+                >
+                  <div class="max-w-5xl mx-auto">
+                    <p
+                      class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+                    >
+                      H1 · Consistencia y confianza
+                    </p>
+
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+                    >
+                      Consistencia en la aplicación de principios éticos
+                    </h4>
+
+                    <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
+                    <div
+                      class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
+                    >
+                      <p
+                        class="serif text-xl md:text-2xl text-gray-800 italic leading-relaxed"
+                      >
+                        “H1. La consistencia en la aplicación de principios
+                        éticos a lo largo del tiempo es el factor que más
+                        significativamente influye en la percepción de confianza
+                        por parte de los usuarios”.
+                      </p>
+                    </div>
+
+                    <!-- IDEAS FUERZA -->
+                    <div>
+                      <p
+                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
+                      >
+                        Ideas fuerza
+                      </p>
+
+                      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La hipótesis se valida con matices: la consistencia
+                            es estructural para la confianza, pero no actúa como
+                            factor único ni suficiente.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La coherencia doctrinal es esencial en sistemas no
+                            coercitivos, porque permite construir una memoria
+                            institucional reconocible.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            Una línea argumentativa estable reduce la
+                            incertidumbre y permite anticipar los criterios
+                            éticos aplicables en nuevos casos.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La consistencia funciona como un umbral mínimo de
+                            legitimidad y debe complementarse con transparencia,
+                            independencia y cultura ética.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- =============================================
+     SLIDE H1
+     FIN
+     ============================================= -->
+
+              <!-- =============================================
+     SLIDE H2
+     INICIO
+     ============================================= -->
+              <article class="w-full flex-shrink-0">
+                <div
+                  class="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
+                >
+                  <div class="max-w-5xl mx-auto">
+                    <p
+                      class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+                    >
+                      H2 · Legitimidad de la línea decisional
+                    </p>
+
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+                    >
+                      Legitimidad y estructura de las decisiones
+                    </h4>
+
+                    <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
+                    <div
+                      class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
+                    >
+                      <p
+                        class="serif text-xl md:text-2xl text-gray-800 italic leading-relaxed"
+                      >
+                        “H2. Los usuarios identifican con mayor claridad la
+                        legitimidad de las decisiones cuando estas siguen una
+                        línea decisional estructurada”.
+                      </p>
+                    </div>
+
+                    <!-- IDEAS FUERZA -->
+                    <div>
+                      <p
+                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
+                      >
+                        Ideas fuerza
+                      </p>
+
+                      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La hipótesis se confirma: la legitimidad aumenta
+                            cuando las decisiones se insertan en una línea
+                            argumentativa estructurada y reconocible.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La autoridad institucional requiere memoria
+                            doctrinal: un sistema sin historia de sus criterios
+                            no puede generar previsibilidad ni confianza.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            El ADP permitió reconstruir la estructura normativa
+                            del sistema, visibilizando subreglas y patrones
+                            interpretativos antes dispersos.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La estructura decisional reduce la arbitrariedad y
+                            permite seguir la evolución de los criterios éticos
+                            a lo largo del tiempo.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- =============================================
+     SLIDE H2
+     FIN
+     ============================================= -->
+
+              <!-- =============================================
+     SLIDE H3
+     INICIO
+     ============================================= -->
+              <article class="w-full flex-shrink-0">
+                <div
+                  class="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
+                >
+                  <div class="max-w-5xl mx-auto">
+                    <p
+                      class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+                    >
+                      H3 · Justificación del precedente
+                    </p>
+
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+                    >
+                      Justificación explícita y aceptación de las decisiones
+                    </h4>
+
+                    <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
+                    <div
+                      class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
+                    >
+                      <p
+                        class="serif text-xl md:text-2xl text-gray-800 italic leading-relaxed"
+                      >
+                        “H3. Las decisiones que presentan una justificación
+                        explícita del precedente utilizado generan mayor
+                        aceptación entre anunciantes y agencias”.
+                      </p>
+                    </div>
+
+                    <!-- IDEAS FUERZA -->
+                    <div>
+                      <p
+                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
+                      >
+                        Ideas fuerza
+                      </p>
+
+                      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La hipótesis recibe un respaldo significativo:
+                            justificar explícitamente el precedente aumenta la
+                            claridad y la aceptación de las decisiones entre los
+                            actores del sector.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            Explicitar el precedente fortalece la memoria
+                            doctrinal del sistema y conecta cada decisión con
+                            una trayectoria normativa reconocible.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La referencia a precedentes permite anticipar
+                            criterios, gestionar riesgos regulatorios y orientar
+                            la conducta de anunciantes y agencias.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La justificación basada en precedentes reduce la
+                            percepción de arbitrariedad, aunque su eficacia
+                            depende también de la transparencia, la reputación
+                            institucional y el contexto cultural.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- =============================================
+     SLIDE H3
+     FIN
+     ============================================= -->
+
+              <!-- =============================================
+     SLIDE H4
+     INICIO
+     ============================================= -->
+              <article class="w-full flex-shrink-0">
+                <div
+                  class="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 shadow-sm"
+                >
+                  <div class="max-w-5xl mx-auto">
+                    <p
+                      class="text-[10px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+                    >
+                      H4 · Complejidad y sistematización
+                    </p>
+
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+                    >
+                      Complejidad decisional y necesidad de precedentes
+                    </h4>
+
+                    <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
+                    <div
+                      class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
+                    >
+                      <p
+                        class="serif text-xl md:text-2xl text-gray-800 italic leading-relaxed"
+                      >
+                        “H4. A mayor complejidad en el mecanismo de toma de
+                        decisiones, mayor es la necesidad de incorporar
+                        metodologías estructuradas para la organización y
+                        aplicación de precedentes”.
+                      </p>
+                    </div>
+
+                    <!-- IDEAS FUERZA -->
+                    <div>
+                      <p
+                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
+                      >
+                        Ideas fuerza
+                      </p>
+
+                      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            Todo sistema decisional necesita construir memoria
+                            institucional para mantener coherencia y evitar
+                            decisiones arbitrarias.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La creciente complejidad del ecosistema publicitario
+                            —plataformas digitales, influencers y nuevos
+                            formatos— exige metodologías de organización
+                            doctrinal.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            Herramientas como el ADP permiten sistematizar casos
+                            dispersos, identificar subreglas y evitar la
+                            fragmentación del sistema.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            A medida que los sistemas crecen, la sistematización
+                            se vuelve indispensable para garantizar seguridad
+                            jurídica y credibilidad institucional.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <!-- =============================================
+     SLIDE H4
+     FIN
+     ============================================= -->
+              </div>
+            </div>
+
+            <button
+              id="hypothesis-next"
+              class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              aria-label="Hipótesis siguiente"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+        <!-- =============================================
+     BLOQUE 5.1: SLIDER DE HIPÓTESIS
+     FIN
+     ============================================= -->
+        <!-- =============================================
+     BLOQUE 5.2: CONCLUSIONES
+     INICIO
+     ============================================= -->
+        <div class="mt-20 fade-in">
+          <div class="max-w-4xl mb-10">
+            <p
+              class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+            >
+              5.8 Conclusiones
+            </p>
+
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
+              Síntesis final de la investigación
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed">
+              La investigación demuestra que la incorporación de metodologías de
+              precedentes estructuradas puede fortalecer significativamente la
+              coherencia, la predictibilidad y la legitimidad de los sistemas de
+              autorregulación publicitaria. La aplicación del Análisis Dinámico
+              de Precedentes permitió reconstruir patrones argumentativos,
+              subreglas éticas y balances normativos latentes en la práctica
+              histórica de la CONARP, integrando evidencia documental,
+              percepciones del sector y análisis experto para comprender los
+              desafíos actuales del sistema.
+            </p>
+          </div>
+
+          <!-- CARRUSEL DE CONCLUSIONES -->
+          <div class="relative">
+            <button
+              class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-summary-carousel="conclusiones-cards"
+              data-direction="prev"
+              aria-label="Conclusión anterior"
+            >
+              ‹
+            </button>
+
+            <div
+              id="conclusiones-cards"
+              class="summary-carousel-track"
+              aria-label="Carrusel de conclusiones"
+            >
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Validación de la propuesta
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                La investigación respalda que una disciplina de precedentes
+                estructurada mejora la coherencia doctrinal, la predictibilidad
+                de las decisiones y la legitimidad institucional de los sistemas
+                de autorregulación publicitaria.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Coherencia como umbral mínimo
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                La coherencia doctrinal no constituye un valor accesorio sino un
+                requisito estructural para la racionalidad de cualquier sistema
+                normativo. Sin embargo, por sí sola no basta: debe
+                complementarse con transparencia, independencia institucional y
+                compromiso ético de los actores.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Viabilidad metodológica
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                El estudio demuestra que el Análisis Dinámico de Precedentes
+                puede aplicarse con éxito en contextos no judiciales,
+                permitiendo identificar patrones argumentativos, subreglas
+                éticas y balances normativos incluso sin un sistema formal de
+                citación.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Sinergia de evidencias
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                La triangulación metodológica evidenció que la legitimidad del
+                sistema depende de múltiples factores: la práctica institucional
+                observada en los documentos, las prioridades éticas
+                identificadas en la encuesta y la interpretación experta sobre
+                los desafíos contemporáneos de la industria.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Desafíos estructurales
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Persisten obstáculos relevantes para el sistema, entre ellos la
+                ausencia histórica de un archivo sistematizado de decisiones y
+                la dificultad de regular un ecosistema digital fragmentado con
+                nuevos actores como los influencers.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Horizonte de corregulación
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                El futuro de la autorregulación publicitaria podría depender de
+                modelos de corregulación respaldados por el Estado, capaces de
+                combinar rigor técnico, reconocimiento institucional y espacios
+                deliberativos orientados a fortalecer la confianza social en la
+                comunicación comercial.
+              </p>
+            </article>
+            </div>
+
+            <button
+              class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-summary-carousel="conclusiones-cards"
+              data-direction="next"
+              aria-label="Conclusión siguiente"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+        <!-- =============================================
+     BLOQUE 5.2: CONCLUSIONES
+     FIN
+     ============================================= -->
+
+        <!-- =============================================
+     BLOQUE 5.3: LIMITACIONES DEL ESTUDIO
+     INICIO
+     ============================================= -->
+        <div class="mt-20 fade-in">
+          <div class="max-w-4xl mb-8">
+            <p
+              class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+            >
+              Limitaciones del estudio
+            </p>
+
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
+              Restricciones estructurales del análisis
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed">
+              La aplicación del Análisis Dinámico de Precedentes al sistema de
+              autorregulación publicitaria evidenció limitaciones asociadas
+              tanto a la estructura documental de la CONARP como a la naturaleza
+              no judicial de sus decisiones. Estas restricciones condicionaron
+              el alcance del análisis y exigieron adaptaciones metodológicas
+              durante la investigación.
+            </p>
+          </div>
+
+          <div class="relative">
+            <button
+              class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-summary-carousel="limitaciones-cards"
+              data-direction="prev"
+              aria-label="Limitación anterior"
+            >
+              ‹
+            </button>
+
+            <div
+              id="limitaciones-cards"
+              class="summary-carousel-track"
+              aria-label="Carrusel de limitaciones"
+            >
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Vacío citacional
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Las decisiones de la CONARP no incorporaban remisiones
+                explícitas entre conceptos, lo que impidió construir un nicho
+                citacional formal y obligó a reconstruir las líneas doctrinales
+                a partir de afinidades temáticas.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Estructura de constelación
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Las decisiones no conforman una cadena lineal de precedentes,
+                sino una constelación de casos relacionados por proximidad
+                temática, lo que dificulta identificar sentencias hito dentro
+                del sistema.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Heterogeneidad argumentativa
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Existe una marcada disparidad en la profundidad argumentativa de
+                los conceptos analizados; no todos desarrollan plenamente la
+                ratio decidendi ni explicitan los balances normativos.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Naturaleza no judicial
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                La CONARP no imparte justicia ni genera precedentes vinculantes,
+                sino conceptos de orientación ética, lo que exige cautela al
+                trasladar categorías propias del análisis jurisprudencial.
+              </p>
+            </article>
+            </div>
+
+            <button
+              class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-summary-carousel="limitaciones-cards"
+              data-direction="next"
+              aria-label="Limitación siguiente"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+        <!-- =============================================
+     BLOQUE 5.3: LIMITACIONES DEL ESTUDIO
+     FIN
+     ============================================= -->
+
+        <!-- =============================================
+     BLOQUE 5.4: FUTURAS LÍNEAS DE INVESTIGACIÓN
+     INICIO
+     ============================================= -->
+        <div class="mt-20 fade-in">
+          <div class="max-w-4xl mb-8">
+            <p
+              class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+            >
+              Futuras líneas de investigación
+            </p>
+
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
+              Proyecciones para el desarrollo del campo
+            </h3>
+
+            <p class="text-gray-600 leading-relaxed">
+              A partir de los hallazgos y limitaciones identificadas, la
+              investigación propone diversas líneas futuras orientadas a
+              fortalecer la memoria institucional de los sistemas de
+              autorregulación y a expandir el uso del Análisis Dinámico de
+              Precedentes en contextos no judiciales.
+            </p>
+          </div>
+
+          <div class="relative">
+            <button
+              class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-summary-carousel="proyecciones-cards"
+              data-direction="prev"
+              aria-label="Proyección anterior"
+            >
+              ‹
+            </button>
+
+            <div
+              id="proyecciones-cards"
+              class="summary-carousel-track"
+              aria-label="Carrusel de proyecciones"
+            >
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Memoria institucional
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Investigar cómo el ADP puede consolidarse como una herramienta
+                de memoria institucional capaz de identificar subreglas éticas
+                incluso en sistemas donde no existe una cultura formal de
+                citación.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Transparencia doctrinal
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Analizar el impacto de la publicación sistemática de decisiones
+                y la incorporación de remisiones explícitas entre conceptos para
+                mejorar la trazabilidad de los criterios y la previsibilidad del
+                sistema.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Variables culturales
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Explorar cómo el análisis de precedentes puede integrar
+                variables culturales, sociales y de impacto subjetivo en la
+                reconstrucción de las líneas doctrinales.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Transferibilidad metodológica
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Evaluar la viabilidad de trasladar el modelo del precedente
+                judicial a otros ámbitos no coercitivos, como la ética
+                profesional, la regulación privada o los mecanismos
+                administrativos.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Aplicación transdisciplinar
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Extender el uso del ADP a otros sistemas de decisión que
+                compartan estructuras similares: normas, conflictos
+                interpretativos y órganos encargados de resolverlos.
+              </p>
+            </article>
+
+            <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
+              <h4
+                class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3"
+              >
+                Autorregulación digital
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Analizar cómo metodologías de precedentes pueden aplicarse a
+                contextos emergentes como el marketing de influencers y las
+                plataformas digitales, donde los marcos regulatorios
+                tradicionales resultan insuficientes.
+              </p>
+            </article>
+            </div>
+
+            <button
+              class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+              type="button"
+              data-summary-carousel="proyecciones-cards"
+              data-direction="next"
+              aria-label="Proyección siguiente"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+        <!-- =============================================
+     BLOQUE 5.4: FUTURAS LÍNEAS DE INVESTIGACIÓN
+     FIN
+     ============================================= -->
+      </div>
+    </section>
+    <!-- =============================================
+     SECCIÓN 5: HIPÓTESIS, CONCLUSIONES Y CIERRE
+     FIN
+     ============================================= -->
 
     <!-- =============================================
          FOOTER INSTITUCIONAL
@@ -2080,10 +3261,10 @@
       >
         <div class="text-center md:text-left">
           <span
-            class="block text-[10px] font-bold text-gray-400 uppercase tracking-[0.3em] mb-1"
+            class="block text-[10px] font-bold text-gray-600 uppercase tracking-[0.3em] mb-1"
             >Universidad Complutense de Madrid</span
           >
-          <span class="block text-[9px] text-gray-400 uppercase tracking-widest"
+          <span class="block text-[9px] text-gray-600 uppercase tracking-widest"
             >Todos los derechos reservados © 2026</span
           >
         </div>
@@ -2098,7 +3279,7 @@
         </div>
 
         <div
-          class="text-[9px] text-gray-300 uppercase tracking-widest font-bold text-center md:text-right"
+          class="text-[9px] text-gray-600 uppercase tracking-widest font-bold text-center md:text-right"
         >
           Tesis Doctoral | Javier Andrés Meléndez Ordóñez
         </div>
@@ -2193,6 +3374,316 @@
             closeLightbox();
           }
         });
+
+        const setupResultsCarousel = (track) => {
+          const carouselId = track.id;
+          const slides = Array.from(track.querySelectorAll(".results-slide"));
+          const controls = document.querySelectorAll(
+            `[data-carousel="${carouselId}"]`,
+          );
+          const dotsHost = document.querySelector(
+            `[data-carousel-dots="${carouselId}"]`,
+          );
+
+          if (!carouselId || slides.length === 0) {
+            return;
+          }
+
+          let slideOffsets = [];
+          let dots = [];
+          let ticking = false;
+
+          const computeOffsets = () => {
+            slideOffsets = slides.map((slide) => slide.offsetLeft);
+          };
+
+          const getActiveIndex = () => {
+            if (!slideOffsets.length) {
+              return 0;
+            }
+
+            const left = track.scrollLeft;
+            let index = 0;
+            let minDiff = Number.POSITIVE_INFINITY;
+
+            slideOffsets.forEach((offset, currentIndex) => {
+              const diff = Math.abs(offset - left);
+              if (diff < minDiff) {
+                minDiff = diff;
+                index = currentIndex;
+              }
+            });
+
+            return index;
+          };
+
+          const scrollToSlide = (targetIndex) => {
+            const safeIndex = Math.max(
+              0,
+              Math.min(targetIndex, slides.length - 1),
+            );
+            track.scrollTo({
+              left: slideOffsets[safeIndex] || 0,
+              behavior: "smooth",
+            });
+          };
+
+          const updateUi = () => {
+            const activeIndex = getActiveIndex();
+
+            controls.forEach((button) => {
+              if (button.dataset.direction === "prev") {
+                button.disabled = activeIndex === 0;
+              } else if (button.dataset.direction === "next") {
+                button.disabled = activeIndex === slides.length - 1;
+              }
+            });
+
+            dots.forEach((dot, index) => {
+              const isActive = index === activeIndex;
+              dot.classList.toggle("active", isActive);
+              dot.setAttribute("aria-current", isActive ? "true" : "false");
+            });
+          };
+
+          const renderDots = () => {
+            if (!dotsHost) {
+              return;
+            }
+
+            dotsHost.innerHTML = "";
+            dots = slides.map((_, index) => {
+              const dot = document.createElement("button");
+              dot.type = "button";
+              dot.className = "results-carousel-dot";
+              dot.setAttribute("aria-label", `Ir a la tabla ${index + 1}`);
+              dot.addEventListener("click", () => scrollToSlide(index));
+              dotsHost.appendChild(dot);
+              return dot;
+            });
+          };
+
+          controls.forEach((button) => {
+            button.addEventListener("click", () => {
+              const activeIndex = getActiveIndex();
+              const direction = button.dataset.direction === "next" ? 1 : -1;
+              scrollToSlide(activeIndex + direction);
+            });
+          });
+
+          track.addEventListener("scroll", () => {
+            if (ticking) {
+              return;
+            }
+            ticking = true;
+            window.requestAnimationFrame(() => {
+              updateUi();
+              ticking = false;
+            });
+          });
+
+          window.addEventListener("resize", () => {
+            computeOffsets();
+            updateUi();
+          });
+
+          computeOffsets();
+          renderDots();
+          updateUi();
+        };
+
+        document
+          .querySelectorAll(".results-carousel-track")
+          .forEach((track) => {
+            setupResultsCarousel(track);
+          });
+
+        const setupSummaryCarousel = (track) => {
+          const carouselId = track.id;
+          const slides = Array.from(track.querySelectorAll(".summary-carousel-slide"));
+          const controls = document.querySelectorAll(
+            `[data-summary-carousel="${carouselId}"]`,
+          );
+
+          if (!carouselId || slides.length === 0 || controls.length === 0) {
+            return;
+          }
+
+          let slideOffsets = [];
+          let ticking = false;
+
+          const getCardsPerView = () => {
+            if (window.matchMedia("(min-width: 1024px)").matches) {
+              return 3;
+            }
+            if (window.matchMedia("(min-width: 768px)").matches) {
+              return 2;
+            }
+            return 1;
+          };
+
+          const computeOffsets = () => {
+            slideOffsets = slides.map((slide) => slide.offsetLeft);
+          };
+
+          const getActiveIndex = () => {
+            if (!slideOffsets.length) {
+              return 0;
+            }
+
+            const left = track.scrollLeft;
+            let index = 0;
+            let minDiff = Number.POSITIVE_INFINITY;
+
+            slideOffsets.forEach((offset, currentIndex) => {
+              const diff = Math.abs(offset - left);
+              if (diff < minDiff) {
+                minDiff = diff;
+                index = currentIndex;
+              }
+            });
+
+            return index;
+          };
+
+          const getMaxIndex = () => {
+            return Math.max(0, slides.length - getCardsPerView());
+          };
+
+          const goToIndex = (targetIndex, behavior = "smooth") => {
+            const safeIndex = Math.max(0, Math.min(targetIndex, getMaxIndex()));
+            track.scrollTo({
+              left: slideOffsets[safeIndex] || 0,
+              behavior,
+            });
+          };
+
+          const updateUi = () => {
+            const activeIndex = Math.min(getActiveIndex(), getMaxIndex());
+            const maxIndex = getMaxIndex();
+
+            controls.forEach((button) => {
+              if (button.dataset.direction === "prev") {
+                button.disabled = activeIndex <= 0;
+              } else if (button.dataset.direction === "next") {
+                button.disabled = activeIndex >= maxIndex;
+              }
+            });
+          };
+
+          controls.forEach((button) => {
+            button.addEventListener("click", () => {
+              const direction = button.dataset.direction === "next" ? 1 : -1;
+              goToIndex(getActiveIndex() + direction);
+            });
+          });
+
+          track.addEventListener("scroll", () => {
+            if (ticking) {
+              return;
+            }
+            ticking = true;
+            window.requestAnimationFrame(() => {
+              updateUi();
+              ticking = false;
+            });
+          });
+
+          window.addEventListener("resize", () => {
+            computeOffsets();
+            goToIndex(Math.min(getActiveIndex(), getMaxIndex()), "auto");
+            updateUi();
+          });
+
+          computeOffsets();
+          updateUi();
+        };
+
+        document
+          .querySelectorAll(".summary-carousel-track")
+          .forEach((track) => {
+            setupSummaryCarousel(track);
+          });
+
+        const setupHypothesisSlider = () => {
+          const track = document.getElementById("hypothesis-track");
+          const prevButton = document.getElementById("hypothesis-prev");
+          const nextButton = document.getElementById("hypothesis-next");
+
+          if (!track) {
+            return;
+          }
+
+          const slides = Array.from(track.querySelectorAll("article"));
+          if (!slides.length) {
+            return;
+          }
+
+          const maxIndex = slides.length - 1;
+          let currentIndex = 0;
+          let touchStartX = 0;
+          let touchStartY = 0;
+
+          const updateButtons = () => {
+            if (prevButton) {
+              prevButton.disabled = currentIndex === 0;
+            }
+            if (nextButton) {
+              nextButton.disabled = currentIndex === maxIndex;
+            }
+          };
+
+          const goTo = (index) => {
+            const safeIndex = Math.max(0, Math.min(index, maxIndex));
+            currentIndex = safeIndex;
+            track.style.transform = `translateX(-${safeIndex * 100}%)`;
+            updateButtons();
+          };
+
+          if (prevButton) {
+            prevButton.addEventListener("click", () => goTo(currentIndex - 1));
+          }
+          if (nextButton) {
+            nextButton.addEventListener("click", () => goTo(currentIndex + 1));
+          }
+
+          track.addEventListener(
+            "touchstart",
+            (event) => {
+              const touch = event.changedTouches[0];
+              touchStartX = touch.clientX;
+              touchStartY = touch.clientY;
+            },
+            { passive: true },
+          );
+
+          track.addEventListener(
+            "touchend",
+            (event) => {
+              const touch = event.changedTouches[0];
+              const deltaX = touch.clientX - touchStartX;
+              const deltaY = touch.clientY - touchStartY;
+
+              if (
+                Math.abs(deltaX) < 40 ||
+                Math.abs(deltaX) < Math.abs(deltaY)
+              ) {
+                return;
+              }
+
+              if (deltaX < 0) {
+                goTo(currentIndex + 1);
+              } else {
+                goTo(currentIndex - 1);
+              }
+            },
+            { passive: true },
+          );
+
+          goTo(0);
+        };
+
+        setupHypothesisSlider();
       });
     </script>
   </body>
