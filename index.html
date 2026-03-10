@@ -15,6 +15,10 @@
         --ucm-dark: #1a1a1a;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Montserrat", sans-serif;
         background-color: white;
@@ -26,37 +30,39 @@
       h2,
       h3,
       .serif {
-        font-family: "Libre+Baskerville", serif;
+        font-family: "Libre Baskerville", serif;
+      }
+
+      h3 {
+        color: var(--ucm-red) !important;
       }
 
       /* Ajuste de scroll para los enlaces del menú */
       .scroll-mt {
-        scroll-margin-top: 100px;
+        scroll-margin-top: 80px;
       }
 
-      /* Barra de progreso superior */
+      /* Barra de progreso en la base del header */
       #progress-bar {
-        position: fixed;
-        top: 0;
+        position: absolute;
         left: 0;
+        bottom: 0;
         width: 0%;
         height: 3px;
         background: var(--ucm-red);
-        z-index: 100;
+        transition: width 0.12s ease-out;
       }
 
-      /* Animaciones de entrada suave */
+      /* Renderizado inmediato (sin animaciones de entrada) */
       .fade-in {
-        opacity: 0;
-        transform: translateY(15px);
-        transition:
-          opacity 0.7s ease-out,
-          transform 0.7s ease-out;
+        opacity: 1;
+        transform: none;
+        transition: none;
       }
 
       .fade-in.visible {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
       }
 
       .zoomable-image {
@@ -256,8 +262,6 @@
      BLOQUE: AVISO DE VISUALIZACIÓN EN MÓVIL
      FIN
      ============================================= -->
-    <div id="progress-bar"></div>
-
     <!-- =============================================
          NAVEGACIÓN 
          ============================================= -->
@@ -298,10 +302,13 @@
             >Resultados</a
           >
           <a href="#conclusiones" class="hover:text-red-700 transition-colors"
-            >Hipótesis y conclusiones</a
+            >Discusión y conclusiones</a
           >
         </div>
       </div>
+
+      <!-- Barra de progreso -->
+      <div id="progress-bar"></div>
     </nav>
 
     <!-- =============================================
@@ -2362,7 +2369,7 @@
             Sección 05
           </span>
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
-            Hipótesis, conclusiones y cierre
+            Discusión y conclusiones
           </h2>
           <p
             class="max-w-3xl mx-auto text-sm md:text-base text-gray-600 leading-relaxed"
@@ -2895,9 +2902,9 @@
               5.8 Conclusiones
             </p>
 
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
+            <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Síntesis final de la investigación
-            </h3>
+            </h4>
 
             <p class="text-gray-600 leading-relaxed">
               La investigación demuestra que la incorporación de metodologías de
@@ -3046,9 +3053,9 @@
               Limitaciones del estudio
             </p>
 
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
+            <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Restricciones estructurales del análisis
-            </h3>
+            </h4>
 
             <p class="text-gray-600 leading-relaxed">
               La aplicación del Análisis Dinámico de Precedentes al sistema de
@@ -3159,9 +3166,9 @@
               Futuras líneas de investigación
             </p>
 
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
+            <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
               Proyecciones para el desarrollo del campo
-            </h3>
+            </h4>
 
             <p class="text-gray-600 leading-relaxed">
               A partir de los hallazgos y limitaciones identificadas, la
@@ -3350,7 +3357,7 @@
          SCRIPTS 
          ============================================= -->
     <script>
-      // Comportamiento global: barra de progreso + animaciones de entrada
+      // Comportamiento global: barra de progreso
       window.addEventListener("scroll", () => {
         // Progreso
         let winScroll =
@@ -3360,21 +3367,10 @@
           document.documentElement.clientHeight;
         let scrolled = (winScroll / height) * 100;
         document.getElementById("progress-bar").style.width = scrolled + "%";
-
-        // Animaciones (Fade In)
-        document.querySelectorAll(".fade-in").forEach((element) => {
-          let position = element.getBoundingClientRect().top;
-          let screenHeight = window.innerHeight;
-          if (position < screenHeight - 100) {
-            element.classList.add("visible");
-          }
-        });
       });
 
-      // Inicialización al cargar: fade-in inicial + configuración del lightbox
+      // Inicialización al cargar: configuración del lightbox
       document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".fade-in")[0]?.classList.add("visible");
-
         const lightbox = document.getElementById("image-lightbox");
         const lightboxImage = document.getElementById("lightbox-image");
         const closeButton = document.getElementById("lightbox-close");
@@ -3459,10 +3455,9 @@
           };
 
           const scrollToSlide = (targetIndex) => {
-            const safeIndex = Math.max(
-              0,
-              Math.min(targetIndex, slides.length - 1),
-            );
+            const totalSlides = slides.length;
+            const safeIndex =
+              ((targetIndex % totalSlides) + totalSlides) % totalSlides;
             track.scrollTo({
               left: slideOffsets[safeIndex] || 0,
               behavior: "smooth",
@@ -3473,11 +3468,7 @@
             const activeIndex = getActiveIndex();
 
             controls.forEach((button) => {
-              if (button.dataset.direction === "prev") {
-                button.disabled = activeIndex === 0;
-              } else if (button.dataset.direction === "next") {
-                button.disabled = activeIndex === slides.length - 1;
-              }
+              button.disabled = slides.length <= 1;
             });
 
             dots.forEach((dot, index) => {
@@ -3592,7 +3583,12 @@
           };
 
           const goToIndex = (targetIndex, behavior = "smooth") => {
-            const safeIndex = Math.max(0, Math.min(targetIndex, getMaxIndex()));
+            const maxIndex = getMaxIndex();
+            const safeIndex =
+              maxIndex === 0
+                ? 0
+                : ((targetIndex % (maxIndex + 1)) + (maxIndex + 1)) %
+                  (maxIndex + 1);
             track.scrollTo({
               left: slideOffsets[safeIndex] || 0,
               behavior,
@@ -3600,15 +3596,10 @@
           };
 
           const updateUi = () => {
-            const activeIndex = Math.min(getActiveIndex(), getMaxIndex());
             const maxIndex = getMaxIndex();
 
             controls.forEach((button) => {
-              if (button.dataset.direction === "prev") {
-                button.disabled = activeIndex <= 0;
-              } else if (button.dataset.direction === "next") {
-                button.disabled = activeIndex >= maxIndex;
-              }
+              button.disabled = maxIndex === 0;
             });
           };
 
@@ -3666,16 +3657,16 @@
           let touchStartY = 0;
 
           const updateButtons = () => {
-            if (prevButton) {
-              prevButton.disabled = currentIndex === 0;
-            }
-            if (nextButton) {
-              nextButton.disabled = currentIndex === maxIndex;
-            }
+            const shouldDisable = maxIndex === 0;
+            if (prevButton) prevButton.disabled = shouldDisable;
+            if (nextButton) nextButton.disabled = shouldDisable;
           };
 
           const goTo = (index) => {
-            const safeIndex = Math.max(0, Math.min(index, maxIndex));
+            const safeIndex =
+              maxIndex === 0
+                ? 0
+                : ((index % (maxIndex + 1)) + (maxIndex + 1)) % (maxIndex + 1);
             currentIndex = safeIndex;
             track.style.transform = `translateX(-${safeIndex * 100}%)`;
             updateButtons();
