@@ -137,6 +137,29 @@
         scroll-snap-align: start;
       }
 
+      .results-slide-standard {
+        height: clamp(420px, 58vh, 560px);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .results-slide-scroll {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        padding-right: 0.25rem;
+        scrollbar-width: thin;
+      }
+
+      .results-slide-scroll::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .results-slide-scroll::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 9999px;
+      }
+
       .results-carousel-btn {
         width: 2.25rem;
         height: 2.25rem;
@@ -2004,11 +2027,7 @@
             Resultados
           </h2>
           <p class="text-sm md:text-base text-gray-600 max-w-4xl leading-relaxed">
-            Esta sección está construida con <strong>texto dummie</strong> para
-            visualizar la arquitectura final de resultados. Cada subsección
-            incluye una introducción breve, un carrusel de tablas y apoyos
-            visuales (imágenes placeholder, tarjetas o bullets) que luego se
-            reemplazarán por contenido definitivo.
+            La sección de Resultados analiza el sistema de autorregulación publicitaria en Colombia mediante el estudio de decisiones de la CONARP, encuestas y entrevistas a profesionales, y la reconstrucción de líneas de precedente con la metodología de Análisis Dinámico de Precedentes (ADP).
           </p>
         </div>
 
@@ -2025,11 +2044,69 @@
                 Revisión de conceptos de la CONARP
               </h3>
               <p class="text-sm text-gray-600 leading-relaxed">
-                [Texto dummie] En esta subsección se presentará una lectura
-                estructurada del corpus de conceptos emitidos por la CONARP,
-                destacando tendencias, densidad argumentativa y continuidad
-                decisional.
+                Este apartado presenta el análisis documental y estadístico del
+                corpus de decisiones de la CONARP entre 1998 y 2013,
+                identificando la estructura institucional de los conceptos, los
+                ejes éticos recurrentes y las dinámicas de funcionamiento del
+                sistema.
               </p>
+
+              <div class="mt-6 space-y-4 text-sm text-gray-600">
+                <div>
+                  <p class="font-semibold text-gray-800">
+                    Estructura procedimental estable
+                  </p>
+                  <p>
+                    Los conceptos siguen una organización institucionalizada:
+                    identificación de partes, descripción de la pieza
+                    publicitaria, descargos del anunciante, evaluación
+                    argumentativa y concepto ético final.
+                  </p>
+                </div>
+
+                <div>
+                  <p class="font-semibold text-gray-800">
+                    Ejes éticos recurrentes
+                  </p>
+                  <p>
+                    Las decisiones se concentran en veracidad publicitaria,
+                    publicidad comparativa, protección de la dignidad del
+                    consumidor e integridad creativa.
+                  </p>
+                </div>
+
+                <div>
+                  <p class="font-semibold text-gray-800">
+                    Ausencia de precedente
+                  </p>
+                  <p>
+                    Las referencias a decisiones previas son ocasionales y no
+                    consolidan una doctrina interpretativa acumulativa.
+                  </p>
+                </div>
+
+                <div>
+                  <p class="font-semibold text-gray-800">
+                    Tendencias cuantitativas (1998-2013)
+                  </p>
+                  <p>
+                    Se observa una disminución progresiva en la emisión de
+                    conceptos y una fuerte concentración de casos en grandes
+                    anunciantes y disputas entre competidores.
+                  </p>
+                </div>
+
+                <div>
+                  <p class="font-semibold text-gray-800">
+                    Función del sistema
+                  </p>
+                  <p>
+                    La CONARP operó principalmente como un mecanismo de
+                    resolución de controversias entre actores del mercado bajo
+                    una lógica persuasiva más que sancionatoria.
+                  </p>
+                </div>
+              </div>
 
               <div class="mt-8 relative">
                 <button
@@ -2046,63 +2123,193 @@
                   class="results-carousel-track"
                   aria-label="Carrusel de tablas subsección 4.1"
                 >
-                  <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
+                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
                     <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
                       Tabla 4.1-A
                     </p>
                     <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Frecuencia anual de conceptos (dummy)
+                      Número de conceptos emitidos por la CONARP entre 1999 y 2013, según año de expedición
                     </h4>
-                    <div class="overflow-x-auto">
-                      <table class="min-w-[560px] w-full text-sm">
-                        <thead class="bg-gray-50 text-gray-600">
-                          <tr>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Año</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Conceptos</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Variación</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-gray-700">
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">2001</td>
-                            <td class="px-3 py-2 border border-gray-200">14</td>
-                            <td class="px-3 py-2 border border-gray-200">+8%</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">2008</td>
-                            <td class="px-3 py-2 border border-gray-200">21</td>
-                            <td class="px-3 py-2 border border-gray-200">+12%</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">2015</td>
-                            <td class="px-3 py-2 border border-gray-200">18</td>
-                            <td class="px-3 py-2 border border-gray-200">-4%</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <div class="results-slide-scroll">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-[560px] w-full text-sm">
+                          <thead class="bg-gray-50 text-gray-600">
+                            <tr>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Año</th>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Cantidad de decisiones</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-gray-700">
+                            <tr><td class="px-3 py-2 border border-gray-200">1999</td><td class="px-3 py-2 border border-gray-200">8</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2000</td><td class="px-3 py-2 border border-gray-200">7</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2003</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2004</td><td class="px-3 py-2 border border-gray-200">4</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2005</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2006</td><td class="px-3 py-2 border border-gray-200">4</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2007</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2008</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2009</td><td class="px-3 py-2 border border-gray-200">5</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2010</td><td class="px-3 py-2 border border-gray-200">1</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2011</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2012</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">2013</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
                     </div>
                   </article>
-                  <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
+                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
                     <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
                       Tabla 4.1-B
                     </p>
                     <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Tipología de decisiones (dummy)
+                      Distribución porcentual de decisiones por categoría de producto
                     </h4>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                      <li class="rounded-lg border border-gray-200 p-3 bg-gray-50">
-                        Advertencia ética: 28%
-                      </li>
-                      <li class="rounded-lg border border-gray-200 p-3 bg-gray-50">
-                        Rectificación parcial: 36%
-                      </li>
-                      <li class="rounded-lg border border-gray-200 p-3 bg-gray-50">
-                        Rectificación integral: 22%
-                      </li>
-                      <li class="rounded-lg border border-gray-200 p-3 bg-gray-50">
-                        Archivo / improcedencia: 14%
-                      </li>
-                    </ul>
+                    <div class="results-slide-scroll">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-[560px] w-full text-sm">
+                          <thead class="bg-gray-50 text-gray-600">
+                            <tr>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Categoría de producto</th>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-gray-700">
+                            <tr><td class="px-3 py-2 border border-gray-200">Belleza e Higiene</td><td class="px-3 py-2 border border-gray-200">28,3</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Alimentación</td><td class="px-3 py-2 border border-gray-200">19,6</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Limpieza</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Telecomunicaciones e Internet</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Bebidas</td><td class="px-3 py-2 border border-gray-200">6,5</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Salud</td><td class="px-3 py-2 border border-gray-200">6,5</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Otras categorías</td><td class="px-3 py-2 border border-gray-200">8,7</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                    </div>
+                  </article>
+                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                      Tabla 4.1-C
+                    </p>
+                    <h4 class="text-base font-semibold text-gray-900 mb-4">
+                      Distribución por origen de la reclamación en decisiones analizadas
+                    </h4>
+                    <div class="results-slide-scroll">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-[560px] w-full text-sm">
+                          <thead class="bg-gray-50 text-gray-600">
+                            <tr>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Origen de la reclamación</th>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-gray-700">
+                            <tr><td class="px-3 py-2 border border-gray-200">Empresa/competidor</td><td class="px-3 py-2 border border-gray-200">82,6</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Particulares</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Otras categorías</td><td class="px-3 py-2 border border-gray-200">2,2</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                    </div>
+                  </article>
+                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                      Tabla 4.1-D
+                    </p>
+                    <h4 class="text-base font-semibold text-gray-900 mb-4">
+                      Distribución por tipo de anunciante reclamado en decisiones analizadas
+                    </h4>
+                    <div class="results-slide-scroll">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-[560px] w-full text-sm">
+                          <thead class="bg-gray-50 text-gray-600">
+                            <tr>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Tipo de anunciante reclamado</th>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-gray-700">
+                            <tr><td class="px-3 py-2 border border-gray-200">Multinacional</td><td class="px-3 py-2 border border-gray-200">54,3%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Nacional</td><td class="px-3 py-2 border border-gray-200">41,3%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Local</td><td class="px-3 py-2 border border-gray-200">4,3%</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                    </div>
+                  </article>
+                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                      Tabla 4.1-E
+                    </p>
+                    <h4 class="text-base font-semibold text-gray-900 mb-4">
+                      Distribución de los objetos de reclamación en los conceptos emitidos por la CONARP (1999-2013)
+                    </h4>
+                    <div class="results-slide-scroll">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-[560px] w-full text-sm">
+                          <thead class="bg-gray-50 text-gray-600">
+                            <tr>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Objeto de la reclamación</th>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-gray-700">
+                            <tr><td class="px-3 py-2 border border-gray-200">Principio de veracidad</td><td class="px-3 py-2 border border-gray-200">33,3%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Leal competencia</td><td class="px-3 py-2 border border-gray-200">26,7%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Honestidad</td><td class="px-3 py-2 border border-gray-200">13,3%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Publicidad comparativa</td><td class="px-3 py-2 border border-gray-200">8,6%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Buena fe del consumidor</td><td class="px-3 py-2 border border-gray-200">5,7%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">No discriminación</td><td class="px-3 py-2 border border-gray-200">3,8%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Dignidad de las personas</td><td class="px-3 py-2 border border-gray-200">2,9%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Principio de protección de la infancia y adolescencia</td><td class="px-3 py-2 border border-gray-200">1,9%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Decencia</td><td class="px-3 py-2 border border-gray-200">1,9%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Moralidad</td><td class="px-3 py-2 border border-gray-200">1,0%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Protección al ambiente</td><td class="px-3 py-2 border border-gray-200">1,0%</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                    </div>
+                  </article>
+                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                      Tabla 4.1-F
+                    </p>
+                    <h4 class="text-base font-semibold text-gray-900 mb-4">
+                      Distribución de las resoluciones emitidas por la CONARP en los conceptos analizados (1999-2013), según el tipo de recomendación o medida adoptada
+                    </h4>
+                    <div class="results-slide-scroll">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-[560px] w-full text-sm">
+                          <thead class="bg-gray-50 text-gray-600">
+                            <tr>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Resolución de la reclamación</th>
+                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-gray-700">
+                            <tr><td class="px-3 py-2 border border-gray-200">Rectificación</td><td class="px-3 py-2 border border-gray-200">24,7%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Decisión inhibitoria</td><td class="px-3 py-2 border border-gray-200">15,1%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Cesación temporal</td><td class="px-3 py-2 border border-gray-200">13,7%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Desestimado</td><td class="px-3 py-2 border border-gray-200">13,7%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Desestimado parcial</td><td class="px-3 py-2 border border-gray-200">6,8%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Amonestación</td><td class="px-3 py-2 border border-gray-200">5,5%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Traslado a autoridad competente</td><td class="px-3 py-2 border border-gray-200">5,5%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Cesación definitiva</td><td class="px-3 py-2 border border-gray-200">4,1%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Difusión de la resolución</td><td class="px-3 py-2 border border-gray-200">4,1%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Orden de cumplimiento</td><td class="px-3 py-2 border border-gray-200">2,7%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Fallo ultra petita</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Aceptación de la infracción</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
+                            <tr><td class="px-3 py-2 border border-gray-200">Informa contravención</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                    </div>
                   </article>
                 </div>
                 <button
@@ -2120,21 +2327,25 @@
 
             <aside class="lg:col-span-4 space-y-4">
               <figure class="rounded-xl border border-gray-200 bg-white overflow-hidden">
-                <div class="aspect-[4/3] bg-gradient-to-br from-gray-100 to-white flex items-center justify-center p-6">
-                  <p class="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold text-center">
-                    Placeholder de imagen<br />Subsección 4.1
-                  </p>
+                <div class="aspect-[4/3] bg-white flex items-center justify-center">
+                  <img
+                    src="imagenes/conarp.webp"
+                    alt="Imagen de referencia CONARP para la subsección 4.1"
+                    loading="lazy"
+                    class="h-full w-full object-contain bg-white"
+                  />
                 </div>
                 <figcaption class="px-4 py-3 text-[10px] uppercase tracking-widest text-gray-600">
-                  Figura dummy para ubicación de visual principal.
+                  Último logo de la Comisión Nacional de Autorregulación Publicitaria.
                 </figcaption>
               </figure>
               <div class="rounded-xl border border-gray-200 bg-white p-4">
-                <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">Puntos clave (dummy)</p>
+                <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">Hallazgos principales</p>
                 <ul class="text-sm text-gray-600 space-y-2">
-                  <li>Continuidad temática en decisiones de veracidad.</li>
-                  <li>Mayor recurrencia de reclamos competitivos.</li>
-                  <li>Vacíos interpretativos en publicidad comparativa.</li>
+                  <li>Estructura institucional estable en los conceptos.</li>
+                  <li>Centralidad de veracidad y competencia leal.</li>
+                  <li>Uso predominante por empresas del sector.</li>
+                  <li>Ausencia de doctrina consolidada de precedentes.</li>
                 </ul>
               </div>
             </aside>
