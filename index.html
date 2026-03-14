@@ -264,6 +264,71 @@
           flex-basis: calc((100% - 3rem) / 3);
         }
       }
+
+      .contexto-tab-btn {
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        color: #4b5563;
+        transition:
+          color 0.2s ease,
+          border-color 0.2s ease,
+          background-color 0.2s ease;
+      }
+
+      .contexto-tab-btn:hover {
+        color: #b91c1c;
+        border-color: #fecaca;
+      }
+
+      .contexto-tab-btn.is-active {
+        background: var(--ucm-red);
+        border-color: var(--ucm-red);
+        color: #fff;
+      }
+
+      .contexto-tab-btn:focus-visible {
+        outline: 2px solid #fecaca;
+        outline-offset: 2px;
+      }
+
+      .contexto-tab-panel[hidden] {
+        display: none;
+      }
+
+      .interview-carousel-compact .results-slide {
+        padding: 1rem;
+      }
+
+      .interview-carousel-compact .results-slide > div {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        gap: 0.75rem;
+        align-items: start;
+        text-align: left;
+      }
+
+      .interview-carousel-compact .results-slide img {
+        width: 3rem;
+        height: 3rem;
+        margin-top: 0;
+        grid-row: 1 / span 2;
+      }
+
+      .interview-carousel-compact .results-slide p {
+        margin-top: 0;
+        grid-column: 2;
+      }
+
+      .interview-carousel-compact .results-slide p:nth-of-type(1) {
+        font-size: 0.82rem;
+        line-height: 1.2;
+        margin-bottom: 0.3rem;
+      }
+
+      .interview-carousel-compact .results-slide p:nth-of-type(2) {
+        font-size: 0.76rem;
+        line-height: 1.35;
+      }
     </style>
   </head>
 
@@ -351,6 +416,13 @@
           <a href="#conclusiones" class="hover:text-red-700 transition-colors"
             >Discusión y conclusiones</a
           >
+          <a
+            href="relatoria/relatoria.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-red-700 transition-colors"
+            >Relatoría</a
+          >
         </div>
       </div>
 
@@ -435,95 +507,103 @@
       <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-12 gap-16 items-start">
           <!-- Columna 1: Texto -->
-          <div class="lg:col-span-7 fade-in">
-            <div class="flex items-center gap-3 mb-6">
-              <span
-                class="text-red-700 font-bold tracking-widest text-xs uppercase"
-                >Sección 01</span
-              >
-              <div class="h-[1px] w-8 bg-gray-300"></div>
-            </div>
+          <div id="contexto-main-column" class="lg:col-span-7 fade-in">
+            <span class="text-red-700 font-bold tracking-widest text-xs uppercase">
+              Sección 01
+            </span>
 
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 class="text-4xl md:text-5xl mt-2 mb-8 font-bold text-gray-900">
               Contexto
             </h2>
 
-            <!-- Subbloque: Diagnóstico contextual -->
-            <div class="space-y-6 text-gray-600">
-              <p>
-                El entorno global actual está marcado por las secuelas de la
-                pandemia de COVID-19 y el surgimiento de la Inteligencia
-                Artificial Generativa (GenAI).
-              </p>
+            <div
+              id="contexto-main-card"
+              class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm"
+            >
+              <!-- Subbloque: Diagnóstico contextual -->
+              <div class="space-y-6 text-gray-600">
+                <p class="leading-relaxed">
+                  El entorno global actual está marcado por las secuelas de la
+                  pandemia de COVID-19 y el surgimiento de la Inteligencia
+                  Artificial Generativa (GenAI).
+                </p>
 
-              <div>
-                <p class="font-semibold text-gray-800">Disrupción glocal</p>
-                <p class="mt-2">
-                  A pesar del crecimiento de la publicidad digital, la confianza
-                  del consumidor en Colombia permanece en niveles bajos,
-                  alimentada por la desinformación y los riesgos éticos de las
-                  nuevas tecnologías.
-                </p>
-              </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+                    <p class="font-semibold text-gray-800">Disrupción glocal</p>
+                    <p class="mt-2 text-sm leading-relaxed">
+                      A pesar del crecimiento de la publicidad digital, la confianza
+                      del consumidor en Colombia permanece en niveles bajos,
+                      alimentada por la desinformación y los riesgos éticos de las
+                      nuevas tecnologías.
+                    </p>
+                  </div>
 
-              <div>
-                <p class="font-semibold text-gray-800">Crisis de confianza</p>
-                <p class="mt-2">
-                  A diferencia del sistema judicial respaldado por el Estado, la
-                  eficacia de la autorregulación depende del prestigio, la
-                  claridad de estándares y el reconocimiento de la comunidad
-                  profesional.
-                </p>
-              </div>
+                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+                    <p class="font-semibold text-gray-800">Crisis de confianza</p>
+                    <p class="mt-2 text-sm leading-relaxed">
+                      A diferencia del sistema judicial respaldado por el Estado, la
+                      eficacia de la autorregulación depende del prestigio, la
+                      claridad de estándares y el reconocimiento de la comunidad
+                      profesional.
+                    </p>
+                  </div>
 
-              <div>
-                <p class="font-semibold text-gray-800">
-                  Legitimidad por aceptación
-                </p>
-                <p class="mt-2">
-                  La percepción de justicia, equidad y coherencia en los fallos
-                  de los tribunales éticos es crucial para generar confianza
-                  pública e institucional.
-                </p>
-              </div>
+                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+                    <p class="font-semibold text-gray-800">
+                      Legitimidad por aceptación
+                    </p>
+                    <p class="mt-2 text-sm leading-relaxed">
+                      La percepción de justicia, equidad y coherencia en los fallos
+                      de los tribunales éticos es crucial para generar confianza
+                      pública e institucional.
+                    </p>
+                  </div>
 
-              <div>
-                <p class="font-semibold text-gray-800">Relevo institucional</p>
-                <p class="mt-2">
-                  Tras la disolución de la CONARP en 2018 y la creación de
-                  AUTOCONTROL Colombia en 2019, existe el riesgo de perder casi
-                  40 años de memoria argumentativa y acervo ético.
-                </p>
-              </div>
+                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+                    <p class="font-semibold text-gray-800">Relevo institucional</p>
+                    <p class="mt-2 text-sm leading-relaxed">
+                      Tras la disolución de la CONARP en 2018 y la creación de
+                      AUTOCONTROL Colombia en 2019, existe el riesgo de perder casi
+                      40 años de memoria argumentativa y acervo ético.
+                    </p>
+                  </div>
+                </div>
 
-              <!-- Destacado (solo como destacado, sin repetición) -->
-              <div
-                class="mt-2 rounded border-l-4 border-red-700 bg-white px-5 py-4 shadow-sm"
-              >
-                <p class="serif text-gray-800 italic">
-                  La percepción de justicia, equidad y coherencia en los fallos
-                  de los tribunales éticos es crucial para generar confianza
-                  pública e institucional.
-                </p>
+                <!-- Destacado (solo como destacado, sin repetición) -->
+                <div
+                  class="mt-2 rounded border-l-4 border-red-700 bg-white px-5 py-4 shadow-sm"
+                >
+                  <p class="serif text-gray-800 italic">
+                    La percepción de justicia, equidad y coherencia en los fallos
+                    de los tribunales éticos es crucial para generar confianza
+                    pública e institucional.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- Columna 2: Evidencia visual de contexto -->
           <div
-            class="lg:col-span-5 fade-in space-y-10"
+            id="contexto-aside"
+            class="lg:col-span-5 fade-in flex flex-col gap-4 min-h-0"
             style="transition-delay: 200ms"
           >
             <!-- Subbloque visual 01: Hito institucional -->
-            <figure>
-              <img
-                src="imagenes/crea_conarp.jpg"
-                alt="Acto protocolario de creación de CONARP"
-                loading="lazy"
-                class="h-64 md:h-80 w-full rounded-lg shadow-sm border border-gray-200 bg-gray-100 object-cover"
-              />
+            <figure
+              class="rounded-xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col flex-1 min-h-0"
+            >
+              <div class="flex-1 min-h-0">
+                <img
+                  src="imagenes/crea_conarp.jpg"
+                  alt="Acto protocolario de creación de CONARP"
+                  loading="lazy"
+                  class="h-full w-full rounded-lg border border-gray-200 bg-gray-100 object-cover"
+                />
+              </div>
               <figcaption
-                class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest text-center"
+                class="mt-3 text-[10px] text-gray-600 uppercase tracking-widest text-center"
               >
                 Imagen 1: Acto protocolario de la creación de CONARP
               </figcaption>
@@ -535,15 +615,19 @@
             </figure>
 
             <!-- Subbloque visual 02: Tendencia de publicaciones -->
-            <figure class="m-0 w-full">
-              <img
-                src="imagenes/publicaciones_por_anio.png"
-                alt="Evolución de publicaciones relacionadas con autorregulación"
-                loading="lazy"
-                class="h-64 md:h-80 w-full rounded-lg shadow-sm border border-gray-200 bg-gray-100 object-cover"
-              />
+            <figure
+              class="m-0 w-full rounded-xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col flex-1 min-h-0"
+            >
+              <div class="flex-1 min-h-0">
+                <img
+                  src="imagenes/publicaciones_por_anio.png"
+                  alt="Evolución de publicaciones relacionadas con autorregulación"
+                  loading="lazy"
+                  class="h-full w-full rounded-lg border border-gray-200 bg-gray-100 object-cover"
+                />
+              </div>
               <figcaption
-                class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest text-center"
+                class="mt-3 text-[10px] text-gray-600 uppercase tracking-widest text-center"
               >
                 Imagen 2: Evolución del interés académico sobre el nodo ética +
                 publicidad. Fuente: Lens.org (1980-2025)
@@ -949,83 +1033,160 @@
             </p>
           </div>
 
-          <!-- Subbloque: Hallazgos sintetizados (bullets en dos columnas) -->
-          <div
-            class="grid md:grid-cols-2 gap-x-16 text-sm text-gray-600 w-full"
-          >
-            <div class="space-y-4">
-              <p>
-                • Campo institucional aún <strong>en construcción</strong>, con
-                avances normativos pero impacto limitado.
-              </p>
-              <p>
-                • Los códigos presentan
-                <strong
-                  >baja capacidad de implementación, seguimiento y
-                  sanción</strong
-                >.
-              </p>
-              <p>
-                • Existe <strong>débil difusión y pedagogía</strong> del sistema
-                entre anunciantes y ciudadanía.
-              </p>
-              <p>
-                • Persisten
-                <strong
-                  >confusiones sobre actores, roles y alcance
-                  institucional</strong
-                >.
-              </p>
-              <p>
-                • La autorregulación ha sido
-                <strong
-                  >insuficiente frente a nuevas prácticas publicitarias</strong
-                >.
-              </p>
-            </div>
-            <div class="space-y-4 mt-4 md:mt-0">
-              <p>
-                • Baja apropiación gremial y
-                <strong
-                  >escasa articulación con el sistema jurídico formal</strong
-                >.
-              </p>
-              <p>
-                • Integración limitada con
-                <strong>marcos de protección de derechos fundamentales</strong>,
-                especialmente infancia.
-              </p>
-              <p>
-                • El debate entre
-                <strong>autorregulación y co-regulación</strong> sigue abierto
-                en la literatura.
-              </p>
-              <p>
-                • Su consolidación depende del
-                <strong
-                  >fortalecimiento institucional, profesionalización gremial y
-                  ética compartida</strong
-                >.
-              </p>
+          <div class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+              <!-- Columna izquierda: Hallazgos sintetizados -->
+              <div class="lg:col-span-7">
+                <div
+                  class="flex flex-wrap items-center gap-2"
+                  role="tablist"
+                  aria-label="Categorías de hallazgos sobre autorregulación en Colombia"
+                >
+                  <button
+                    type="button"
+                    id="contexto-colombia-tab-institucionalidad"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="contexto-colombia-panel-institucionalidad"
+                    data-contexto-tab-target="institucionalidad"
+                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2 is-active"
+                  >
+                    Institucionalidad
+                  </button>
+                  <button
+                    type="button"
+                    id="contexto-colombia-tab-implementacion"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="contexto-colombia-panel-implementacion"
+                    data-contexto-tab-target="implementacion"
+                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+                  >
+                    Implementación
+                  </button>
+                  <button
+                    type="button"
+                    id="contexto-colombia-tab-articulacion"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="contexto-colombia-panel-articulacion"
+                    data-contexto-tab-target="articulacion"
+                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+                  >
+                    Articulación normativa
+                  </button>
+                </div>
+
+                <div class="mt-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+                  <p
+                    class="text-[10px] uppercase tracking-widest text-gray-500 font-semibold mb-4"
+                  >
+                    9 hallazgos clave
+                  </p>
+
+                  <div
+                    id="contexto-colombia-panel-institucionalidad"
+                    role="tabpanel"
+                    aria-labelledby="contexto-colombia-tab-institucionalidad"
+                    data-contexto-tab-panel="institucionalidad"
+                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+                  >
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Campo institucional aún <strong>en construcción</strong>,
+                      con avances normativos pero impacto limitado.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Persisten
+                      <strong
+                        >confusiones sobre actores, roles y alcance
+                        institucional</strong
+                      >.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Su consolidación depende del
+                      <strong
+                        >fortalecimiento institucional, profesionalización
+                        gremial y ética compartida</strong
+                      >.
+                    </div>
+                  </div>
+
+                  <div
+                    id="contexto-colombia-panel-implementacion"
+                    role="tabpanel"
+                    aria-labelledby="contexto-colombia-tab-implementacion"
+                    data-contexto-tab-panel="implementacion"
+                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+                    hidden
+                  >
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Los códigos presentan
+                      <strong
+                        >baja capacidad de implementación, seguimiento y
+                        sanción</strong
+                      >.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Existe <strong>débil difusión y pedagogía</strong> del
+                      sistema entre anunciantes y ciudadanía.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      La autorregulación ha sido
+                      <strong
+                        >insuficiente frente a nuevas prácticas
+                        publicitarias</strong
+                      >.
+                    </div>
+                  </div>
+
+                  <div
+                    id="contexto-colombia-panel-articulacion"
+                    role="tabpanel"
+                    aria-labelledby="contexto-colombia-tab-articulacion"
+                    data-contexto-tab-panel="articulacion"
+                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+                    hidden
+                  >
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Baja apropiación gremial y
+                      <strong
+                        >escasa articulación con el sistema jurídico formal</strong
+                      >.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Integración limitada con
+                      <strong
+                        >marcos de protección de derechos fundamentales</strong
+                      >, especialmente infancia.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      El debate entre
+                      <strong>autorregulación y co-regulación</strong> sigue
+                      abierto en la literatura.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Columna derecha: evolución del interés académico -->
+              <div class="lg:col-span-5">
+                <figure class="text-center rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+                  <img
+                    src="imagenes/articulos_anio_colombia.png"
+                    alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
+                    loading="lazy"
+                    class="mx-auto w-full rounded-lg border border-gray-200 bg-white object-contain"
+                  />
+                  <figcaption
+                    class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
+                  >
+                    Evolución del interés académico sobre el nodo ética + publicidad
+                    en Colombia. Fuente: Lens.org
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
-
-          <!-- Subbloque visual: evolución del interés académico -->
-          <figure class="mt-14 max-w-4xl mx-auto text-center">
-            <img
-              src="imagenes/articulos_anio_colombia.png"
-              alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
-              loading="lazy"
-              class="mx-auto w-[70%] aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
-            />
-
-            <figcaption
-              class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
-            >
-              Evolución del interés académico sobre el nodo ética + publicidad
-              en Colombia. Fuente: Lens.org
-            </figcaption>
-          </figure>
         </div>
 
         <!-- =============================================
@@ -1042,76 +1203,153 @@
             </p>
           </div>
 
-          <!-- Subbloque visual: cartografía conceptual -->
-          <figure class="max-w-4xl mx-auto text-center">
-            <img
-              src="imagenes/cartografia.png"
-              alt="Cartografía conceptual del análisis dinámico de precedentes"
-              loading="lazy"
-              class="mx-auto w-[70%] aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
-            />
-            <figcaption
-              class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
-            >
-              Cartografía conceptual del análisis dinámico de precedentes como
-              metodología de análisis jurisprudencial.
-            </figcaption>
-          </figure>
+          <div class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+              <!-- Columna izquierda: síntesis en tabs -->
+              <div class="lg:col-span-7">
+                <div
+                  class="flex flex-wrap items-center gap-2"
+                  role="tablist"
+                  aria-label="Categorías de cartografía conceptual del ADP"
+                >
+                  <button
+                    type="button"
+                    id="cartografia-tab-aportes"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="cartografia-panel-aportes"
+                    data-cartografia-tab-target="aportes"
+                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2 is-active"
+                  >
+                    Aportes del ADP
+                  </button>
+                  <button
+                    type="button"
+                    id="cartografia-tab-limitaciones"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="cartografia-panel-limitaciones"
+                    data-cartografia-tab-target="limitaciones"
+                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+                  >
+                    Limitaciones
+                  </button>
+                  <button
+                    type="button"
+                    id="cartografia-tab-complementos"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="cartografia-panel-complementos"
+                    data-cartografia-tab-target="complementos"
+                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+                  >
+                    Complementos
+                  </button>
+                </div>
 
-          <!-- Subbloque: conclusiones del corpus (lista temática) -->
-          <ul
-            class="mt-12 grid md:grid-cols-2 gap-x-16 gap-y-4 text-sm text-gray-600 list-disc list-inside max-w-6xl mx-auto"
-          >
-            <li>
-              El <strong>análisis dinámico de precedentes</strong>, formulado
-              por Diego López Medina, se ha consolidado como herramienta para
-              estudiar la jurisprudencia latinoamericana.
-            </li>
+                <div class="mt-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+                  <p
+                    class="text-[10px] uppercase tracking-widest text-gray-500 font-semibold mb-4"
+                  >
+                    8 hallazgos del corpus
+                  </p>
 
-            <li>
-              Permite <strong>reconstruir líneas jurisprudenciales</strong>,
-              identificar subreglas y observar la evolución doctrinal de los
-              tribunales.
-            </li>
+                  <div
+                    id="cartografia-panel-aportes"
+                    role="tabpanel"
+                    aria-labelledby="cartografia-tab-aportes"
+                    data-cartografia-tab-panel="aportes"
+                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+                  >
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      El <strong>análisis dinámico de precedentes</strong>,
+                      formulado por Diego López Medina, se ha consolidado como
+                      herramienta para estudiar la jurisprudencia latinoamericana.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Permite
+                      <strong>reconstruir líneas jurisprudenciales</strong>,
+                      identificar subreglas y observar la evolución doctrinal de
+                      los tribunales.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Su uso se extiende a múltiples campos del derecho, desde
+                      <strong>derechos fundamentales</strong> hasta ámbitos
+                      especializados.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Facilita la
+                      <strong>organización sistemática del precedente</strong> y
+                      fortalece la argumentación jurídica.
+                    </div>
+                  </div>
 
-            <li>
-              Su uso se extiende a múltiples campos del derecho, desde
-              <strong>derechos fundamentales</strong> hasta ámbitos
-              especializados.
-            </li>
+                  <div
+                    id="cartografia-panel-limitaciones"
+                    role="tabpanel"
+                    aria-labelledby="cartografia-tab-limitaciones"
+                    data-cartografia-tab-panel="limitaciones"
+                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+                    hidden
+                  >
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Presenta limitaciones asociadas a la
+                      <strong
+                        >subjetividad en la identificación de la ratio
+                        decidendi</strong
+                      >.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Existe riesgo de
+                      <strong>formalismo en la clasificación de sentencias</strong>.
+                    </div>
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Tiene capacidad limitada para evaluar el
+                      <strong
+                        >contenido sustantivo o la legitimidad material</strong
+                      >
+                      de los precedentes.
+                    </div>
+                  </div>
 
-            <li>
-              Facilita la
-              <strong>organización sistemática del precedente</strong> y
-              fortalece la argumentación jurídica.
-            </li>
+                  <div
+                    id="cartografia-panel-complementos"
+                    role="tabpanel"
+                    aria-labelledby="cartografia-tab-complementos"
+                    data-cartografia-tab-panel="complementos"
+                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+                    hidden
+                  >
+                    <div class="rounded-lg border border-gray-100 bg-white p-4">
+                      Se propone complementarlo con enfoques
+                      <strong
+                        >deliberativos, constructivistas, procesales y
+                        narrativos</strong
+                      >.
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <li>
-              Presenta limitaciones asociadas a la
-              <strong
-                >subjetividad en la identificación de la ratio decidendi</strong
-              >.
-            </li>
-
-            <li>
-              Existe riesgo de
-              <strong>formalismo en la clasificación de sentencias</strong>.
-            </li>
-
-            <li>
-              Tiene capacidad limitada para evaluar el
-              <strong>contenido sustantivo o la legitimidad material</strong> de
-              los precedentes.
-            </li>
-
-            <li>
-              Se propone complementarlo con enfoques
-              <strong
-                >deliberativos, constructivistas, procesales y
-                narrativos</strong
-              >.
-            </li>
-          </ul>
+              <!-- Columna derecha: cartografía conceptual -->
+              <div class="lg:col-span-5">
+                <figure class="text-center rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+                  <img
+                    src="imagenes/cartografia.png"
+                    alt="Cartografía conceptual del análisis dinámico de precedentes"
+                    loading="lazy"
+                    class="mx-auto w-full rounded-lg border border-gray-200 bg-white object-contain"
+                  />
+                  <figcaption
+                    class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
+                  >
+                    Cartografía conceptual del análisis dinámico de precedentes como
+                    metodología de análisis jurisprudencial.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1720,7 +1958,10 @@
           </div>
 
           <!-- Columna visual -->
-          <div class="lg:col-span-6 fade-in" style="transition-delay: 150ms">
+          <div
+            class="lg:col-span-6 fade-in lg:self-center"
+            style="transition-delay: 150ms"
+          >
             <div class="space-y-4">
               <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
                 <p class="text-sm font-semibold text-gray-900 mb-1">
@@ -2692,7 +2933,7 @@
   <div class="grid lg:grid-cols-12 gap-8 items-start">
     
     <!-- CONTEXTO -->
-    <div class="lg:col-span-8">
+    <div class="lg:col-span-12">
       <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold">
         Subsección 4.3
       </p>
@@ -2713,34 +2954,26 @@
         <strong>memoria institucional, coherencia doctrinal, diversidad decisoria y mayor transparencia</strong>.
       </p>
 
-      <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
-        <div class="rounded-lg border border-gray-200 bg-white p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Expertos</p>
-          <p class="font-semibold text-gray-900">11 entrevistados</p>
-        </div>
-        <div class="rounded-lg border border-gray-200 bg-white p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Enfoque</p>
-          <p class="font-semibold text-gray-900">Inductivo</p>
-        </div>
-        <div class="rounded-lg border border-gray-200 bg-white p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Ejes clave</p>
-          <p class="font-semibold text-gray-900">Legitimidad · Precedente · Tecnología</p>
-        </div>
-      </div>
     </div>
 
-    <!-- INSIGHTS -->
-    <aside class="lg:col-span-4 space-y-4">
-      <div class="rounded-xl border border-gray-200 bg-white p-5">
+    <!-- TARJETAS DE SÍNTESIS -->
+    <div class="lg:col-span-12 mt-1 grid md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
+      <div class="rounded-xl border border-gray-200 bg-white p-5 h-full">
         <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
           Idea fuerza
         </p>
         <blockquote class="text-sm text-gray-600 italic">
           “La coherencia es un piso de legitimidad: sin memoria doctrinal, el sistema no resulta previsible ni confiable.”
         </blockquote>
+        <p class="mt-4 text-sm text-gray-700 leading-relaxed">
+          Las entrevistas muestran que la legitimidad de la autorregulación ya no puede descansar
+          solo en la tradición gremial: requiere <strong>memoria doctrinal visible</strong>,
+          <strong>criterios consistentes</strong>, <strong>diversidad en los órganos decisorios</strong>
+          y capacidad de respuesta frente al <strong>ecosistema digital contemporáneo</strong>.
+        </p>
       </div>
 
-      <div class="rounded-xl border border-gray-200 bg-white p-5">
+      <div class="rounded-xl border border-gray-200 bg-white p-5 h-full">
         <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
           Hallazgos centrales
         </p>
@@ -2751,77 +2984,21 @@
           <li>• La IA y el entorno digital desbordan la vigilancia tradicional.</li>
         </ul>
       </div>
-    </aside>
 
-    <!-- BLOQUES TEMÁTICOS -->
-    <div class="lg:col-span-12 grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-      <div class="rounded-xl border border-gray-200 bg-white p-4">
-        <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
-          Transición institucional
-        </p>
-        <p class="text-sm text-gray-600">
-          Se cuestiona el modelo histórico de la CONARP y se valora a Autocontrol Colombia
-          por su enfoque <strong>técnico, preventivo e independiente</strong>.
-        </p>
-      </div>
-
-      <div class="rounded-xl border border-gray-200 bg-white p-4">
-        <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
-          Precedente y legitimidad
-        </p>
-        <p class="text-sm text-gray-600">
-          El precedente aparece como un <strong>umbral mínimo de legitimidad</strong>:
-          sin coherencia ni memoria institucional, no hay previsibilidad.
-        </p>
-      </div>
-
-      <div class="rounded-xl border border-gray-200 bg-white p-4">
-        <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
-          Género y subjetividad
-        </p>
-        <p class="text-sm text-gray-600">
-          Los entrevistados advierten persistencia de <strong>estereotipos</strong> y
-          sostienen que el juicio ético está atravesado por vivencias y contexto.
-        </p>
-      </div>
-
-      <div class="rounded-xl border border-gray-200 bg-white p-4">
-        <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
-          Tecnología y confianza
-        </p>
-        <p class="text-sm text-gray-600">
-          La confianza depende de <strong>transparencia, independencia y buena fe</strong>;
-          además, la IA y las redes sociales transforman los mecanismos de control.
-        </p>
-      </div>
-    </div>
-
-    <!-- IDEA CENTRAL -->
-    <div class="lg:col-span-12 rounded-xl border border-gray-200 bg-red-50/60 p-5">
-      <p class="text-[11px] uppercase tracking-[0.16em] text-red-700 font-semibold mb-2">
-        Idea central de la subsección
-      </p>
-      <p class="text-sm text-gray-700 leading-relaxed">
-        Las entrevistas muestran que la legitimidad de la autorregulación ya no puede descansar
-        solo en la tradición gremial: requiere <strong>memoria doctrinal visible</strong>,
-        <strong>criterios consistentes</strong>, <strong>diversidad en los órganos decisorios</strong>
-        y capacidad de respuesta frente al <strong>ecosistema digital contemporáneo</strong>.
-      </p>
-    </div>
-
-    <!-- CARRUSEL DE ENTREVISTADOS -->
-    <div class="lg:col-span-12">
+    <!-- CARRUSEL DE ENTREVISTADOS (COMPACTO EN ASIDE) -->
+    <aside class="interview-carousel-compact">
+      <div class="rounded-xl border border-gray-200 bg-white p-4 h-full">
       <div class="flex items-center justify-between gap-3 mb-4">
         <div>
           <p class="text-[11px] uppercase tracking-[0.16em] text-red-700 font-semibold">
             Entrevistados
           </p>
-          <h4 class="text-lg font-semibold text-gray-900 mt-1">
+          <h4 class="text-sm font-semibold text-gray-900 mt-1">
             Perfiles de expertos consultados
           </h4>
         </div>
 
-        <div class="hidden sm:flex items-center gap-2">
+        <div class="flex items-center gap-2">
           <button
             class="results-carousel-btn shadow-sm"
             type="button"
@@ -2843,277 +3020,171 @@
         </div>
       </div>
 
-      <div class="relative w-full results-carousel-content-fit">
-        <button
-          class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm sm:hidden"
-          type="button"
-          data-carousel="entrevistados-43"
-          data-direction="prev"
-          aria-label="Entrevistado anterior subsección 4.3"
-        >
-          ‹
-        </button>
-
+      <div class="relative w-full">
         <div
           id="entrevistados-43"
           class="results-carousel-track"
           aria-label="Carrusel de entrevistados subsección 4.3"
         >
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-01.jpg"
                 alt="Placeholder entrevistado 01"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Ximena Tapias Delporte</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Ximena Tapias Delporte</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Abogada y Presidente de la Unión Colombiana de Empresas de Publicidad (UCEP), fue también Presidente de la CONARP.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-02.jpg"
                 alt="Placeholder entrevistado 02"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">José Pablo Arango Calle</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">José Pablo Arango Calle</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Publicista, consultor de marcas y ex gerente de la marca país ProColombia.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-03.jpg"
                 alt="Placeholder entrevistado 03"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Martín Fernando Delgado Henao</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Martín Fernando Delgado Henao</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Académico y creativo publicitario con más de veinte años de trayectoria en agencias nacionales e internacionales y docencia universitaria.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-04.jpg"
                 alt="Placeholder entrevistado 04"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Mónica Andrea Ramírez Hinestroza</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Mónica Andrea Ramírez Hinestroza</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Abogada con amplia trayectoria en el sector público y privado, actualmente se desempeña como Directora Ejecutiva de Autocontrol Colombia.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-05.jpg"
                 alt="Placeholder entrevistado 05"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">José Domingo Gómez Castallo</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">José Domingo Gómez Castallo</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Director General de Autocontrol España, con formación en derecho y psicología y amplia experiencia en gestión pública.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-06.jpg"
                 alt="Placeholder entrevistado 06"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Leslie Paz Jaramillo</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Leslie Paz Jaramillo</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Académica, investigadora y activista con énfasis en derechos de las mujeres y análisis del discurso desde una perspectiva de género.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-07.jpg"
                 alt="Placeholder entrevistado 07"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Tuyo Isaza</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Tuyo Isaza</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Autor, estratega de marketing y consultor especializado en liderazgo y transformación organizacional.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-08.jpg"
                 alt="Placeholder entrevistado 08"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Clelia Antonieta Pérez Medina</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Clelia Antonieta Pérez Medina</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Docente universitaria y consultora en branding y psicología del consumidor; dirige programas de posgrado en la Universidad Konrad Lorenz.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-09.jpg"
                 alt="Placeholder entrevistado 09"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">María Carolina Corcione Morales</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">María Carolina Corcione Morales</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Abogada especialista en derecho del consumo y Presidente del Instituto Colombiano de Derecho del Consumo (ICODECO).
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-10.jpg"
                 alt="Placeholder entrevistado 10"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Diego Eduardo López Medina</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Diego Eduardo López Medina</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Abogado y académico, autor de referencia en derecho constitucional y creador de la metodología de Análisis Dinámico de Precedentes.
               </p>
             </div>
           </article>
 
-          <article class="results-slide rounded-xl border border-gray-200 bg-white p-6">
+          <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
                 src="img/entrevistados/entrevistado-11.jpg"
                 alt="Placeholder entrevistado 11"
                 class="h-24 w-24 rounded-full object-cover border border-gray-200 bg-gray-100"
               />
-              <p class="mt-4 text-sm font-semibold text-gray-900">Jorge Jaeckel Kovács</p>
-              <p class="text-sm text-gray-600 mt-3 leading-relaxed">
+              <p class="mt-2 text-sm font-semibold text-gray-900">Jorge Jaeckel Kovács</p>
+              <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                 Abogado con extensa trayectoria en derecho publicitario y usuario activo del sistema de autorregulación en Colombia.
               </p>
             </div>
           </article>
         </div>
-
-        <button
-          class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm sm:hidden"
-          type="button"
-          data-carousel="entrevistados-43"
-          data-direction="next"
-          aria-label="Entrevistado siguiente subsección 4.3"
-        >
-          ›
-        </button>
       </div>
 
-      <div class="results-carousel-dots mt-4" data-carousel-dots="entrevistados-43"></div>
-    </div>
-
-    <!-- CARRUSEL TABLAS (SE CONSERVA) -->
-    <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
-      <button
-        class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-        type="button"
-        data-carousel="resultados-43-tablas"
-        data-direction="prev"
-        aria-label="Tabla anterior subsección 4.3"
-      >
-        ‹
-      </button>
-      <div
-        id="resultados-43-tablas"
-        class="results-carousel-track"
-        aria-label="Carrusel de tablas subsección 4.3"
-      >
-        <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
-          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-            Matriz 4.3-A
-          </p>
-          <h4 class="text-base font-semibold text-gray-900 mb-4">
-            Categorías emergentes del análisis cualitativo
-          </h4>
-          <ul class="space-y-2 text-sm text-gray-600">
-            <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-              Transición institucional y legitimidad del sistema
-            </li>
-            <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-              Precedente, coherencia y memoria doctrinal
-            </li>
-            <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-              Diversidad decisoria, género y subjetividad ética
-            </li>
-            <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-              Tecnología, IA y compliance social
-            </li>
-          </ul>
-        </article>
-        <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
-          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-            Matriz 4.3-B
-          </p>
-          <h4 class="text-base font-semibold text-gray-900 mb-4">
-            Segmentación general de perfiles entrevistados
-          </h4>
-          <div class="table-scroll-standard">
-            <table class="min-w-[560px] w-full text-sm">
-              <thead class="bg-gray-50 text-gray-600">
-                <tr>
-                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Perfil</th>
-                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">n</th>
-                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Foco</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-700">
-                <tr>
-                  <td class="px-3 py-2 border border-gray-200">Expertos en autorregulación</td>
-                  <td class="px-3 py-2 border border-gray-200">—</td>
-                  <td class="px-3 py-2 border border-gray-200">Legitimidad y diseño institucional</td>
-                </tr>
-                <tr>
-                  <td class="px-3 py-2 border border-gray-200">Juristas / asesores</td>
-                  <td class="px-3 py-2 border border-gray-200">—</td>
-                  <td class="px-3 py-2 border border-gray-200">Precedente y seguridad jurídica</td>
-                </tr>
-                <tr>
-                  <td class="px-3 py-2 border border-gray-200">Profesionales del sector</td>
-                  <td class="px-3 py-2 border border-gray-200">—</td>
-                  <td class="px-3 py-2 border border-gray-200">Aplicación práctica y desafíos digitales</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
+      <div class="results-carousel-dots mt-3" data-carousel-dots="entrevistados-43"></div>
       </div>
-      <button
-        class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-        type="button"
-        data-carousel="resultados-43-tablas"
-        data-direction="next"
-        aria-label="Tabla siguiente subsección 4.3"
-      >
-        ›
-      </button>
-    </div>
-    <div class="results-carousel-dots lg:col-span-12" data-carousel-dots="resultados-43-tablas"></div>
+    </aside>
   </div>
 </article>
 
@@ -3148,35 +3219,11 @@
         afecta al consumidor o reproduce daños simbólicos</strong>.
       </p>
 
-      <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Metodología</p>
-          <p class="font-semibold text-gray-900">ADP</p>
-        </div>
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Bloques analizados</p>
-          <p class="font-semibold text-gray-900">3 líneas de precedente</p>
-        </div>
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Hallazgo transversal</p>
-          <p class="font-semibold text-gray-900">Primacía de dignidad y veracidad</p>
-        </div>
-      </div>
     </div>
 
     <!-- ASIDE -->
     <aside class="lg:col-span-4">
-      <div class="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-6 text-center">
-        <p class="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold mb-2">
-          Placeholder de diagrama
-        </p>
-        <p class="text-sm text-gray-600">
-          Espacio para visualización de líneas de precedente, decisiones arquimédicas,
-          subreglas y nodos de ruptura.
-        </p>
-      </div>
-
-      <div class="mt-4 rounded-xl border border-gray-200 bg-white p-4">
+      <div class="rounded-xl border border-gray-200 bg-white p-4">
         <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
           Idea fuerza de la subsección
         </p>
@@ -3203,21 +3250,14 @@
               Dignidad, decencia y no discriminación
             </h4>
           </div>
-          <span class="rounded-full bg-white border border-gray-200 px-2.5 py-1 text-[11px] font-semibold text-gray-600">
-            Caso Virgin Mobile
-          </span>
         </div>
 
         <div class="rounded-xl border border-dashed border-gray-300 bg-white p-4 text-center mb-4">
           <img
             src="avisos/virgin.jpg"
-            alt="Placeholder campaña Virgin Mobile"
-            class="mx-auto h-40 w-full max-w-[260px] object-cover rounded-lg bg-gray-100"
+            alt="Bloque 1: pieza analizada en dignidad y no discriminación"
+            class="mx-auto h-40 w-full max-w-[260px] object-cover object-top rounded-lg bg-gray-100"
           />
-          <p class="text-xs text-gray-500 mt-3">
-            Reemplazar archivo manteniendo el nombre:
-            <strong>virgin-mobile.jpg</strong>
-          </p>
         </div>
 
         <div class="space-y-3 text-sm text-gray-600">
@@ -3259,21 +3299,14 @@
               Veracidad y publicidad comparativa
             </h4>
           </div>
-          <span class="rounded-full bg-white border border-gray-200 px-2.5 py-1 text-[11px] font-semibold text-gray-600">
-            Caso WOM
-          </span>
         </div>
 
         <div class="rounded-xl border border-dashed border-gray-300 bg-white p-4 text-center mb-4">
           <img
             src="avisos/clavostar.png"
-            alt="Placeholder campaña WOM Clavostar"
-            class="mx-auto h-40 w-full max-w-[260px] object-cover rounded-lg bg-gray-100"
+            alt="Bloque 2: pieza analizada en publicidad comparativa"
+            class="mx-auto h-40 w-full max-w-[260px] object-cover object-top rounded-lg bg-gray-100"
           />
-          <p class="text-xs text-gray-500 mt-3">
-            Reemplazar archivo manteniendo el nombre:
-            <strong>wom-clavostar.jpg</strong>
-          </p>
         </div>
 
         <div class="space-y-3 text-sm text-gray-600">
@@ -3314,21 +3347,14 @@
               Afirmaciones objetivas vs. subjetivas
             </h4>
           </div>
-          <span class="rounded-full bg-white border border-gray-200 px-2.5 py-1 text-[11px] font-semibold text-gray-600">
-            Caso Yeferson Cossio
-          </span>
         </div>
 
         <div class="rounded-xl border border-dashed border-gray-300 bg-white p-4 text-center mb-4">
           <img
             src="avisos/cossio.jpeg"
-            alt="Placeholder campaña Método Cossio"
+            alt="Bloque 3: pieza analizada en afirmaciones objetivas y subjetivas"
             class="mx-auto h-40 w-full max-w-[260px] object-cover rounded-lg bg-gray-100"
           />
-          <p class="text-xs text-gray-500 mt-3">
-            Reemplazar archivo manteniendo el nombre:
-            <strong>metodo-cossio.jpg</strong>
-          </p>
         </div>
 
         <div class="space-y-3 text-sm text-gray-600">
@@ -3360,100 +3386,6 @@
       </article>
     </div>
 
-    <!-- SÍNTESIS TRANSVERSAL -->
-    <div class="lg:col-span-12 rounded-xl border border-gray-200 bg-red-50/60 p-5">
-      <p class="text-[11px] uppercase tracking-[0.16em] text-red-700 font-semibold mb-2">
-        Hallazgo transversal
-      </p>
-      <p class="text-sm text-gray-700 leading-relaxed">
-        Los tres bloques permiten identificar una misma lógica decisional:
-        el análisis se centra en el <strong>efecto del mensaje sobre el consumidor medio</strong>,
-        no en la intención declarada del anunciante. Por eso, en los conflictos entre
-        <strong>creatividad</strong> y <strong>ética</strong>, la línea construida por la CONARP
-        favorece de manera consistente la <strong>protección de la dignidad</strong> y la
-        <strong>veracidad comprobable</strong>.
-      </p>
-    </div>
-
-    <!-- CARRUSEL TABLAS -->
-    <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
-      <button
-        class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-        type="button"
-        data-carousel="resultados-44-tablas"
-        data-direction="prev"
-        aria-label="Tabla anterior subsección 4.4"
-      >
-        ‹
-      </button>
-      <div
-        id="resultados-44-tablas"
-        class="results-carousel-track"
-        aria-label="Carrusel de tablas subsección 4.4"
-      >
-        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
-          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-            Línea 4.4-A
-          </p>
-          <h4 class="text-base font-semibold text-gray-900 mb-4">
-            Dignidad, veracidad y promesa verificable
-          </h4>
-          <div class="space-y-3 text-sm text-gray-600">
-            <div class="rounded-lg border border-gray-200 bg-white p-3">
-              <strong>Bloque 1:</strong> el humor no neutraliza el efecto discriminatorio del mensaje.
-            </div>
-            <div class="rounded-lg border border-gray-200 bg-white p-3">
-              <strong>Bloque 2:</strong> la creatividad comparativa exige respaldo y lectura global de la pieza.
-            </div>
-            <div class="rounded-lg border border-gray-200 bg-white p-3">
-              <strong>Bloque 3:</strong> la promesa aspiracional se vuelve exigible si genera expectativa objetiva.
-            </div>
-          </div>
-        </article>
-        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
-          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-            Línea 4.4-B
-          </p>
-          <h4 class="text-base font-semibold text-gray-900 mb-4">
-            Subreglas reconstruidas por bloque
-          </h4>
-          <div class="table-scroll-standard">
-            <table class="min-w-[560px] w-full text-sm">
-              <thead class="bg-white text-gray-600">
-                <tr>
-                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Bloque</th>
-                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Subregla</th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-700">
-                <tr>
-                  <td class="px-3 py-2 border border-gray-200">Virgin Mobile</td>
-                  <td class="px-3 py-2 border border-gray-200">El estereotipo se evalúa por su efecto simbólico, no solo por su literalidad.</td>
-                </tr>
-                <tr>
-                  <td class="px-3 py-2 border border-gray-200">WOM</td>
-                  <td class="px-3 py-2 border border-gray-200">La parodia es válida solo si no induce a error ni denigra injustificadamente.</td>
-                </tr>
-                <tr>
-                  <td class="px-3 py-2 border border-gray-200">Yeferson Cossio</td>
-                  <td class="px-3 py-2 border border-gray-200">Toda promesa verificable requiere respaldo técnico previo, aunque use tono coloquial.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </div>
-      <button
-        class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-        type="button"
-        data-carousel="resultados-44-tablas"
-        data-direction="next"
-        aria-label="Tabla siguiente subsección 4.4"
-      >
-        ›
-      </button>
-    </div>
-    <div class="results-carousel-dots lg:col-span-12" data-carousel-dots="resultados-44-tablas"></div>
   </div>
 </article>
 
@@ -4744,6 +4676,180 @@
           .forEach((track) => {
             setupSummaryCarousel(track);
           });
+
+        const contextoMainColumn = document.getElementById("contexto-main-column");
+        const contextoMainCard = document.getElementById("contexto-main-card");
+        const contextoAside = document.getElementById("contexto-aside");
+
+        const syncContextAsideHeight = () => {
+          if (!contextoMainColumn || !contextoMainCard || !contextoAside) {
+            return;
+          }
+
+          if (!window.matchMedia("(min-width: 1024px)").matches) {
+            contextoAside.style.marginTop = "";
+            contextoAside.style.height = "";
+            return;
+          }
+
+          const topOffset =
+            contextoMainCard.getBoundingClientRect().top -
+            contextoMainColumn.getBoundingClientRect().top;
+
+          contextoAside.style.marginTop = `${Math.max(0, topOffset)}px`;
+          contextoAside.style.height = `${contextoMainCard.offsetHeight}px`;
+        };
+
+        if (contextoMainColumn && contextoMainCard && contextoAside) {
+          syncContextAsideHeight();
+          window.addEventListener("load", syncContextAsideHeight);
+          window.addEventListener("resize", syncContextAsideHeight);
+
+          if (typeof ResizeObserver !== "undefined") {
+            const contextoObserver = new ResizeObserver(syncContextAsideHeight);
+            contextoObserver.observe(contextoMainCard);
+            contextoObserver.observe(contextoMainColumn);
+          }
+        }
+
+        const setupContextoColombiaTabs = () => {
+          const tabButtons = Array.from(
+            document.querySelectorAll("[data-contexto-tab-target]"),
+          );
+          const tabPanels = Array.from(
+            document.querySelectorAll("[data-contexto-tab-panel]"),
+          );
+
+          if (!tabButtons.length || !tabPanels.length) {
+            return;
+          }
+
+          const activateTab = (targetKey) => {
+            tabButtons.forEach((button) => {
+              const isActive = button.dataset.contextoTabTarget === targetKey;
+              button.classList.toggle("is-active", isActive);
+              button.setAttribute("aria-selected", isActive ? "true" : "false");
+              button.tabIndex = isActive ? 0 : -1;
+            });
+
+            tabPanels.forEach((panel) => {
+              panel.hidden = panel.dataset.contextoTabPanel !== targetKey;
+            });
+          };
+
+          tabButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+              activateTab(button.dataset.contextoTabTarget);
+            });
+
+            button.addEventListener("keydown", (event) => {
+              const key = event.key;
+              if (
+                key !== "ArrowLeft" &&
+                key !== "ArrowRight" &&
+                key !== "Home" &&
+                key !== "End"
+              ) {
+                return;
+              }
+
+              event.preventDefault();
+              let nextIndex = index;
+
+              if (key === "ArrowRight") {
+                nextIndex = (index + 1) % tabButtons.length;
+              } else if (key === "ArrowLeft") {
+                nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+              } else if (key === "Home") {
+                nextIndex = 0;
+              } else if (key === "End") {
+                nextIndex = tabButtons.length - 1;
+              }
+
+              const nextButton = tabButtons[nextIndex];
+              nextButton.focus();
+              activateTab(nextButton.dataset.contextoTabTarget);
+            });
+          });
+
+          const initialTab =
+            tabButtons.find((button) => button.getAttribute("aria-selected") === "true")
+              ?.dataset.contextoTabTarget || tabButtons[0].dataset.contextoTabTarget;
+
+          activateTab(initialTab);
+        };
+
+        setupContextoColombiaTabs();
+
+        const setupCartografiaTabs = () => {
+          const tabButtons = Array.from(
+            document.querySelectorAll("[data-cartografia-tab-target]"),
+          );
+          const tabPanels = Array.from(
+            document.querySelectorAll("[data-cartografia-tab-panel]"),
+          );
+
+          if (!tabButtons.length || !tabPanels.length) {
+            return;
+          }
+
+          const activateTab = (targetKey) => {
+            tabButtons.forEach((button) => {
+              const isActive = button.dataset.cartografiaTabTarget === targetKey;
+              button.classList.toggle("is-active", isActive);
+              button.setAttribute("aria-selected", isActive ? "true" : "false");
+              button.tabIndex = isActive ? 0 : -1;
+            });
+
+            tabPanels.forEach((panel) => {
+              panel.hidden = panel.dataset.cartografiaTabPanel !== targetKey;
+            });
+          };
+
+          tabButtons.forEach((button, index) => {
+            button.addEventListener("click", () => {
+              activateTab(button.dataset.cartografiaTabTarget);
+            });
+
+            button.addEventListener("keydown", (event) => {
+              const key = event.key;
+              if (
+                key !== "ArrowLeft" &&
+                key !== "ArrowRight" &&
+                key !== "Home" &&
+                key !== "End"
+              ) {
+                return;
+              }
+
+              event.preventDefault();
+              let nextIndex = index;
+
+              if (key === "ArrowRight") {
+                nextIndex = (index + 1) % tabButtons.length;
+              } else if (key === "ArrowLeft") {
+                nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+              } else if (key === "Home") {
+                nextIndex = 0;
+              } else if (key === "End") {
+                nextIndex = tabButtons.length - 1;
+              }
+
+              const nextButton = tabButtons[nextIndex];
+              nextButton.focus();
+              activateTab(nextButton.dataset.cartografiaTabTarget);
+            });
+          });
+
+          const initialTab =
+            tabButtons.find((button) => button.getAttribute("aria-selected") === "true")
+              ?.dataset.cartografiaTabTarget ||
+            tabButtons[0].dataset.cartografiaTabTarget;
+
+          activateTab(initialTab);
+        };
+
+        setupCartografiaTabs();
 
         const setupHypothesisSlider = () => {
           const track = document.getElementById("hypothesis-track");
