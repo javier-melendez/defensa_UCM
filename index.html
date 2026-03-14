@@ -13,6 +13,7 @@
       :root {
         --ucm-red: #bf1e2d;
         --ucm-dark: #1a1a1a;
+        --table-short-height: clamp(280px, 38vh, 340px);
       }
 
       html {
@@ -138,16 +139,16 @@
       }
 
       .results-slide-standard {
-        height: clamp(420px, 58vh, 560px);
+        height: auto;
         display: flex;
         flex-direction: column;
       }
 
       .results-slide-scroll {
-        flex: 1;
-        min-height: 0;
-        overflow-y: auto;
-        padding-right: 0.25rem;
+        flex: initial;
+        min-height: auto;
+        overflow: visible;
+        padding-right: 0;
         scrollbar-width: thin;
       }
 
@@ -156,6 +157,29 @@
       }
 
       .results-slide-scroll::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 9999px;
+      }
+
+      .results-carousel-content-fit {
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .table-scroll-standard {
+        height: var(--table-short-height);
+        overflow-x: auto;
+        overflow-y: auto;
+        scrollbar-width: thin;
+      }
+
+      .table-scroll-standard::-webkit-scrollbar {
+        width: 6px;
+        height: 8px;
+      }
+
+      .table-scroll-standard::-webkit-scrollbar-thumb {
         background: #d1d5db;
         border-radius: 9999px;
       }
@@ -687,7 +711,7 @@
 
         <!-- Subbloque: Tabla comparativa de estudios -->
         <div
-          class="overflow-x-auto rounded-lg border border-gray-100 shadow-sm"
+          class="table-scroll-standard rounded-lg border border-gray-100 shadow-sm"
         >
           <table class="min-w-[900px] w-full bg-white">
             <thead class="sticky top-0 bg-white">
@@ -992,7 +1016,7 @@
               src="imagenes/articulos_anio_colombia.png"
               alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
               loading="lazy"
-              class="w-full aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
+              class="mx-auto w-[70%] aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
             />
 
             <figcaption
@@ -1024,7 +1048,7 @@
               src="imagenes/cartografia.png"
               alt="Cartografía conceptual del análisis dinámico de precedentes"
               loading="lazy"
-              class="w-full aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
+              class="mx-auto w-[70%] aspect-[16/9] rounded-lg shadow-sm border border-gray-200 bg-white object-contain"
             />
             <figcaption
               class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
@@ -1627,7 +1651,7 @@
               src="imagenes/discusión_chart.png"
               alt="Representación conceptual del diseño metodológico"
               loading="lazy"
-              class="mx-auto w-full rounded-3xl shadow-lg border border-gray-200 bg-white object-contain"
+              class="mx-auto w-[70%] rounded-3xl shadow-lg border border-gray-200 bg-white object-contain"
             />
 
             <figcaption
@@ -2108,221 +2132,6 @@
                 </div>
               </div>
 
-              <div class="mt-8 relative">
-                <button
-                  class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-41-tablas"
-                  data-direction="prev"
-                  aria-label="Tabla anterior subsección 4.1"
-                >
-                  ‹
-                </button>
-                <div
-                  id="resultados-41-tablas"
-                  class="results-carousel-track"
-                  aria-label="Carrusel de tablas subsección 4.1"
-                >
-                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.1-A
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Número de conceptos emitidos por la CONARP entre 1999 y 2013, según año de expedición
-                    </h4>
-                    <div class="results-slide-scroll">
-                      <div class="overflow-x-auto">
-                        <table class="min-w-[560px] w-full text-sm">
-                          <thead class="bg-gray-50 text-gray-600">
-                            <tr>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Año</th>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Cantidad de decisiones</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-gray-700">
-                            <tr><td class="px-3 py-2 border border-gray-200">1999</td><td class="px-3 py-2 border border-gray-200">8</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2000</td><td class="px-3 py-2 border border-gray-200">7</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2003</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2004</td><td class="px-3 py-2 border border-gray-200">4</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2005</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2006</td><td class="px-3 py-2 border border-gray-200">4</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2007</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2008</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2009</td><td class="px-3 py-2 border border-gray-200">5</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2010</td><td class="px-3 py-2 border border-gray-200">1</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2011</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2012</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">2013</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
-                    </div>
-                  </article>
-                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.1-B
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Distribución porcentual de decisiones por categoría de producto
-                    </h4>
-                    <div class="results-slide-scroll">
-                      <div class="overflow-x-auto">
-                        <table class="min-w-[560px] w-full text-sm">
-                          <thead class="bg-gray-50 text-gray-600">
-                            <tr>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Categoría de producto</th>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-gray-700">
-                            <tr><td class="px-3 py-2 border border-gray-200">Belleza e Higiene</td><td class="px-3 py-2 border border-gray-200">28,3</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Alimentación</td><td class="px-3 py-2 border border-gray-200">19,6</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Limpieza</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Telecomunicaciones e Internet</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Bebidas</td><td class="px-3 py-2 border border-gray-200">6,5</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Salud</td><td class="px-3 py-2 border border-gray-200">6,5</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Otras categorías</td><td class="px-3 py-2 border border-gray-200">8,7</td></tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
-                    </div>
-                  </article>
-                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.1-C
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Distribución por origen de la reclamación en decisiones analizadas
-                    </h4>
-                    <div class="results-slide-scroll">
-                      <div class="overflow-x-auto">
-                        <table class="min-w-[560px] w-full text-sm">
-                          <thead class="bg-gray-50 text-gray-600">
-                            <tr>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Origen de la reclamación</th>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-gray-700">
-                            <tr><td class="px-3 py-2 border border-gray-200">Empresa/competidor</td><td class="px-3 py-2 border border-gray-200">82,6</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Particulares</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Otras categorías</td><td class="px-3 py-2 border border-gray-200">2,2</td></tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
-                    </div>
-                  </article>
-                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.1-D
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Distribución por tipo de anunciante reclamado en decisiones analizadas
-                    </h4>
-                    <div class="results-slide-scroll">
-                      <div class="overflow-x-auto">
-                        <table class="min-w-[560px] w-full text-sm">
-                          <thead class="bg-gray-50 text-gray-600">
-                            <tr>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Tipo de anunciante reclamado</th>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-gray-700">
-                            <tr><td class="px-3 py-2 border border-gray-200">Multinacional</td><td class="px-3 py-2 border border-gray-200">54,3%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Nacional</td><td class="px-3 py-2 border border-gray-200">41,3%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Local</td><td class="px-3 py-2 border border-gray-200">4,3%</td></tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
-                    </div>
-                  </article>
-                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.1-E
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Distribución de los objetos de reclamación en los conceptos emitidos por la CONARP (1999-2013)
-                    </h4>
-                    <div class="results-slide-scroll">
-                      <div class="overflow-x-auto">
-                        <table class="min-w-[560px] w-full text-sm">
-                          <thead class="bg-gray-50 text-gray-600">
-                            <tr>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Objeto de la reclamación</th>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-gray-700">
-                            <tr><td class="px-3 py-2 border border-gray-200">Principio de veracidad</td><td class="px-3 py-2 border border-gray-200">33,3%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Leal competencia</td><td class="px-3 py-2 border border-gray-200">26,7%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Honestidad</td><td class="px-3 py-2 border border-gray-200">13,3%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Publicidad comparativa</td><td class="px-3 py-2 border border-gray-200">8,6%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Buena fe del consumidor</td><td class="px-3 py-2 border border-gray-200">5,7%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">No discriminación</td><td class="px-3 py-2 border border-gray-200">3,8%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Dignidad de las personas</td><td class="px-3 py-2 border border-gray-200">2,9%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Principio de protección de la infancia y adolescencia</td><td class="px-3 py-2 border border-gray-200">1,9%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Decencia</td><td class="px-3 py-2 border border-gray-200">1,9%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Moralidad</td><td class="px-3 py-2 border border-gray-200">1,0%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Protección al ambiente</td><td class="px-3 py-2 border border-gray-200">1,0%</td></tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
-                    </div>
-                  </article>
-                  <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.1-F
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Distribución de las resoluciones emitidas por la CONARP en los conceptos analizados (1999-2013), según el tipo de recomendación o medida adoptada
-                    </h4>
-                    <div class="results-slide-scroll">
-                      <div class="overflow-x-auto">
-                        <table class="min-w-[560px] w-full text-sm">
-                          <thead class="bg-gray-50 text-gray-600">
-                            <tr>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Resolución de la reclamación</th>
-                              <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-gray-700">
-                            <tr><td class="px-3 py-2 border border-gray-200">Rectificación</td><td class="px-3 py-2 border border-gray-200">24,7%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Decisión inhibitoria</td><td class="px-3 py-2 border border-gray-200">15,1%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Cesación temporal</td><td class="px-3 py-2 border border-gray-200">13,7%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Desestimado</td><td class="px-3 py-2 border border-gray-200">13,7%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Desestimado parcial</td><td class="px-3 py-2 border border-gray-200">6,8%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Amonestación</td><td class="px-3 py-2 border border-gray-200">5,5%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Traslado a autoridad competente</td><td class="px-3 py-2 border border-gray-200">5,5%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Cesación definitiva</td><td class="px-3 py-2 border border-gray-200">4,1%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Difusión de la resolución</td><td class="px-3 py-2 border border-gray-200">4,1%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Orden de cumplimiento</td><td class="px-3 py-2 border border-gray-200">2,7%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Fallo ultra petita</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Aceptación de la infracción</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
-                            <tr><td class="px-3 py-2 border border-gray-200">Informa contravención</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
-                    </div>
-                  </article>
-                </div>
-                <button
-                  class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-41-tablas"
-                  data-direction="next"
-                  aria-label="Tabla siguiente subsección 4.1"
-                >
-                  ›
-                </button>
-              </div>
-              <div class="results-carousel-dots" data-carousel-dots="resultados-41-tablas"></div>
             </div>
 
             <aside class="lg:col-span-4 space-y-4">
@@ -2349,137 +2158,532 @@
                 </ul>
               </div>
             </aside>
-          </div>
-        </article>
 
-        <!-- =============================================
-         SUBSECCIÓN 4.2
-         ============================================= -->
-        <article class="mt-12 fade-in rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
-          <div class="grid lg:grid-cols-12 gap-8 items-start">
-            <div class="lg:col-span-7">
-              <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold">
-                Subsección 4.2
-              </p>
-              <h3 class="text-2xl md:text-3xl font-bold mt-2 mb-4">
-                Percepción sobre temas deontológicos relevantes en la publicidad colombiana - análisis cuantitativo a través de encuestas
-              </h3>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                [Texto dummie] Se sintetizarán los hallazgos de la encuesta en
-                torno a prioridades éticas, percepción de riesgo y valoración de
-                criterios de decisión en audiencias profesionales.
-              </p>
-
-              <div class="mt-8 relative">
-                <button
-                  class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-42-tablas"
-                  data-direction="prev"
-                  aria-label="Tabla anterior subsección 4.2"
-                >
-                  ‹
-                </button>
-                <div
-                  id="resultados-42-tablas"
-                  class="results-carousel-track"
-                  aria-label="Carrusel de tablas subsección 4.2"
-                >
-                  <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.2-A
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Priorización de temas deontológicos (dummy)
-                    </h4>
-                    <div class="overflow-x-auto">
+            <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
+              <button
+                class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+                type="button"
+                data-carousel="resultados-41-tablas"
+                data-direction="prev"
+                aria-label="Tabla anterior subsección 4.1"
+              >
+                ‹
+              </button>
+              <div
+                id="resultados-41-tablas"
+                class="results-carousel-track"
+                aria-label="Carrusel de tablas subsección 4.1"
+              >
+                <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Tabla 4.1-A
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Número de conceptos emitidos por la CONARP entre 1999 y 2013, según año de expedición
+                  </h4>
+                  <div class="results-slide-scroll">
+                    <div class="table-scroll-standard">
                       <table class="min-w-[560px] w-full text-sm">
-                        <thead class="bg-white text-gray-600">
+                        <thead class="bg-gray-50 text-gray-600">
                           <tr>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Tema</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Promedio</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Desv. Est.</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Año</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Cantidad de decisiones</th>
                           </tr>
                         </thead>
                         <tbody class="text-gray-700">
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Publicidad infantil</td>
-                            <td class="px-3 py-2 border border-gray-200">4.6</td>
-                            <td class="px-3 py-2 border border-gray-200">0.5</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Comparaciones implícitas</td>
-                            <td class="px-3 py-2 border border-gray-200">4.3</td>
-                            <td class="px-3 py-2 border border-gray-200">0.8</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Sostenibilidad</td>
-                            <td class="px-3 py-2 border border-gray-200">4.1</td>
-                            <td class="px-3 py-2 border border-gray-200">0.7</td>
-                          </tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">1999</td><td class="px-3 py-2 border border-gray-200">8</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2000</td><td class="px-3 py-2 border border-gray-200">7</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2003</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2004</td><td class="px-3 py-2 border border-gray-200">4</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2005</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2006</td><td class="px-3 py-2 border border-gray-200">4</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2007</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2008</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2009</td><td class="px-3 py-2 border border-gray-200">5</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2010</td><td class="px-3 py-2 border border-gray-200">1</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2011</td><td class="px-3 py-2 border border-gray-200">3</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2012</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">2013</td><td class="px-3 py-2 border border-gray-200">2</td></tr>
                         </tbody>
                       </table>
                     </div>
-                  </article>
-                  <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Tabla 4.2-B
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Distribución por perfil de encuestado (dummy)
-                    </h4>
-                    <div class="grid sm:grid-cols-3 gap-3 text-sm text-gray-700">
-                      <div class="rounded-lg border border-gray-200 bg-white p-4">
-                        <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Anunciantes</p>
-                        <p class="font-semibold">40%</p>
-                      </div>
-                      <div class="rounded-lg border border-gray-200 bg-white p-4">
-                        <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Agencias</p>
-                        <p class="font-semibold">35%</p>
-                      </div>
-                      <div class="rounded-lg border border-gray-200 bg-white p-4">
-                        <p class="text-[10px] uppercase tracking-widest text-gray-500 mb-2">Académicos</p>
-                        <p class="font-semibold">25%</p>
-                      </div>
+                    <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                  </div>
+                </article>
+                <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Tabla 4.1-B
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Distribución porcentual de decisiones por categoría de producto
+                  </h4>
+                  <div class="results-slide-scroll">
+                    <div class="table-scroll-standard">
+                      <table class="min-w-[560px] w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-600">
+                          <tr>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Categoría de producto</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                          <tr><td class="px-3 py-2 border border-gray-200">Belleza e Higiene</td><td class="px-3 py-2 border border-gray-200">28,3</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Alimentación</td><td class="px-3 py-2 border border-gray-200">19,6</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Limpieza</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Telecomunicaciones e Internet</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Bebidas</td><td class="px-3 py-2 border border-gray-200">6,5</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Salud</td><td class="px-3 py-2 border border-gray-200">6,5</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Otras categorías</td><td class="px-3 py-2 border border-gray-200">8,7</td></tr>
+                        </tbody>
+                      </table>
                     </div>
-                  </article>
-                </div>
-                <button
-                  class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-42-tablas"
-                  data-direction="next"
-                  aria-label="Tabla siguiente subsección 4.2"
-                >
-                  ›
-                </button>
+                    <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                  </div>
+                </article>
+                <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Tabla 4.1-C
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Distribución por origen de la reclamación en decisiones analizadas
+                  </h4>
+                  <div class="results-slide-scroll">
+                    <div class="table-scroll-standard">
+                      <table class="min-w-[560px] w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-600">
+                          <tr>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Origen de la reclamación</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                          <tr><td class="px-3 py-2 border border-gray-200">Empresa/competidor</td><td class="px-3 py-2 border border-gray-200">82,6</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Particulares</td><td class="px-3 py-2 border border-gray-200">15,2</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Otras categorías</td><td class="px-3 py-2 border border-gray-200">2,2</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                  </div>
+                </article>
+                <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Tabla 4.1-D
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Distribución por tipo de anunciante reclamado en decisiones analizadas
+                  </h4>
+                  <div class="results-slide-scroll">
+                    <div class="table-scroll-standard">
+                      <table class="min-w-[560px] w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-600">
+                          <tr>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Tipo de anunciante reclamado</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                          <tr><td class="px-3 py-2 border border-gray-200">Multinacional</td><td class="px-3 py-2 border border-gray-200">54,3%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Nacional</td><td class="px-3 py-2 border border-gray-200">41,3%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Local</td><td class="px-3 py-2 border border-gray-200">4,3%</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                  </div>
+                </article>
+                <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Tabla 4.1-E
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Distribución de los objetos de reclamación en los conceptos emitidos por la CONARP (1999-2013)
+                  </h4>
+                  <div class="results-slide-scroll">
+                    <div class="table-scroll-standard">
+                      <table class="min-w-[560px] w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-600">
+                          <tr>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Objeto de la reclamación</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                          <tr><td class="px-3 py-2 border border-gray-200">Principio de veracidad</td><td class="px-3 py-2 border border-gray-200">33,3%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Leal competencia</td><td class="px-3 py-2 border border-gray-200">26,7%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Honestidad</td><td class="px-3 py-2 border border-gray-200">13,3%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Publicidad comparativa</td><td class="px-3 py-2 border border-gray-200">8,6%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Buena fe del consumidor</td><td class="px-3 py-2 border border-gray-200">5,7%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">No discriminación</td><td class="px-3 py-2 border border-gray-200">3,8%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Dignidad de las personas</td><td class="px-3 py-2 border border-gray-200">2,9%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Principio de protección de la infancia y adolescencia</td><td class="px-3 py-2 border border-gray-200">1,9%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Decencia</td><td class="px-3 py-2 border border-gray-200">1,9%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Moralidad</td><td class="px-3 py-2 border border-gray-200">1,0%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Protección al ambiente</td><td class="px-3 py-2 border border-gray-200">1,0%</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                  </div>
+                </article>
+                <article class="results-slide results-slide-standard rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Tabla 4.1-F
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Distribución de las resoluciones emitidas por la CONARP en los conceptos analizados (1999-2013), según el tipo de recomendación o medida adoptada
+                  </h4>
+                  <div class="results-slide-scroll">
+                    <div class="table-scroll-standard">
+                      <table class="min-w-[560px] w-full text-sm">
+                        <thead class="bg-gray-50 text-gray-600">
+                          <tr>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Resolución de la reclamación</th>
+                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencia (%)</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                          <tr><td class="px-3 py-2 border border-gray-200">Rectificación</td><td class="px-3 py-2 border border-gray-200">24,7%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Decisión inhibitoria</td><td class="px-3 py-2 border border-gray-200">15,1%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Cesación temporal</td><td class="px-3 py-2 border border-gray-200">13,7%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Desestimado</td><td class="px-3 py-2 border border-gray-200">13,7%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Desestimado parcial</td><td class="px-3 py-2 border border-gray-200">6,8%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Amonestación</td><td class="px-3 py-2 border border-gray-200">5,5%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Traslado a autoridad competente</td><td class="px-3 py-2 border border-gray-200">5,5%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Cesación definitiva</td><td class="px-3 py-2 border border-gray-200">4,1%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Difusión de la resolución</td><td class="px-3 py-2 border border-gray-200">4,1%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Orden de cumplimiento</td><td class="px-3 py-2 border border-gray-200">2,7%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Fallo ultra petita</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Aceptación de la infracción</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
+                          <tr><td class="px-3 py-2 border border-gray-200">Informa contravención</td><td class="px-3 py-2 border border-gray-200">1,4%</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+                  </div>
+                </article>
               </div>
-              <div class="results-carousel-dots" data-carousel-dots="resultados-42-tablas"></div>
+              <button
+                class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+                type="button"
+                data-carousel="resultados-41-tablas"
+                data-direction="next"
+                aria-label="Tabla siguiente subsección 4.1"
+              >
+                ›
+              </button>
             </div>
-
-            <aside class="lg:col-span-5">
-              <div class="grid sm:grid-cols-2 gap-4">
-                <div class="rounded-xl border border-gray-200 bg-white p-4">
-                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">Tarjeta dummy 01</p>
-                  <p class="text-sm text-gray-600">
-                    Insight hipotético sobre correlación entre experiencia profesional y severidad percibida.
-                  </p>
-                </div>
-                <div class="rounded-xl border border-gray-200 bg-white p-4">
-                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">Tarjeta dummy 02</p>
-                  <p class="text-sm text-gray-600">
-                    Punto de contraste para grupos con formación jurídica y formación creativa.
-                  </p>
-                </div>
-                <div class="sm:col-span-2 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-5 text-center">
-                  <p class="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold">
-                    Placeholder de gráfico de barras / heatmap
-                  </p>
-                </div>
-              </div>
-            </aside>
+            <div class="results-carousel-dots lg:col-span-12" data-carousel-dots="resultados-41-tablas"></div>
           </div>
         </article>
+
+
+<!-- =============================================
+ SUBSECCIÓN 4.2
+ ============================================= -->
+<article class="mt-12 fade-in rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
+  <div class="grid lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- CONTEXTO -->
+    <div class="lg:col-span-7">
+      <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold">
+        Subsección 4.2
+      </p>
+
+      <h3 class="text-2xl md:text-3xl font-bold mt-2 mb-4">
+        Percepción sobre temas deontológicos en la publicidad colombiana
+      </h3>
+
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Encuesta aplicada en <strong>agosto de 2022</strong> a
+        <strong>44 profesionales del ecosistema publicitario</strong>.
+      </p>
+
+      <p class="text-sm text-gray-600 leading-relaxed mt-3">
+        Objetivo: identificar <strong>preocupaciones éticas prioritarias</strong> del sector y
+        definir los principios analizados posteriormente en la tesis.
+      </p>
+
+      <div class="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
+        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
+          <p class="text-xs text-gray-500 uppercase mb-1">Edad media</p>
+          <p class="font-semibold">41,1 años</p>
+        </div>
+
+        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
+          <p class="text-xs text-gray-500 uppercase mb-1">Mujeres</p>
+          <p class="font-semibold">52,3 %</p>
+        </div>
+
+        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
+          <p class="text-xs text-gray-500 uppercase mb-1">Participantes</p>
+          <p class="font-semibold">44 profesionales</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INSIGHTS -->
+    <aside class="lg:col-span-5">
+      <div class="grid sm:grid-cols-2 gap-4">
+
+        <div class="rounded-xl border border-gray-200 bg-white p-4">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
+            Principio más valorado
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Dignidad humana</strong><br>
+            Media <strong>4,70 / 5</strong>
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-gray-200 bg-white p-4">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2">
+            Tema con mayor debate
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Publicidad comparativa</strong><br>
+            Media <strong>3,66 / 5</strong> · DE <strong>1,20</strong>
+          </p>
+        </div>
+
+        <!-- MINI VISUAL -->
+        <div class="sm:col-span-2 rounded-xl border border-dashed border-gray-300 bg-gray-50 p-5">
+
+          <p class="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold mb-4">
+            Prioridades éticas identificadas
+          </p>
+
+          <div class="space-y-3">
+
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Dignidad humana</span>
+                <span class="font-semibold">4,70</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-700 rounded-full" style="width:94%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Veracidad del producto</span>
+                <span class="font-semibold">4,68</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-700 rounded-full" style="width:93%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm mb-1">
+                <span>Evidencia comprobable</span>
+                <span class="font-semibold">4,59</span>
+              </div>
+              <div class="h-2 bg-gray-200 rounded-full">
+                <div class="h-2 bg-red-700 rounded-full" style="width:91%"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- IDEA FUERZA -->
+    <div class="lg:col-span-12 rounded-xl border border-gray-200 bg-red-50/60 p-5">
+      <p class="text-[11px] uppercase tracking-[0.16em] text-red-700 font-semibold mb-2">
+        Idea central
+      </p>
+
+      <p class="text-sm text-gray-700">
+        El sector mantiene los valores clásicos de la ética publicitaria
+        (<strong>veracidad, honestidad y decencia</strong>), pero emerge con
+        mayor fuerza el <strong>respeto a la dignidad humana</strong> como
+        expectativa ética principal.
+      </p>
+    </div>
+
+    <!-- CARRUSEL TABLAS (SIN CAMBIOS ESTRUCTURALES) -->
+    <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
+      <button
+        class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+        type="button"
+        data-carousel="resultados-42-tablas"
+        data-direction="prev"
+        aria-label="Tabla anterior subsección 4.2"
+      >
+        ‹
+      </button>
+
+      <div
+        id="resultados-42-tablas"
+        class="results-carousel-track"
+        aria-label="Carrusel de tablas subsección 4.2"
+      >
+
+        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+            Tabla 4.2-A
+          </p>
+          <h4 class="text-base font-semibold text-gray-900 mb-4">
+            Distribución por género de los participantes de la encuesta
+          </h4>
+          <div class="table-scroll-standard">
+            <table class="min-w-[560px] w-full text-sm">
+              <thead class="bg-white text-gray-600">
+                <tr>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Género</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencias</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">% del total</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr>
+                  <td class="px-3 py-2 border border-gray-200">Mujer</td>
+                  <td class="px-3 py-2 border border-gray-200">23</td>
+                  <td class="px-3 py-2 border border-gray-200">52,3 %</td>
+                </tr>
+                <tr>
+                  <td class="px-3 py-2 border border-gray-200">Hombre</td>
+                  <td class="px-3 py-2 border border-gray-200">21</td>
+                  <td class="px-3 py-2 border border-gray-200">47,7 %</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+        </article>
+
+        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+            Tabla 4.2-B
+          </p>
+          <h4 class="text-base font-semibold text-gray-900 mb-4">
+            Distribución de los participantes según ocupación principal
+          </h4>
+          <div class="table-scroll-standard">
+            <table class="min-w-[560px] w-full text-sm">
+              <thead class="bg-white text-gray-600">
+                <tr>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Ocupación</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencias</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">% del total</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr><td class="px-3 py-2 border border-gray-200">Abogado</td><td class="px-3 py-2 border border-gray-200">14</td><td class="px-3 py-2 border border-gray-200">31,8 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Académico</td><td class="px-3 py-2 border border-gray-200">14</td><td class="px-3 py-2 border border-gray-200">31,8 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Mercadólogo</td><td class="px-3 py-2 border border-gray-200">7</td><td class="px-3 py-2 border border-gray-200">15,9 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Publicista</td><td class="px-3 py-2 border border-gray-200">4</td><td class="px-3 py-2 border border-gray-200">9,1 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Otras profesiones</td><td class="px-3 py-2 border border-gray-200">4</td><td class="px-3 py-2 border border-gray-200">9,1 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Medios</td><td class="px-3 py-2 border border-gray-200">1</td><td class="px-3 py-2 border border-gray-200">2,3 %</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+        </article>
+
+        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+            Tabla 4.2-C
+          </p>
+          <h4 class="text-base font-semibold text-gray-900 mb-4">
+            Estadísticos descriptivos de la edad de los participantes
+          </h4>
+          <div class="table-scroll-standard">
+            <table class="min-w-[560px] w-full text-sm">
+              <thead class="bg-white text-gray-600">
+                <tr>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Estadístico</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Valor</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr><td class="px-3 py-2 border border-gray-200">Edad mínima</td><td class="px-3 py-2 border border-gray-200">21 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Edad máxima</td><td class="px-3 py-2 border border-gray-200">67 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Edad promedio</td><td class="px-3 py-2 border border-gray-200">41,1 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Edad mediana</td><td class="px-3 py-2 border border-gray-200">40,5 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Desviación estándar</td><td class="px-3 py-2 border border-gray-200">11,5 años</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+        </article>
+
+        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+            Tabla 4.2-D
+          </p>
+          <h4 class="text-base font-semibold text-gray-900 mb-4">
+            Edad promedio de los encuestados según ocupación principal
+          </h4>
+          <div class="table-scroll-standard">
+            <table class="min-w-[560px] w-full text-sm">
+              <thead class="bg-white text-gray-600">
+                <tr>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Ocupación</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Edad promedio</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr><td class="px-3 py-2 border border-gray-200">Académico</td><td class="px-3 py-2 border border-gray-200">45,3 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Otras profesiones</td><td class="px-3 py-2 border border-gray-200">44,8 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Abogado</td><td class="px-3 py-2 border border-gray-200">39,9 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Mercadólogo</td><td class="px-3 py-2 border border-gray-200">37,9 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Publicista</td><td class="px-3 py-2 border border-gray-200">35,8 años</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Medios</td><td class="px-3 py-2 border border-gray-200">29,0 años</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+        </article>
+
+        <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+          <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+            Tabla 4.2-E
+          </p>
+          <h4 class="text-base font-semibold text-gray-900 mb-4">
+            Distribución de los participantes según país de residencia
+          </h4>
+          <div class="table-scroll-standard">
+            <table class="min-w-[560px] w-full text-sm">
+              <thead class="bg-white text-gray-600">
+                <tr>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">País de residencia</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">Frecuencias</th>
+                  <th class="text-left font-semibold px-3 py-2 border border-gray-200">% del total</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-700">
+                <tr><td class="px-3 py-2 border border-gray-200">Colombia</td><td class="px-3 py-2 border border-gray-200">41</td><td class="px-3 py-2 border border-gray-200">93,2 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Argentina</td><td class="px-3 py-2 border border-gray-200">1</td><td class="px-3 py-2 border border-gray-200">2,3 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Perú</td><td class="px-3 py-2 border border-gray-200">1</td><td class="px-3 py-2 border border-gray-200">2,3 %</td></tr>
+                <tr><td class="px-3 py-2 border border-gray-200">Paraguay</td><td class="px-3 py-2 border border-gray-200">1</td><td class="px-3 py-2 border border-gray-200">2,3 %</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-3 text-xs text-gray-500">Fuente: Elaboración propia.</p>
+        </article>
+
+      </div>
+
+      <button
+        class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+        type="button"
+        data-carousel="resultados-42-tablas"
+        data-direction="next"
+        aria-label="Tabla siguiente subsección 4.2"
+      >
+        ›
+      </button>
+    </div>
+
+    <div class="results-carousel-dots lg:col-span-12" data-carousel-dots="resultados-42-tablas"></div>
+
+  </div>
+</article>
+        
 
         <!-- =============================================
          SUBSECCIÓN 4.3
@@ -2498,89 +2702,6 @@
                 semiestructuradas, con énfasis en criterios argumentativos,
                 umbrales de legitimidad y tensiones entre técnica y ética.
               </p>
-
-              <div class="mt-8 relative">
-                <button
-                  class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-43-tablas"
-                  data-direction="prev"
-                  aria-label="Tabla anterior subsección 4.3"
-                >
-                  ‹
-                </button>
-                <div
-                  id="resultados-43-tablas"
-                  class="results-carousel-track"
-                  aria-label="Carrusel de tablas subsección 4.3"
-                >
-                  <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Matriz 4.3-A
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Categorías y códigos emergentes (dummy)
-                    </h4>
-                    <ul class="space-y-2 text-sm text-gray-600">
-                      <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-                        Transparencia argumentativa (12 menciones)
-                      </li>
-                      <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-                        Coherencia interdecisional (9 menciones)
-                      </li>
-                      <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
-                        Previsibilidad normativa (8 menciones)
-                      </li>
-                    </ul>
-                  </article>
-                  <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Matriz 4.3-B
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Segmentación de perfiles entrevistados (dummy)
-                    </h4>
-                    <div class="overflow-x-auto">
-                      <table class="min-w-[560px] w-full text-sm">
-                        <thead class="bg-gray-50 text-gray-600">
-                          <tr>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Perfil</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">n</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Foco</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-gray-700">
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Ex comisionados</td>
-                            <td class="px-3 py-2 border border-gray-200">5</td>
-                            <td class="px-3 py-2 border border-gray-200">Razonamiento decisional</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Directores de agencia</td>
-                            <td class="px-3 py-2 border border-gray-200">6</td>
-                            <td class="px-3 py-2 border border-gray-200">Aplicación práctica</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Asesores jurídicos</td>
-                            <td class="px-3 py-2 border border-gray-200">4</td>
-                            <td class="px-3 py-2 border border-gray-200">Estándares de prueba</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </article>
-                </div>
-                <button
-                  class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-43-tablas"
-                  data-direction="next"
-                  aria-label="Tabla siguiente subsección 4.3"
-                >
-                  ›
-                </button>
-              </div>
-              <div class="results-carousel-dots" data-carousel-dots="resultados-43-tablas"></div>
             </div>
 
             <aside class="lg:col-span-4 space-y-4">
@@ -2603,6 +2724,88 @@
                 </ul>
               </div>
             </aside>
+            <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
+              <button
+                class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+                type="button"
+                data-carousel="resultados-43-tablas"
+                data-direction="prev"
+                aria-label="Tabla anterior subsección 4.3"
+              >
+                ‹
+              </button>
+              <div
+                id="resultados-43-tablas"
+                class="results-carousel-track"
+                aria-label="Carrusel de tablas subsección 4.3"
+              >
+                <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Matriz 4.3-A
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Categorías y códigos emergentes (dummy)
+                  </h4>
+                  <ul class="space-y-2 text-sm text-gray-600">
+                    <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
+                      Transparencia argumentativa (12 menciones)
+                    </li>
+                    <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
+                      Coherencia interdecisional (9 menciones)
+                    </li>
+                    <li class="rounded border border-gray-200 bg-gray-50 px-3 py-2">
+                      Previsibilidad normativa (8 menciones)
+                    </li>
+                  </ul>
+                </article>
+                <article class="results-slide rounded-xl border border-gray-200 bg-white p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Matriz 4.3-B
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Segmentación de perfiles entrevistados (dummy)
+                  </h4>
+                  <div class="table-scroll-standard">
+                    <table class="min-w-[560px] w-full text-sm">
+                      <thead class="bg-gray-50 text-gray-600">
+                        <tr>
+                          <th class="text-left font-semibold px-3 py-2 border border-gray-200">Perfil</th>
+                          <th class="text-left font-semibold px-3 py-2 border border-gray-200">n</th>
+                          <th class="text-left font-semibold px-3 py-2 border border-gray-200">Foco</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-gray-700">
+                        <tr>
+                          <td class="px-3 py-2 border border-gray-200">Ex comisionados</td>
+                          <td class="px-3 py-2 border border-gray-200">5</td>
+                          <td class="px-3 py-2 border border-gray-200">Razonamiento decisional</td>
+                        </tr>
+                        <tr>
+                          <td class="px-3 py-2 border border-gray-200">Directores de agencia</td>
+                          <td class="px-3 py-2 border border-gray-200">6</td>
+                          <td class="px-3 py-2 border border-gray-200">Aplicación práctica</td>
+                        </tr>
+                        <tr>
+                          <td class="px-3 py-2 border border-gray-200">Asesores jurídicos</td>
+                          <td class="px-3 py-2 border border-gray-200">4</td>
+                          <td class="px-3 py-2 border border-gray-200">Estándares de prueba</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </article>
+              </div>
+              <button
+                class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+                type="button"
+                data-carousel="resultados-43-tablas"
+                data-direction="next"
+                aria-label="Tabla siguiente subsección 4.3"
+              >
+                ›
+              </button>
+            </div>
+            <div class="results-carousel-dots lg:col-span-12" data-carousel-dots="resultados-43-tablas"></div>
           </div>
         </article>
 
@@ -2623,85 +2826,6 @@
                 construidas a partir del ADP, señalando regla principal,
                 subreglas, hitos y nodos de ruptura en los dictámenes.
               </p>
-
-              <div class="mt-8 relative">
-                <button
-                  class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-44-tablas"
-                  data-direction="prev"
-                  aria-label="Tabla anterior subsección 4.4"
-                >
-                  ‹
-                </button>
-                <div
-                  id="resultados-44-tablas"
-                  class="results-carousel-track"
-                  aria-label="Carrusel de tablas subsección 4.4"
-                >
-                  <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Línea 4.4-A
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Publicidad comparativa (dummy)
-                    </h4>
-                    <div class="space-y-3 text-sm text-gray-600">
-                      <div class="rounded-lg border border-gray-200 bg-white p-3">
-                        Hito 1: delimitación de comparabilidad admisible.
-                      </div>
-                      <div class="rounded-lg border border-gray-200 bg-white p-3">
-                        Hito 2: exigencia de verificabilidad documental.
-                      </div>
-                      <div class="rounded-lg border border-gray-200 bg-white p-3">
-                        Hito 3: estandarización de lenguaje no ambiguo.
-                      </div>
-                    </div>
-                  </article>
-                  <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
-                    <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-                      Línea 4.4-B
-                    </p>
-                    <h4 class="text-base font-semibold text-gray-900 mb-4">
-                      Publicidad de bienestar y salud (dummy)
-                    </h4>
-                    <div class="overflow-x-auto">
-                      <table class="min-w-[560px] w-full text-sm">
-                        <thead class="bg-white text-gray-600">
-                          <tr>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Elemento</th>
-                            <th class="text-left font-semibold px-3 py-2 border border-gray-200">Subregla</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-gray-700">
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Promesa de resultado</td>
-                            <td class="px-3 py-2 border border-gray-200">Requiere respaldo técnico explícito</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Testimonio de usuario</td>
-                            <td class="px-3 py-2 border border-gray-200">Debe evitar generalizaciones absolutas</td>
-                          </tr>
-                          <tr>
-                            <td class="px-3 py-2 border border-gray-200">Comparación clínica</td>
-                            <td class="px-3 py-2 border border-gray-200">Exige fuente verificable y vigente</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </article>
-                </div>
-                <button
-                  class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
-                  type="button"
-                  data-carousel="resultados-44-tablas"
-                  data-direction="next"
-                  aria-label="Tabla siguiente subsección 4.4"
-                >
-                  ›
-                </button>
-              </div>
-              <div class="results-carousel-dots" data-carousel-dots="resultados-44-tablas"></div>
             </div>
 
             <aside class="lg:col-span-4">
@@ -2722,6 +2846,84 @@
                 </p>
               </div>
             </aside>
+            <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
+              <button
+                class="results-carousel-btn absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+                type="button"
+                data-carousel="resultados-44-tablas"
+                data-direction="prev"
+                aria-label="Tabla anterior subsección 4.4"
+              >
+                ‹
+              </button>
+              <div
+                id="resultados-44-tablas"
+                class="results-carousel-track"
+                aria-label="Carrusel de tablas subsección 4.4"
+              >
+                <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Línea 4.4-A
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Publicidad comparativa (dummy)
+                  </h4>
+                  <div class="space-y-3 text-sm text-gray-600">
+                    <div class="rounded-lg border border-gray-200 bg-white p-3">
+                      Hito 1: delimitación de comparabilidad admisible.
+                    </div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-3">
+                      Hito 2: exigencia de verificabilidad documental.
+                    </div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-3">
+                      Hito 3: estandarización de lenguaje no ambiguo.
+                    </div>
+                  </div>
+                </article>
+                <article class="results-slide rounded-xl border border-gray-200 bg-gray-50 p-5">
+                  <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
+                    Línea 4.4-B
+                  </p>
+                  <h4 class="text-base font-semibold text-gray-900 mb-4">
+                    Publicidad de bienestar y salud (dummy)
+                  </h4>
+                  <div class="table-scroll-standard">
+                    <table class="min-w-[560px] w-full text-sm">
+                      <thead class="bg-white text-gray-600">
+                        <tr>
+                          <th class="text-left font-semibold px-3 py-2 border border-gray-200">Elemento</th>
+                          <th class="text-left font-semibold px-3 py-2 border border-gray-200">Subregla</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-gray-700">
+                        <tr>
+                          <td class="px-3 py-2 border border-gray-200">Promesa de resultado</td>
+                          <td class="px-3 py-2 border border-gray-200">Requiere respaldo técnico explícito</td>
+                        </tr>
+                        <tr>
+                          <td class="px-3 py-2 border border-gray-200">Testimonio de usuario</td>
+                          <td class="px-3 py-2 border border-gray-200">Debe evitar generalizaciones absolutas</td>
+                        </tr>
+                        <tr>
+                          <td class="px-3 py-2 border border-gray-200">Comparación clínica</td>
+                          <td class="px-3 py-2 border border-gray-200">Exige fuente verificable y vigente</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </article>
+              </div>
+              <button
+                class="results-carousel-btn absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 shadow-sm"
+                type="button"
+                data-carousel="resultados-44-tablas"
+                data-direction="next"
+                aria-label="Tabla siguiente subsección 4.4"
+              >
+                ›
+              </button>
+            </div>
+            <div class="results-carousel-dots lg:col-span-12" data-carousel-dots="resultados-44-tablas"></div>
           </div>
         </article>
       </div>
