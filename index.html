@@ -329,6 +329,36 @@
         font-size: 0.76rem;
         line-height: 1.35;
       }
+
+      .flip-card {
+        perspective: 1200px;
+      }
+
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        min-height: 260px;
+        transform-style: preserve-3d;
+        transition: transform 0.7s ease;
+      }
+
+      .flip-card:hover .flip-card-inner,
+      .flip-card:focus-within .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        inset: 0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+      }
+
+      .flip-card-back {
+        transform: rotateY(180deg);
+      }
     </style>
   </head>
 
@@ -496,287 +526,274 @@
               >
             </div>
           </div>
+
+          <div class="mt-6 space-y-1 text-[12px] md:text-xs text-gray-500 leading-relaxed">
+            <p>Programa: Doctorado en Comunicación Audiovisual, Publicidad y Relaciones Públicas.</p>
+            <p>Línea temática: Gestión económica y social de la comunicación y de las industrias culturales.</p>
+            <p>Subtema: aspectos jurídicos y éticos de la comunicación audiovisual y las organizaciones.</p>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- =============================================
-     SECCIÓN 1: CONTEXTO
-     ============================================= -->
-    <section id="contexto" class="py-24 px-6 lg:px-12 bg-gray-50 scroll-mt">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-16 items-start">
-          <!-- Columna 1: Texto -->
-          <div id="contexto-main-column" class="lg:col-span-7 fade-in">
-            <span class="text-red-700 font-bold tracking-widest text-xs uppercase">
-              Sección 01
-            </span>
+<!-- =============================================
+ SECCIÓN 1: CONTEXTO
+ ============================================= -->
+<section id="contexto" class="py-24 px-6 lg:px-12 bg-gray-50 scroll-mt">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-12 gap-16 items-start">
 
-            <h2 class="text-4xl md:text-5xl mt-2 mb-8 font-bold text-gray-900">
-              Contexto
-            </h2>
+      <!-- Columna 1 -->
+      <div id="contexto-main-column" class="lg:col-span-7 fade-in">
 
-            <div
-              id="contexto-main-card"
-              class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm"
-            >
-              <!-- Subbloque: Diagnóstico contextual -->
-              <div class="space-y-6 text-gray-600">
-                <p class="leading-relaxed">
-                  El entorno global actual está marcado por las secuelas de la
-                  pandemia de COVID-19 y el surgimiento de la Inteligencia
-                  Artificial Generativa (GenAI).
-                </p>
+        <span class="text-red-700 font-bold tracking-widest text-xs uppercase">
+          Sección 01
+        </span>
 
-                <div class="grid md:grid-cols-2 gap-4">
-                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
-                    <p class="font-semibold text-gray-800">Disrupción glocal</p>
-                    <p class="mt-2 text-sm leading-relaxed">
-                      A pesar del crecimiento de la publicidad digital, la confianza
-                      del consumidor en Colombia permanece en niveles bajos,
-                      alimentada por la desinformación y los riesgos éticos de las
-                      nuevas tecnologías.
-                    </p>
-                  </div>
-
-                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
-                    <p class="font-semibold text-gray-800">Crisis de confianza</p>
-                    <p class="mt-2 text-sm leading-relaxed">
-                      A diferencia del sistema judicial respaldado por el Estado, la
-                      eficacia de la autorregulación depende del prestigio, la
-                      claridad de estándares y el reconocimiento de la comunidad
-                      profesional.
-                    </p>
-                  </div>
-
-                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
-                    <p class="font-semibold text-gray-800">
-                      Legitimidad por aceptación
-                    </p>
-                    <p class="mt-2 text-sm leading-relaxed">
-                      La percepción de justicia, equidad y coherencia en los fallos
-                      de los tribunales éticos es crucial para generar confianza
-                      pública e institucional.
-                    </p>
-                  </div>
-
-                  <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
-                    <p class="font-semibold text-gray-800">Relevo institucional</p>
-                    <p class="mt-2 text-sm leading-relaxed">
-                      Tras la disolución de la CONARP en 2018 y la creación de
-                      AUTOCONTROL Colombia en 2019, existe el riesgo de perder casi
-                      40 años de memoria argumentativa y acervo ético.
-                    </p>
-                  </div>
-                </div>
-
-                <!-- Destacado (solo como destacado, sin repetición) -->
-                <div
-                  class="mt-2 rounded border-l-4 border-red-700 bg-white px-5 py-4 shadow-sm"
-                >
-                  <p class="serif text-gray-800 italic">
-                    La percepción de justicia, equidad y coherencia en los fallos
-                    de los tribunales éticos es crucial para generar confianza
-                    pública e institucional.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna 2: Evidencia visual de contexto -->
-          <div
-            id="contexto-aside"
-            class="lg:col-span-5 fade-in flex flex-col gap-4 min-h-0"
-            style="transition-delay: 200ms"
-          >
-            <!-- Subbloque visual 01: Hito institucional -->
-            <figure
-              class="rounded-xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col flex-1 min-h-0"
-            >
-              <div class="flex-1 min-h-0">
-                <img
-                  src="imagenes/crea_conarp.jpg"
-                  alt="Acto protocolario de creación de CONARP"
-                  loading="lazy"
-                  class="h-full w-full rounded-lg border border-gray-200 bg-gray-100 object-cover"
-                />
-              </div>
-              <figcaption
-                class="mt-3 text-[10px] text-gray-600 uppercase tracking-widest text-center"
-              >
-                Imagen 1: Acto protocolario de la creación de CONARP
-              </figcaption>
-              <div
-                class="text-[10px] text-gray-600 uppercase tracking-widest text-center"
-              >
-                Fuente: https://autocontrolcolombia.org/
-              </div>
-            </figure>
-
-            <!-- Subbloque visual 02: Tendencia de publicaciones -->
-            <figure
-              class="m-0 w-full rounded-xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col flex-1 min-h-0"
-            >
-              <div class="flex-1 min-h-0">
-                <img
-                  src="imagenes/publicaciones_por_anio.png"
-                  alt="Evolución de publicaciones relacionadas con autorregulación"
-                  loading="lazy"
-                  class="h-full w-full rounded-lg border border-gray-200 bg-gray-100 object-cover"
-                />
-              </div>
-              <figcaption
-                class="mt-3 text-[10px] text-gray-600 uppercase tracking-widest text-center"
-              >
-                Imagen 2: Evolución del interés académico sobre el nodo ética +
-                publicidad. Fuente: Lens.org (1980-2025)
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =============================================
-     SECCIÓN INTERMEDIA: CITA (ENTRE 01 Y 02)
-     ============================================= -->
-    <section class="py-20 px-6 lg:px-12 bg-white">
-      <div class="max-w-5xl mx-auto text-center fade-in">
-        <div class="w-12 h-[2px] bg-red-700 mx-auto mb-10"></div>
-
-        <blockquote
-          class="serif text-2xl md:text-4xl text-gray-800 italic leading-relaxed"
-        >
-          «La confianza es el principal recurso moral de una sociedad y del
-          mundo empresarial».
-        </blockquote>
+        <h2 class="text-4xl md:text-5xl mt-2 mb-8 font-bold text-gray-900">
+          Introducción
+        </h2>
 
         <div
-          class="mt-6 text-[10px] md:text-xs uppercase tracking-widest text-gray-600 font-bold"
+          id="contexto-main-card"
+          class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm"
         >
-          Adela Cortina
-        </div>
-      </div>
-    </section>
 
-    <!-- =============================================
-     SECCIÓN 2: ESTADO DE LA CUESTIÓN
-     ============================================= -->
-    <section
-      id="estado-cuestion"
-      class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50"
-    >
-      <div class="max-w-7xl mx-auto">
-        <div class="grid lg:grid-cols-12 gap-16 items-center">
-          <!-- Columna izquierda (texto) -->
-          <div class="lg:col-span-6 fade-in">
-            <span
-              class="text-red-700 font-bold tracking-widest text-xs uppercase"
-            >
-              Sección 02
-            </span>
+          <!-- Apertura -->
+          <p class="text-gray-600 leading-relaxed">
+            La investigación se sitúa en un momento de transición en la
+            autorregulación publicitaria colombiana tras la disolución de
+            CONARP en 2018 y la creación de AUTOCONTROL Colombia en 2019.
+          </p>
 
-            <h2 class="text-4xl md:text-5xl mt-2 mb-6 font-bold text-gray-900">
-              Estado de la cuestión
-            </h2>
+          <!-- Tarjetas -->
+          <div class="grid md:grid-cols-2 gap-4 mt-6 text-gray-600">
 
-            <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
-              Confianza, autorregulación y misreading metodológico.
-            </p>
-
-            <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
-              A continuación, se presentan las corrientes de pensamiento que
-              definen la legitimidad de los sistemas normativos y los
-              dispositivos técnicos del Análisis Dinámico de Precedentes (ADP).
-            </p>
-            <div
-              class="mt-10 rounded border-l-4 border-red-700 bg-white px-6 py-5 shadow-sm max-w-lg"
-            >
-              <p class="text-sm font-semibold text-gray-900 mb-2">
-                Análisis Estático vs. Dinámico
-              </p>
-
-              <p class="text-gray-600 text-sm leading-relaxed">
-                El análisis estático se centra en una sentencia individual,
-                mientras que el análisis dinámico reconstruye la evolución de
-                reglas jurídicas a través de una red de decisiones relacionadas
-                en el tiempo.
+            <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+              <p class="font-semibold text-gray-800">Relevo institucional</p>
+              <p class="mt-2 text-sm">
+                CONARP (1980–2018) → AUTOCONTROL Colombia (2019).
               </p>
             </div>
-          </div>
 
-          <!-- Columna derecha: mapa visual de autores y conceptos -->
-          <div class="lg:col-span-6 fade-in" style="transition-delay: 200ms">
-            <div class="grid grid-cols-2 gap-10 items-center">
-              <!-- círculo central (autor) -->
-              <div class="flex flex-col items-center text-center space-y-3">
-                <img
-                  src="imagenes/diego_lopez.png"
-                  alt="Retrato de Diego López Medina"
-                  loading="lazy"
-                  class="w-40 h-40 rounded-full shadow-sm border border-gray-100 bg-gray-200 object-cover"
-                />
-
-                <p class="text-sm font-semibold text-gray-900">
-                  Diego López Medina
-                </p>
-
-                <p class="text-xs text-gray-500 italic">
-                  “El Derecho de los jueces”
-                </p>
-              </div>
-
-              <!-- círculo 1 -->
-              <div class="flex flex-col items-center text-center space-y-3">
-                <img
-                  src="imagenes/manos.png"
-                  alt="Autorregulación y confianza"
-                  loading="lazy"
-                  class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
-                />
-
-                <p class="text-sm font-semibold text-gray-800 max-w-[140px]">
-                  Autorregulación y confianza
-                </p>
-              </div>
-
-              <!-- círculo 3 -->
-              <div
-                class="flex flex-col items-center text-center space-y-3 col-span-2 lg:col-span-1"
-              >
-                <img
-                  src="imagenes/globo.png"
-                  alt="Teorías críticas"
-                  loading="lazy"
-                  class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
-                />
-
-                <p class="text-sm font-semibold text-gray-800 max-w-[140px]">
-                  Teorías críticas
-                </p>
-              </div>
-
-              <!-- círculo 4 -->
-              <div
-                class="flex flex-col items-center text-center space-y-3 col-span-2 lg:col-span-1"
-              >
-                <img
-                  src="imagenes/contextocolombiano.png"
-                  alt="Teorías críticas"
-                  loading="lazy"
-                  class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
-                />
-
-                <p class="text-sm font-semibold text-gray-800 max-w-[140px]">
-                  Autorregulación en el contexto colombiano
-                </p>
-              </div>
+            <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+              <p class="font-semibold text-gray-800">Causa del cambio</p>
+              <p class="mt-2 text-sm">
+                Pérdida de confianza y cuestionamientos sobre la
+                representatividad del sistema anterior.
+              </p>
             </div>
+
+            <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+              <p class="font-semibold text-gray-800">Riesgo institucional</p>
+              <p class="mt-2 text-sm">
+                Posible pérdida del acervo ético construido entre 1980 y 2018.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
+              <p class="font-semibold text-gray-800">Presión del entorno</p>
+              <p class="mt-2 text-sm">
+                Pospandemia, digitalización e IA generativa intensifican la
+                demanda de control sobre la publicidad.
+              </p>
+            </div>
+
           </div>
+
+          <!-- Destacado -->
+          <div
+            class="mt-6 rounded border-l-4 border-red-700 bg-white px-5 py-4 shadow-sm"
+          >
+            <p class="serif text-gray-800 italic">
+              La autorregulación no se sustenta en la coerción estatal,
+              sino en la confianza que generan sus decisiones.
+            </p>
+          </div>
+
         </div>
       </div>
-    </section>
+
+      <!-- Columna 2: Evidencia visual -->
+      <div
+        id="contexto-aside"
+        class="lg:col-span-5 fade-in flex flex-col gap-4 min-h-0"
+        style="transition-delay: 200ms"
+      >
+
+        <figure
+          class="rounded-xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col flex-1 min-h-0"
+        >
+          <div class="flex-1 min-h-0">
+            <img
+              src="imagenes/crea_conarp.jpg"
+              alt="Acto protocolario de creación de CONARP"
+              loading="lazy"
+              class="h-full w-full rounded-lg border border-gray-200 bg-gray-100 object-cover"
+            />
+          </div>
+
+          <figcaption
+            class="mt-3 text-[10px] text-gray-600 uppercase tracking-widest text-center"
+          >
+            Imagen 1: Creación de CONARP
+          </figcaption>
+
+          <div
+            class="text-[10px] text-gray-600 uppercase tracking-widest text-center"
+          >
+            Fuente: autocontrolcolombia.org
+          </div>
+        </figure>
+
+        <figure
+          class="rounded-xl border border-gray-100 bg-white p-3 shadow-sm flex flex-col flex-1 min-h-0"
+        >
+          <div class="flex-1 min-h-0">
+            <img
+              src="imagenes/publicaciones_por_anio.png"
+              alt="Publicaciones sobre ética y publicidad"
+              loading="lazy"
+              class="h-full w-full rounded-lg border border-gray-200 bg-gray-100 object-cover"
+            />
+          </div>
+
+          <figcaption
+            class="mt-3 text-[10px] text-gray-600 uppercase tracking-widest text-center"
+          >
+            Imagen 2: Interés académico sobre ética y publicidad (1980–2025)
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- =============================================
+ SECCIÓN 2: ESTADO DE LA CUESTIÓN
+ ============================================= -->
+<section
+  id="estado-cuestion"
+  class="py-24 px-6 lg:px-12 scroll-mt bg-gray-50"
+>
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-12 gap-16 items-center">
+
+      <!-- Columna izquierda (texto) -->
+      <div class="lg:col-span-6 fade-in">
+        <span
+          class="text-red-700 font-bold tracking-widest text-xs uppercase"
+        >
+          Sección 02
+        </span>
+
+        <h2 class="text-4xl md:text-5xl mt-2 mb-6 font-bold text-gray-900">
+          Estado de la cuestión
+        </h2>
+
+        <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
+          La revisión del estado de la cuestión se organizó en cuatro bloques
+          temáticos relevantes para esta investigación.
+        </p>
+
+        <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
+          Estos bloques abarcan la relación entre autorregulación publicitaria
+          y confianza del consumidor, la autorregulación publicitaria en el
+          contexto colombiano, los estudios sobre el Análisis Dinámico de
+          Precedentes y la recepción de la obra de Diego López Medina en la
+          jurisprudencia de la Corte Constitucional colombiana.
+        </p>
+
+        <div
+          class="mt-10 rounded border-l-4 border-red-700 bg-white px-6 py-5 shadow-sm max-w-lg"
+        >
+          <p class="text-sm font-semibold text-gray-900 mb-2">
+            Análisis Estático vs. Dinámico
+          </p>
+
+          <p class="text-gray-600 text-sm leading-relaxed">
+            El análisis estático se centra en una sentencia individual,
+            mientras que el análisis dinámico reconstruye la evolución de
+            reglas jurídicas a través de una red de decisiones relacionadas
+            en el tiempo.
+          </p>
+        </div>
+      </div>
+
+      <!-- Columna derecha: mapa visual de autores y conceptos -->
+      <div class="lg:col-span-6 fade-in" style="transition-delay: 200ms">
+        <div class="grid grid-cols-2 gap-10 items-center">
+
+          <!-- 1 -->
+          <div class="flex flex-col items-center text-center space-y-3">
+            <img
+              src="imagenes/manos.png"
+              alt="Autorregulación publicitaria y confianza del consumidor"
+              loading="lazy"
+              class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
+            />
+
+            <p class="text-sm font-semibold text-gray-800 max-w-[160px]">
+              Autorregulación y confianza
+            </p>
+          </div>
+
+          <!-- 2 -->
+          <div class="flex flex-col items-center text-center space-y-3">
+            <img
+              src="imagenes/contextocolombiano.png"
+              alt="Autorregulación publicitaria en el contexto colombiano"
+              loading="lazy"
+              class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
+            />
+
+            <p class="text-sm font-semibold text-gray-800 max-w-[180px]">
+              Autorregulación en el contexto colombiano
+            </p>
+          </div>
+
+          <!-- 3 -->
+          <div
+            class="flex flex-col items-center text-center space-y-3 col-span-2 lg:col-span-1"
+          >
+            <img
+              src="imagenes/globo.png"
+              alt="Estudios sobre análisis dinámico de precedentes"
+              loading="lazy"
+              class="w-36 h-36 rounded-full shadow-sm border border-gray-200 bg-gray-200 object-cover"
+            />
+
+            <p class="text-sm font-semibold text-gray-800 max-w-[170px]">
+              Análisis Dinámico de Precedentes
+            </p>
+          </div>
+
+          <!-- 4 -->
+          <div
+            class="flex flex-col items-center text-center space-y-3 col-span-2 lg:col-span-1"
+          >
+            <img
+              src="imagenes/diego_lopez.png"
+              alt="Diego López Medina y su recepción en la jurisprudencia constitucional colombiana"
+              loading="lazy"
+              class="w-40 h-40 rounded-full shadow-sm border border-gray-100 bg-gray-200 object-cover"
+            />
+
+            <p class="text-sm font-semibold text-gray-900">
+              Diego López Medina
+            </p>
+
+            <p class="text-xs text-gray-500 italic max-w-[180px]">
+              Recepción de su obra en la Corte Constitucional
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- =============================================
          SECCIÓN 2.1: MATRIZ DE LITERATURA
@@ -786,7 +803,7 @@
         <!-- Subbloque: Encabezado de tabla -->
         <div class="text-center md:text-left mb-8">
           <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-            Resumen de estudios sobre autorregulación y confianza del consumidor
+            2.1. Resumen de estudios sobre autorregulación y confianza del consumidor
           </h3>
           <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
             Fuente: Elaboración propia.
@@ -1020,347 +1037,733 @@
           </table>
         </div>
 
-        <!-- =============================================
-             SECCIÓN 2.2: SÍNTESIS CONTEXTO COLOMBIANO
-             ============================================= -->
-        <div class="mt-16 fade-in">
-          <div class="text-center md:text-left mb-10">
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-              La autorregulación publicitaria en el contexto colombiano
-            </h3>
-            <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
-              Síntesis de la literatura revisada
-            </p>
-          </div>
 
-          <div class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
-            <div class="grid lg:grid-cols-12 gap-8 items-start">
-              <!-- Columna izquierda: Hallazgos sintetizados -->
-              <div class="lg:col-span-7">
-                <div
-                  class="flex flex-wrap items-center gap-2"
-                  role="tablist"
-                  aria-label="Categorías de hallazgos sobre autorregulación en Colombia"
-                >
-                  <button
-                    type="button"
-                    id="contexto-colombia-tab-institucionalidad"
-                    role="tab"
-                    aria-selected="true"
-                    aria-controls="contexto-colombia-panel-institucionalidad"
-                    data-contexto-tab-target="institucionalidad"
-                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2 is-active"
-                  >
-                    Institucionalidad
-                  </button>
-                  <button
-                    type="button"
-                    id="contexto-colombia-tab-implementacion"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="contexto-colombia-panel-implementacion"
-                    data-contexto-tab-target="implementacion"
-                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
-                  >
-                    Implementación
-                  </button>
-                  <button
-                    type="button"
-                    id="contexto-colombia-tab-articulacion"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="contexto-colombia-panel-articulacion"
-                    data-contexto-tab-target="articulacion"
-                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
-                  >
-                    Articulación normativa
-                  </button>
-                </div>
+ <!-- =============================================
+     SECCIÓN 2.2: SÍNTESIS CONTEXTO COLOMBIANO
+     ============================================= -->
+<div class="mt-16 fade-in">
+  <div class="text-center md:text-left mb-10">
+    <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
+      2.2. La autorregulación publicitaria en el contexto colombiano
+    </h3>
+    <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
+      Síntesis de la literatura revisada
+    </p>
+  </div>
 
-                <div class="mt-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
-                  <p
-                    class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 font-semibold mb-4"
-                  >
-                    9 hallazgos clave
-                  </p>
+  <div class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
 
-                  <div
-                    id="contexto-colombia-panel-institucionalidad"
-                    role="tabpanel"
-                    aria-labelledby="contexto-colombia-tab-institucionalidad"
-                    data-contexto-tab-panel="institucionalidad"
-                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
-                  >
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Campo institucional aún <strong>en construcción</strong>,
-                      con avances normativos pero impacto limitado.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Persisten
-                      <strong
-                        >confusiones sobre actores, roles y alcance
-                        institucional</strong
-                      >.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Su consolidación depende del
-                      <strong
-                        >fortalecimiento institucional, profesionalización
-                        gremial y ética compartida</strong
-                      >.
-                    </div>
-                  </div>
+      <!-- Columna izquierda: Hallazgos sintetizados -->
+      <div class="lg:col-span-7">
 
-                  <div
-                    id="contexto-colombia-panel-implementacion"
-                    role="tabpanel"
-                    aria-labelledby="contexto-colombia-tab-implementacion"
-                    data-contexto-tab-panel="implementacion"
-                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
-                    hidden
-                  >
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Los códigos presentan
-                      <strong
-                        >baja capacidad de implementación, seguimiento y
-                        sanción</strong
-                      >.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Existe <strong>débil difusión y pedagogía</strong> del
-                      sistema entre anunciantes y ciudadanía.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      La autorregulación ha sido
-                      <strong
-                        >insuficiente frente a nuevas prácticas
-                        publicitarias</strong
-                      >.
-                    </div>
-                  </div>
+        <div
+          class="flex flex-wrap items-center gap-2"
+          role="tablist"
+          aria-label="Categorías de hallazgos sobre autorregulación en Colombia"
+        >
+          <button
+            type="button"
+            id="contexto-colombia-tab-institucionalidad"
+            role="tab"
+            aria-selected="true"
+            aria-controls="contexto-colombia-panel-institucionalidad"
+            data-contexto-tab-target="institucionalidad"
+            class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2 is-active"
+          >
+            Institucionalidad
+          </button>
 
-                  <div
-                    id="contexto-colombia-panel-articulacion"
-                    role="tabpanel"
-                    aria-labelledby="contexto-colombia-tab-articulacion"
-                    data-contexto-tab-panel="articulacion"
-                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
-                    hidden
-                  >
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Baja apropiación gremial y
-                      <strong
-                        >escasa articulación con el sistema jurídico formal</strong
-                      >.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Integración limitada con
-                      <strong
-                        >marcos de protección de derechos fundamentales</strong
-                      >, especialmente infancia.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      El debate entre
-                      <strong>autorregulación y co-regulación</strong> sigue
-                      abierto en la literatura.
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <button
+            type="button"
+            id="contexto-colombia-tab-implementacion"
+            role="tab"
+            aria-selected="false"
+            aria-controls="contexto-colombia-panel-implementacion"
+            data-contexto-tab-target="implementacion"
+            class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+          >
+            Implementación
+          </button>
 
-              <!-- Columna derecha: evolución del interés académico -->
-              <div class="lg:col-span-5">
-                <figure class="text-center rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-                  <img
-                    src="imagenes/articulos_anio_colombia.png"
-                    alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
-                    loading="lazy"
-                    class="mx-auto w-full rounded-lg border border-gray-200 bg-white object-contain"
-                  />
-                  <figcaption
-                    class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
-                  >
-                    Evolución del interés académico sobre el nodo ética + publicidad
-                    en Colombia. Fuente: Lens.org
-                  </figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
+          <button
+            type="button"
+            id="contexto-colombia-tab-articulacion"
+            role="tab"
+            aria-selected="false"
+            aria-controls="contexto-colombia-panel-articulacion"
+            data-contexto-tab-target="articulacion"
+            class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+          >
+            Articulación normativa
+          </button>
         </div>
 
-        <!-- =============================================
-             SECCIÓN 2.3: CARTOGRAFÍA CONCEPTUAL ADP
-             ============================================= -->
-        <div class="mt-20 fade-in">
-          <div class="text-center md:text-left mb-10">
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-              Cartografía conceptual del análisis dinámico de precedentes como
-              metodología de análisis jurisprudencial
-            </h3>
-            <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
-              Síntesis del corpus revisado
-            </p>
+        <div class="mt-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+          <p
+            class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 font-semibold mb-4"
+          >
+            Hallazgos clave
+          </p>
+
+          <!-- PANEL 1 -->
+          <div
+            id="contexto-colombia-panel-institucionalidad"
+            role="tabpanel"
+            aria-labelledby="contexto-colombia-tab-institucionalidad"
+            data-contexto-tab-panel="institucionalidad"
+            class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+          >
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Campo académico e institucional aún <strong>en construcción</strong>,
+              con avances en la conciencia sobre su importancia pero impacto
+              todavía limitado.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Persisten <strong>confusiones sobre actores, roles y alcance del
+              sistema</strong> de autorregulación publicitaria.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Su consolidación depende de la <strong>voluntad de los gremios</strong>
+              como principales actores y de su
+              <strong>sostenibilidad económica e institucional</strong>.
+            </div>
           </div>
 
-          <div class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
-            <div class="grid lg:grid-cols-12 gap-8 items-start">
-              <!-- Columna izquierda: síntesis en tabs -->
-              <div class="lg:col-span-7">
-                <div
-                  class="flex flex-wrap items-center gap-2"
-                  role="tablist"
-                  aria-label="Categorías de cartografía conceptual del ADP"
-                >
-                  <button
-                    type="button"
-                    id="cartografia-tab-aportes"
-                    role="tab"
-                    aria-selected="true"
-                    aria-controls="cartografia-panel-aportes"
-                    data-cartografia-tab-target="aportes"
-                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2 is-active"
-                  >
-                    Aportes del ADP
-                  </button>
-                  <button
-                    type="button"
-                    id="cartografia-tab-limitaciones"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="cartografia-panel-limitaciones"
-                    data-cartografia-tab-target="limitaciones"
-                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
-                  >
-                    Limitaciones
-                  </button>
-                  <button
-                    type="button"
-                    id="cartografia-tab-complementos"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="cartografia-panel-complementos"
-                    data-cartografia-tab-target="complementos"
-                    class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
-                  >
-                    Complementos
-                  </button>
-                </div>
+          <!-- PANEL 2 -->
+          <div
+            id="contexto-colombia-panel-implementacion"
+            role="tabpanel"
+            aria-labelledby="contexto-colombia-tab-implementacion"
+            data-contexto-tab-panel="implementacion"
+            class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+            hidden
+          >
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Los códigos cuentan con <strong>organismos de seguimiento</strong>,
+              pero con limitada capacidad de <strong>implementación y sanción</strong>.
+            </div>
 
-                <div class="mt-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
-                  <p
-                    class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 font-semibold mb-4"
-                  >
-                    8 hallazgos del corpus
-                  </p>
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Existe <strong>débil difusión y pedagogía</strong> del sistema
+              entre anunciantes y ciudadanía.
+            </div>
 
-                  <div
-                    id="cartografia-panel-aportes"
-                    role="tabpanel"
-                    aria-labelledby="cartografia-tab-aportes"
-                    data-cartografia-tab-panel="aportes"
-                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
-                  >
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      El <strong>análisis dinámico de precedentes</strong>,
-                      formulado por Diego López Medina, se ha consolidado como
-                      herramienta para estudiar la jurisprudencia latinoamericana.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Permite
-                      <strong>reconstruir líneas jurisprudenciales</strong>,
-                      identificar subreglas y observar la evolución doctrinal de
-                      los tribunales.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Su uso se extiende a múltiples campos del derecho, desde
-                      <strong>derechos fundamentales</strong> hasta ámbitos
-                      especializados.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Facilita la
-                      <strong>organización sistemática del precedente</strong> y
-                      fortalece la argumentación jurídica.
-                    </div>
-                  </div>
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Frente a nuevas prácticas publicitarias, la autorregulación se
+              percibe <strong>insuficiente</strong>.
+            </div>
+          </div>
 
-                  <div
-                    id="cartografia-panel-limitaciones"
-                    role="tabpanel"
-                    aria-labelledby="cartografia-tab-limitaciones"
-                    data-cartografia-tab-panel="limitaciones"
-                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
-                    hidden
-                  >
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Presenta limitaciones asociadas a la
-                      <strong
-                        >subjetividad en la identificación de la ratio
-                        decidendi</strong
-                      >.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Existe riesgo de
-                      <strong>formalismo en la clasificación de sentencias</strong>.
-                    </div>
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Tiene capacidad limitada para evaluar el
-                      <strong
-                        >contenido sustantivo o la legitimidad material</strong
-                      >
-                      de los precedentes.
-                    </div>
-                  </div>
+          <!-- PANEL 3 -->
+          <div
+            id="contexto-colombia-panel-articulacion"
+            role="tabpanel"
+            aria-labelledby="contexto-colombia-tab-articulacion"
+            data-contexto-tab-panel="articulacion"
+            class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+            hidden
+          >
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              <strong>Escasa articulación con el sistema jurídico formal</strong>.
+            </div>
 
-                  <div
-                    id="cartografia-panel-complementos"
-                    role="tabpanel"
-                    aria-labelledby="cartografia-tab-complementos"
-                    data-cartografia-tab-panel="complementos"
-                    class="contexto-tab-panel space-y-3 text-sm text-gray-600"
-                    hidden
-                  >
-                    <div class="rounded-lg border border-gray-100 bg-white p-4">
-                      Se propone complementarlo con enfoques
-                      <strong
-                        >deliberativos, constructivistas, procesales y
-                        narrativos</strong
-                      >.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Columna derecha: cartografía conceptual -->
-              <div class="lg:col-span-5">
-                <figure class="text-center rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-                  <img
-                    src="imagenes/cartografia.png"
-                    alt="Cartografía conceptual del análisis dinámico de precedentes"
-                    loading="lazy"
-                    class="mx-auto w-full rounded-lg border border-gray-200 bg-white object-contain"
-                  />
-                  <figcaption
-                    class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
-                  >
-                    Cartografía conceptual del análisis dinámico de precedentes como
-                    metodología de análisis jurisprudencial.
-                  </figcaption>
-                </figure>
-              </div>
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              El debate entre <strong>autorregulación y co-regulación</strong>
+              sigue abierto en la literatura.
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- =========================================================
-     SECCIÓN 3: METODOLOGÍA
-     INICIO
-     ========================================================= -->
+      <!-- Columna derecha -->
+      <div class="lg:col-span-5">
+        <figure class="text-center rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+          <img
+            src="imagenes/articulos_anio_colombia.png"
+            alt="Evolución del interés académico sobre autorregulación publicitaria en Colombia"
+            loading="lazy"
+            class="mx-auto w-full rounded-lg border border-gray-200 bg-white object-contain"
+          />
+          <figcaption
+            class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
+          >
+            Evolución del interés académico sobre el nodo ética + publicidad
+            en Colombia. Fuente: Lens.org
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- =============================================
+     SECCIÓN 2.3: CARTOGRAFÍA CONCEPTUAL ADP
+     ============================================= -->
+<div class="mt-20 fade-in">
+  <div class="text-center md:text-left mb-10">
+    <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
+      2.3. Cartografía conceptual del análisis dinámico de precedentes como
+      metodología de análisis jurisprudencial
+    </h3>
+    <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
+      Síntesis del corpus revisado
+    </p>
+  </div>
+
+  <div class="rounded-2xl border border-gray-100 bg-white p-6 md:p-8 shadow-sm">
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- Columna izquierda -->
+      <div class="lg:col-span-7">
+
+        <div
+          class="flex flex-wrap items-center gap-2"
+          role="tablist"
+          aria-label="Categorías de cartografía conceptual del ADP"
+        >
+          <!-- Ventajas -->
+          <button
+            type="button"
+            id="cartografia-tab-aportes"
+            role="tab"
+            aria-selected="true"
+            aria-controls="cartografia-panel-aportes"
+            data-cartografia-tab-target="aportes"
+            class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2 is-active"
+          >
+            Ventajas
+          </button>
+
+          <!-- Limitaciones -->
+          <button
+            type="button"
+            id="cartografia-tab-limitaciones"
+            role="tab"
+            aria-selected="false"
+            aria-controls="cartografia-panel-limitaciones"
+            data-cartografia-tab-target="limitaciones"
+            class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+          >
+            Limitaciones
+          </button>
+
+          <!-- Aportes -->
+          <button
+            type="button"
+            id="cartografia-tab-complementos"
+            role="tab"
+            aria-selected="false"
+            aria-controls="cartografia-panel-complementos"
+            data-cartografia-tab-target="complementos"
+            class="contexto-tab-btn text-[10px] md:text-[11px] uppercase tracking-widest font-bold rounded-full px-4 py-2"
+          >
+            Aportes
+          </button>
+        </div>
+
+        <div class="mt-4 rounded-xl border border-gray-100 bg-gray-50 p-5">
+          <p
+            class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 font-semibold mb-4"
+          >
+            Hallazgos clave
+          </p>
+
+          <!-- PANEL VENTAJAS -->
+          <div
+            id="cartografia-panel-aportes"
+            role="tabpanel"
+            aria-labelledby="cartografia-tab-aportes"
+            data-cartografia-tab-panel="aportes"
+            class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+          >
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              El <strong>análisis dinámico de precedentes</strong>,
+              formulado por Diego López Medina, se ha consolidado como
+              herramienta para estudiar la jurisprudencia latinoamericana.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Permite
+              <strong>reconstruir líneas jurisprudenciales</strong>,
+              identificar subreglas y observar la evolución doctrinal de
+              los tribunales.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Su uso se extiende a múltiples campos del derecho, desde
+              <strong>derechos fundamentales</strong> hasta ámbitos
+              especializados.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Facilita la
+              <strong>organización sistemática del precedente</strong>
+              y fortalece la argumentación jurídica.
+            </div>
+          </div>
+
+          <!-- PANEL LIMITACIONES -->
+          <div
+            id="cartografia-panel-limitaciones"
+            role="tabpanel"
+            aria-labelledby="cartografia-tab-limitaciones"
+            data-cartografia-tab-panel="limitaciones"
+            class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+            hidden
+          >
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Presenta limitaciones asociadas a la
+              <strong>
+                subjetividad en la identificación de la ratio decidendi
+              </strong>.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Existe riesgo de
+              <strong>
+                excesivo formalismo en la clasificación de sentencias o
+                decisiones
+              </strong>.
+            </div>
+
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              Tiene capacidad limitada para evaluar el
+              <strong>
+                contenido sustantivo o la legitimidad material
+              </strong>
+              de los precedentes.
+            </div>
+          </div>
+
+          <!-- PANEL APORTES -->
+          <div
+            id="cartografia-panel-complementos"
+            role="tabpanel"
+            aria-labelledby="cartografia-tab-complementos"
+            data-cartografia-tab-panel="complementos"
+            class="contexto-tab-panel space-y-3 text-sm text-gray-600"
+            hidden
+          >
+            <div class="rounded-lg border border-gray-100 bg-white p-4">
+              La literatura propone complementarlo con enfoques
+              <strong>
+                deliberativos, constructivistas, procesales y narrativos
+              </strong>.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="lg:col-span-5">
+        <figure class="text-center rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
+          <img
+            src="imagenes/cartografia.png"
+            alt="Imagen 3: Cartografía conceptual del análisis dinámico de precedentes. Fuente: elaboración propia."
+            loading="lazy"
+            class="mx-auto w-full rounded-lg border border-gray-200 bg-white object-contain"
+          />
+
+          <figcaption
+            class="mt-4 text-[10px] text-gray-600 uppercase tracking-widest"
+          >
+            Imagen 3: Cartografía conceptual del análisis dinámico de precedentes. Fuente: elaboración propia.
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+	        <!-- =============================================
+	             SECCIÓN 2.4: DERECHO DE LOS JUECES
+	             ============================================= -->
+	        <div class="mt-20 fade-in">
+	          <div class="text-center md:text-left mb-10">
+	            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
+	              2.4. El derecho de los jueces en la docrina de la Corte Constitucional colombiana
+	            </h3>
+	          </div>
+	        </div>
+
+	        <!-- =============================================
+	             BLOQUE: FLIPCARDS - USOS DEL ADP EN LA CORTE
+	             ============================================= -->
+	        <div class="mt-10 fade-in">
+	          <div class="mb-8">
+	            <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">
+	              Usos del análisis dinámico de precedentes en providencias de la Corte Constitucional
+	            </p>
+	            <h4 class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
+	              Cartografía de usos por asociación directa
+	            </h4>
+	          </div>
+
+	          <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+	            <!-- 1 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 01
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Líneas jurisprudenciales
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Identificación o reconstrucción de líneas jurisprudenciales.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      3 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Líneas jurisprudenciales
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>T-049/07</p>
+	                      <p>T-493/18</p>
+	                      <p>T-177/24</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 2 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 02
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Sombra decisional
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Uso del concepto como criterio para evaluar fidelidad al precedente.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      7 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Sombra decisional
+	                    </h5>
+	                    <div class="mt-4 grid grid-cols-2 gap-2 text-sm leading-relaxed">
+	                      <p>A199/15</p>
+	                      <p>A267/15</p>
+	                      <p>A319/15</p>
+	                      <p>A382/14</p>
+	                      <p>A038/17</p>
+	                      <p>A049/17</p>
+	                      <p>T-208/19</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 3 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 03
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Nulidad y precedente
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Justificación de decisiones ante solicitudes de nulidad por presunto desconocimiento del precedente.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      3 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Nulidad y precedente
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>A038/17</p>
+	                      <p>A049/17</p>
+	                      <p>A267/15</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 4 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 04
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Ruptura del precedente
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Crítica a decisiones por ruptura injustificada del precedente con criterios de coherencia jurisprudencial.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      3 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Ruptura del precedente
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>C-1216/01 (Acl. Uprimny)</p>
+	                      <p>C-618/04 (Salv.)</p>
+	                      <p>T-029/18 (Salv. Fajardo)</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 5 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 05
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Sentencia fundadora
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Determinación del estatus de sentencia fundadora para apartarse de una línea sin intervención de Sala Plena.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      1 providencia
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencia
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Sentencia fundadora
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>A053/17 (Salv. Ortiz)</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 6 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 06
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Problema jurídico
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Formulación del problema jurídico como punto de partida para el análisis jurisprudencial.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      3 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Problema jurídico
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>T-177/24 (Salv. Pardo)</p>
+	                      <p>T-029/18</p>
+	                      <p>T-208/19</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 7 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 07
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Respeto crítico al precedente
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Superación de la cosa juzgada material mediante un modelo flexible de respeto al precedente.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      1 providencia
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencia
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Respeto crítico al precedente
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>C-1216/01 (Acl. Uprimny)</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 8 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 08
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Referencia general al ADP
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Referencia al análisis dinámico como herramienta interpretativa para evaluar evolución jurisprudencial.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      4 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Referencia general al ADP
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>C-1011/08</p>
+	                      <p>C-795/04</p>
+	                      <p>C-1195/01 (Acl.)</p>
+	                      <p>A181/07</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	          </div>
+
+
+
+	    <!-- =========================================================
+	     SECCIÓN 3: METODOLOGÍA
+	     INICIO
+	     ========================================================= -->
     <section
       id="metodologia"
-      class="py-24 px-6 lg:px-12 bg-gray-50 scroll-mt"
+      class="mt-8 md:mt-12 py-24 px-6 lg:px-12 bg-gray-50 scroll-mt"
     >
       <div class="max-w-7xl mx-auto">
         <!-- =====================================================
