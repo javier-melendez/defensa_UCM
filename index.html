@@ -27,6 +27,63 @@
         line-height: 1.6;
       }
 
+      body.loading-screen-active {
+        overflow: hidden;
+      }
+
+      #loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background: #ffffff;
+        transition:
+          opacity 0.45s ease,
+          visibility 0.45s ease;
+      }
+
+      #loading-screen.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .loading-screen-inner {
+        width: min(520px, 100%);
+        text-align: center;
+      }
+
+      .loading-screen-logo {
+        width: clamp(220px, 32vw, 320px);
+        margin: 0 auto 2rem;
+      }
+
+      .loading-screen-bar-wrap {
+        height: 8px;
+        border-radius: 9999px;
+        background: rgba(191, 30, 45, 0.15);
+        overflow: hidden;
+      }
+
+      .loading-screen-bar-fill {
+        width: 0%;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #bf1e2d 0%, #d83a49 100%);
+      }
+
+      .loading-screen-label {
+        margin-top: 0.8rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(26, 26, 26, 0.78);
+      }
+
       h1,
       h2,
       h3,
@@ -362,7 +419,25 @@
     </style>
   </head>
 
-  <body class="antialiased">
+  <body class="antialiased loading-screen-active">
+    <div id="loading-screen" aria-hidden="true">
+      <div class="loading-screen-inner">
+        <img
+          src="loading/logo_load.jpg"
+          alt="Logo UCM"
+          class="loading-screen-logo"
+          data-no-zoom="true"
+        />
+        <div class="loading-screen-bar-wrap" aria-hidden="true">
+          <div
+            id="loading-screen-bar-fill"
+            class="loading-screen-bar-fill"
+          ></div>
+        </div>
+        <p class="loading-screen-label">Cargando presentación</p>
+      </div>
+    </div>
+
     <!-- =============================================
      BLOQUE: AVISO DE VISUALIZACIÓN EN MÓVIL
      INICIO
@@ -4688,6 +4763,33 @@ FIN
 
       // Inicialización al cargar: configuración del lightbox
       document.addEventListener("DOMContentLoaded", () => {
+        const loadingScreen = document.getElementById("loading-screen");
+        const loadingBarFill = document.getElementById("loading-screen-bar-fill");
+
+        if (loadingScreen && loadingBarFill) {
+          const loadingDurationMs = 1000;
+          const loadingStart = performance.now();
+
+          const animateLoading = (now) => {
+            const progress = Math.min((now - loadingStart) / loadingDurationMs, 1);
+            loadingBarFill.style.width = `${progress * 100}%`;
+
+            if (progress < 1) {
+              window.requestAnimationFrame(animateLoading);
+              return;
+            }
+
+            loadingScreen.classList.add("is-hidden");
+            document.body.classList.remove("loading-screen-active");
+
+            window.setTimeout(() => {
+              loadingScreen.remove();
+            }, 460);
+          };
+
+          window.requestAnimationFrame(animateLoading);
+        }
+
         const lightbox = document.getElementById("image-lightbox");
         const lightboxImage = document.getElementById("lightbox-image");
         const closeButton = document.getElementById("lightbox-close");
