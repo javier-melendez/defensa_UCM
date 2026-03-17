@@ -171,6 +171,167 @@
         background: rgba(0, 0, 0, 0.75);
       }
 
+      .adp-step-card {
+        width: 100%;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          box-shadow 0.2s ease,
+          background-color 0.2s ease;
+        cursor: pointer;
+      }
+
+      .adp-step-card:hover {
+        transform: translateY(-2px);
+        border-color: #fca5a5;
+        box-shadow: 0 10px 24px rgba(185, 28, 28, 0.12);
+      }
+
+      .adp-step-card:focus-visible {
+        outline: 2px solid #fca5a5;
+        outline-offset: 2px;
+      }
+
+      .adp-step-card:disabled {
+        cursor: default;
+        opacity: 0.72;
+        pointer-events: none;
+        box-shadow: none;
+        transform: none;
+      }
+
+      .adp-step-modal {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        background: rgba(17, 24, 39, 0.68);
+        z-index: 130;
+      }
+
+      .adp-step-modal.open {
+        display: flex;
+      }
+
+      .adp-step-modal__panel {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(420px, 64%) 1fr;
+        width: min(1320px, 97vw);
+        height: min(92vh, 860px);
+        overflow: hidden;
+        border-radius: 1rem;
+        border: 1px solid #fee2e2;
+        background: #fff;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+      }
+
+      .adp-step-modal__close {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 9999px;
+        background: #fff;
+        color: #7f1d1d;
+        font-size: 1.3rem;
+        line-height: 1;
+        cursor: pointer;
+        z-index: 2;
+      }
+
+      .adp-step-modal__close:hover {
+        background: #fef2f2;
+        border-color: #fecaca;
+      }
+
+      .adp-step-modal__media {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+        border-right: 1px solid #f3f4f6;
+      }
+
+      .adp-step-modal__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        padding: 0.75rem;
+      }
+
+      .adp-step-modal__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 1.8rem;
+        overflow: visible;
+      }
+
+      .adp-step-modal__step {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #b91c1c;
+      }
+
+      .adp-step-modal__title {
+        margin-top: 0.45rem;
+        font-size: clamp(1.25rem, 2.1vw, 1.6rem);
+        line-height: 1.3;
+        color: #111827;
+      }
+
+      .adp-step-modal__description {
+        margin-top: 0.75rem;
+        color: #4b5563;
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+      @media (max-width: 1024px) {
+        .adp-step-modal__panel {
+          grid-template-columns: minmax(280px, 58%) 1fr;
+          width: min(1100px, 98vw);
+          height: min(92vh, 760px);
+        }
+
+        .adp-step-modal__content {
+          padding: 1.5rem 1.25rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .adp-step-modal__panel {
+          grid-template-columns: 1fr;
+          width: 100%;
+          height: auto;
+          max-height: 94vh;
+          overflow-y: auto;
+        }
+
+        .adp-step-modal__media {
+          border-right: 0;
+          border-bottom: 1px solid #f3f4f6;
+        }
+
+        .adp-step-modal__media img {
+          height: auto;
+          max-height: 44vh;
+          object-fit: contain;
+        }
+
+        .adp-step-modal__content {
+          overflow-y: visible;
+        }
+      }
+
       .results-carousel-track {
         display: flex;
         gap: 1rem;
@@ -2584,70 +2745,148 @@
               </p>
 
               <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="1"
+                  data-adp-step="01"
+                  data-adp-title="Formulación del problema ético-jurídico"
+                  data-adp-description="El problema jurídico es la pregunta que encabeza el análisis y que el investigador se propone responder mediante la identificación y la interpretación dinámica de varias decisiones relacionadas."
+                  data-adp-image="aplicacion_adp/1.jpeg"
+                >
                   <span class="text-red-700 font-bold text-sm">01</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Formulación del problema ético-jurídico
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="2"
+                  data-adp-step="02"
+                  data-adp-title="Identificación del escenario deontológico"
+                  data-adp-description="Un escenario deontológico es el patrón fáctico típico en el que se ha especificado mediante subreglas, el significado concreto de un principio."
+                  data-adp-image="aplicacion_adp/2.jpeg"
+                >
                   <span class="text-red-700 font-bold text-sm">02</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Identificación del escenario deontológico
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="3"
+                  data-adp-step="03"
+                  data-adp-title="Selección de la decisión arquimédica"
+                  data-adp-description="La sentencia arquimédica es la decisión base desde la cual se reconstruye la trayectoria argumentativa del precedente. Debe ser lo más reciente posible, y en sus hechos relevantes, lo más similar posible al caso que se analiza."
+                  data-adp-image="aplicacion_adp/3.jpeg"
+                >
                   <span class="text-red-700 font-bold text-sm">03</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Selección de la decisión arquimédica
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="4"
+                  data-adp-step="04"
+                  data-adp-title="Construcción del nicho citacional (o referencial)"
+                  data-adp-description="Estudio de la estructura de citas de la sentencia arquimédica mediante la ingeniería inversa de su red de vínculos con otras decisiones para identificar patrones de continuidad o cambio."
+                  data-adp-image="aplicacion_adp/4.jpeg"
+                >
                   <span class="text-red-700 font-bold text-sm">04</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Construcción del nicho citacional (o referencial)
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="5"
+                  data-adp-step="05"
+                  data-adp-title="Elaboración de la telaraña o mapa decisional"
+                  data-adp-description="El ejercicio de ingeniería inversa continúa con las decisiones de segundo nivel que compartan el mismo patrón fáctico (tercer nivel, cuarto nivel, etc.) si no hay correspondencia fáctica no se continúa la búsqueda en esa rama."
+                  data-adp-image="aplicacion_adp/5.jpeg"
+                >
                   <span class="text-red-700 font-bold text-sm">05</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Elaboración de la telaraña o mapa decisional
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="6"
+                  data-adp-step="06"
+                  data-adp-title="Clasificación de decisiones relevantes"
+                  data-adp-description="Se jerarquizan los conceptos según su peso argumentativo para priorizar los hitos de la línea decisional."
+                  data-adp-image="aplicacion_adp/6.jpeg"
+                  disabled
+                  aria-disabled="true"
+                >
                   <span class="text-red-700 font-bold text-sm">06</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Clasificación de decisiones relevantes
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="7"
+                  data-adp-step="07"
+                  data-adp-title="Análisis individual (estático) de decisiones clave"
+                  data-adp-description="Se estudia cada decisión seleccionada para extraer su regla, justificación y relación con los casos previos."
+                  data-adp-image="aplicacion_adp/7.jpeg"
+                  disabled
+                  aria-disabled="true"
+                >
                   <span class="text-red-700 font-bold text-sm">07</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Análisis individual (estático) de decisiones clave
                   </p>
-                </div>
+                </button>
 
-                <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
+                  data-adp-card="8"
+                  data-adp-step="08"
+                  data-adp-title="Determinación de la subregla decisional"
+                  data-adp-description="Se formula la subregla resultante que condensa el criterio aplicado de forma consistente en la serie de casos."
+                  data-adp-image="aplicacion_adp/8.jpeg"
+                  disabled
+                  aria-disabled="true"
+                >
                   <span class="text-red-700 font-bold text-sm">08</span>
                   <p class="text-sm text-gray-600 mt-2">
                     Determinación de la subregla decisional
                   </p>
-                </div>
+                </button>
 
-                <div
-                  class="rounded-lg border border-red-200 bg-red-50 p-4"
+                <button
+                  type="button"
+                  class="adp-step-card rounded-lg border border-red-200 bg-red-50 p-4 text-left"
+                  data-adp-card="9"
+                  data-adp-step="09"
+                  data-adp-title="Identificación del balance normativo predominante"
+                  data-adp-description="Se establece la tendencia normativa dominante que emerge de la línea de precedentes reconstruida."
+                  data-adp-image="aplicacion_adp/9.jpeg"
+                  disabled
+                  aria-disabled="true"
                 >
-                  <span class="text-red-300 font-bold text-sm">09</span>
+                  <span class="text-red-700 font-bold text-sm">09</span>
                   <p class="text-sm text-gray-700 mt-2">
                     Identificación del balance normativo predominante
                   </p>
-                </div>
+                </button>
               </div>
             </div>
           </div>
@@ -3715,6 +3954,11 @@
 
           <div class="rounded-lg border border-gray-200 bg-white p-3">
             <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Decisión hito</p>
+            <img
+              src="avisos/oralb.png"
+              alt="Concepto 86 de 2013 (Oral B)"
+              class="w-full h-auto rounded mb-2"
+            />
             <p>
               <strong>Concepto 86 de 2013 (Oral B)</strong>:
               la dramatización no reemplaza la prueba científica válida y pública.
@@ -3763,6 +4007,11 @@
 
           <div class="rounded-lg border border-gray-200 bg-white p-3">
             <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Decisión hito</p>
+            <img
+              src="avisos/pedigree.png"
+              alt="Concepto 58 (Pedigree) y Concepto 84 (Colgate)"
+              class="w-full h-auto rounded mb-2"
+            />
             <p>
               <strong>Concepto 58 (Pedigree)</strong> y línea reforzada por
               <strong>Concepto 84 (Colgate)</strong>: si el mensaje genera expectativa verificable,
@@ -4745,6 +4994,40 @@ FIN
       <img id="lightbox-image" data-no-zoom="true" src="" alt="" />
     </div>
 
+    <!-- Componente global: detalle de etapas ADP -->
+    <div
+      id="adp-step-modal"
+      class="adp-step-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-labelledby="adp-step-modal-title"
+    >
+      <div class="adp-step-modal__panel">
+        <button
+          id="adp-step-modal-close"
+          class="adp-step-modal__close"
+          type="button"
+          aria-label="Cerrar detalle de etapa"
+        >
+          &times;
+        </button>
+
+        <div class="adp-step-modal__media">
+          <img id="adp-step-modal-image" data-no-zoom="true" src="" alt="" />
+        </div>
+
+        <div class="adp-step-modal__content">
+          <p id="adp-step-modal-step" class="adp-step-modal__step"></p>
+          <h4 id="adp-step-modal-title" class="adp-step-modal__title"></h4>
+          <p
+            id="adp-step-modal-description"
+            class="adp-step-modal__description"
+          ></p>
+        </div>
+      </div>
+    </div>
+
     <!-- =============================================
          SCRIPTS 
          ============================================= -->
@@ -4825,9 +5108,86 @@ FIN
           }
         });
 
+        const adpStepCards = Array.from(
+          document.querySelectorAll("[data-adp-card]"),
+        );
+        const adpStepModal = document.getElementById("adp-step-modal");
+        const adpStepModalCloseButton = document.getElementById(
+          "adp-step-modal-close",
+        );
+        const adpStepModalImage = document.getElementById("adp-step-modal-image");
+        const adpStepModalStep = document.getElementById("adp-step-modal-step");
+        const adpStepModalTitle = document.getElementById("adp-step-modal-title");
+        const adpStepModalDescription = document.getElementById(
+          "adp-step-modal-description",
+        );
+
+        let adpLastTrigger = null;
+        let closeAdpStepModal = () => {};
+
+        if (
+          adpStepCards.length &&
+          adpStepModal &&
+          adpStepModalCloseButton &&
+          adpStepModalImage &&
+          adpStepModalStep &&
+          adpStepModalTitle &&
+          adpStepModalDescription
+        ) {
+          const openAdpStepModal = (card) => {
+            adpLastTrigger = card;
+
+            const step = card.dataset.adpStep || "";
+            const title = card.dataset.adpTitle || "";
+            const description = card.dataset.adpDescription || "";
+            const image = card.dataset.adpImage || "";
+
+            adpStepModalStep.textContent = `Etapa ${step}`;
+            adpStepModalTitle.textContent = title;
+            adpStepModalDescription.textContent = description;
+            adpStepModalImage.src = image;
+            adpStepModalImage.alt = title || `Etapa ${step} del ADP`;
+
+            adpStepModal.classList.add("open");
+            adpStepModal.setAttribute("aria-hidden", "false");
+            document.body.style.overflow = "hidden";
+          };
+
+          closeAdpStepModal = () => {
+            adpStepModal.classList.remove("open");
+            adpStepModal.setAttribute("aria-hidden", "true");
+            adpStepModalImage.src = "";
+            adpStepModalImage.alt = "";
+            document.body.style.overflow = "";
+
+            if (adpLastTrigger instanceof HTMLElement) {
+              adpLastTrigger.focus();
+            }
+          };
+
+          adpStepCards.forEach((card) => {
+            card.addEventListener("click", () => openAdpStepModal(card));
+          });
+
+          adpStepModalCloseButton.addEventListener("click", closeAdpStepModal);
+          adpStepModal.addEventListener("click", (event) => {
+            if (event.target === adpStepModal) {
+              closeAdpStepModal();
+            }
+          });
+        }
+
         document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && lightbox.classList.contains("open")) {
+          if (event.key !== "Escape") {
+            return;
+          }
+
+          if (lightbox.classList.contains("open")) {
             closeLightbox();
+          }
+
+          if (adpStepModal && adpStepModal.classList.contains("open")) {
+            closeAdpStepModal();
           }
         });
 
