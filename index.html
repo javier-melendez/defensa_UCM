@@ -171,6 +171,47 @@
         background: rgba(0, 0, 0, 0.75);
       }
 
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 9999px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .lightbox-nav:hover {
+        background: rgba(0, 0, 0, 0.75);
+      }
+
+      .lightbox-nav-prev {
+        left: 1rem;
+      }
+
+      .lightbox-nav-next {
+        right: 1rem;
+      }
+
+      .lightbox-counter {
+        position: absolute;
+        left: 50%;
+        bottom: 1rem;
+        transform: translateX(-50%);
+        padding: 0.25rem 0.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 9999px;
+        background: rgba(0, 0, 0, 0.55);
+        color: #fff;
+        font-size: 0.75rem;
+        letter-spacing: 0.04em;
+      }
+
       .adp-step-card {
         width: 100%;
         transition:
@@ -714,7 +755,7 @@
           <p
             class="text-lg md:text-xl text-gray-500 font-light italic mb-12 max-w-2xl"
           >
-            Análisis de los dictámenes de CONARP en Colombia (1980-2018)
+            Análisis de los dictámenes de CONARP* en Colombia (1980-2018)
           </p>
 
           <!-- Subbloque: Datos académicos principales -->
@@ -767,6 +808,7 @@
             <p>Programa: Doctorado en Comunicación Audiovisual, Publicidad y Relaciones Públicas.</p>
             <p>Línea temática: Gestión económica y social de la comunicación y de las industrias culturales.</p>
             <p>Subtema: aspectos jurídicos y éticos de la comunicación audiovisual y las organizaciones.</p>
+            <p>*Comisión Nacional de Autorregulación Publicitaria.</p>
           </div>
         </div>
       </div>
@@ -824,7 +866,7 @@
             <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
               <p class="font-semibold text-gray-800">Riesgo institucional</p>
               <p class="mt-2 text-sm">
-                Posible pérdida del acervo ético construido entre 1980 y 2018.
+                Posible pérdida del acervo ético / memoria histórica de la CONARP.
               </p>
             </div>
 
@@ -936,8 +978,8 @@
         </p>
 
         <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
-          Estos bloques abarcan la relación entre autorregulación publicitaria
-          y confianza del consumidor, la autorregulación publicitaria en el
+          Estos bloques abarcan la relación entre autorregulación, publicidad 
+          y confianza, la autorregulación publicitaria en el
           contexto colombiano, los estudios sobre el Análisis Dinámico de
           Precedentes y la recepción de la obra de Diego López Medina en la
           jurisprudencia de la Corte Constitucional colombiana.
@@ -973,7 +1015,7 @@
             />
 
             <p class="text-sm font-semibold text-gray-800 max-w-[160px]">
-              Autorregulación y confianza
+              Autorregulación, publicidad y confianza
             </p>
           </div>
 
@@ -1041,7 +1083,7 @@
         <!-- Subbloque: Encabezado de tabla -->
         <div class="text-center md:text-left mb-8">
           <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-            2.1. Resumen de estudios sobre autorregulación y confianza del consumidor
+            2.1. Resumen de estudios sobre autorregulación, publicidad y confianza
           </h3>
           <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
             Fuente: Elaboración propia.
@@ -1444,11 +1486,11 @@
 <div class="mt-20 fade-in">
   <div class="text-center md:text-left mb-10">
     <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-      2.3. Cartografía conceptual del análisis dinámico de precedentes como
+      2.3. Análisis dinámico de precedentes como
       metodología de análisis jurisprudencial
     </h3>
     <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
-      Síntesis del corpus revisado
+      Síntesis de la literatura revisada
     </p>
   </div>
 
@@ -1626,7 +1668,7 @@
 	        <div class="mt-20 fade-in">
 	          <div class="text-center md:text-left mb-10">
 	            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-	              2.4. El derecho de los jueces en la docrina de la Corte Constitucional colombiana
+	              2.4. El ADP en la docrina de la Corte Constitucional colombiana
 	            </h3>
 	          </div>
 	        </div>
@@ -1640,7 +1682,7 @@
 	              Usos del análisis dinámico de precedentes en providencias de la Corte Constitucional
 	            </p>
 	            <h4 class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
-	              Cartografía de usos por asociación directa
+	              Usos por asociación directa
 	            </h4>
 	          </div>
 
@@ -2046,7 +2088,7 @@
             <span
               class="text-red-700 font-bold tracking-widest text-xs uppercase"
             >
-              Ruta general de la investigación
+              Ruta general de la investigación (5 fases)
             </span>
             <div class="h-[1px] w-10 bg-gray-300"></div>
           </div>
@@ -2362,7 +2404,7 @@
                   >
                     <p class="text-sm text-gray-900 font-semibold mb-2">H2</p>
                     <p class="text-sm text-gray-600">
-                      Las decisiones estructuradas aumentan la percepción de
+                      Las decisiones de líneas estructuradas aumentan la percepción de
                       legitimidad.
                     </p>
                   </div>
@@ -2373,7 +2415,7 @@
                     <p class="text-sm text-gray-900 font-semibold mb-2">H3</p>
                     <p class="text-sm text-gray-600">
                       Justificar explícitamente el precedente aumenta la
-                      aceptación entre anunciantes y agencias.
+                      aceptación de la decisión entre anunciantes y agencias.
                     </p>
                   </div>
 
@@ -2441,10 +2483,11 @@
                 Triangulación de métodos
               </p>
               <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
-                <li>• Encuesta estructurada a profesionales del sector</li>
-                <li>• Entrevistas semiestructuradas a expertos</li>
-                <li>• Análisis documental (de contenidos) de decisiones institucionales</li>
-                <li>• Aplicación del Análisis Dinámico de Precedentes</li>
+                <li>• Revisión de alcance (scoping review)</li>
+                <li>• Encuestas</li>
+                <li>• Entrevistas</li>
+                <li>• Análisis documental (de contenidos)</li>
+                <li>• Análisis Dinámico de Precedentes</li>
               </ul>
             </article>
 
@@ -2457,9 +2500,11 @@
                 Triangulación de fuentes
               </p>
               <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
+                <li>• Experiencia directa</li>
+                <li>• Literatura académica</li>
                 <li>• Documentos históricos de la CONARP</li>
                 <li>• Testimonios de expertos nacionales e internacionales</li>
-                <li>• Percepciones actuales del ecosistema publicitario</li>
+                <li>• Percepciones de profesionales del sector</li>
               </ul>
             </article>
 
@@ -2474,8 +2519,8 @@
               <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• Ética aplicada</li>
                 <li>• Análisis dinámico de precedentes</li>
-                <li>• Teorías críticas del derecho</li>
-                <li>• Constitucionalización de las relaciones sociales</li>
+                <li>• Teorías críticas del derecho (derecho imperial, análisis cultural del derecho, misreading)</li>
+                <li>• Constitucionalización</li>
               </ul>
             </article>
           </div>
@@ -2574,7 +2619,7 @@
                 </p>
                 <p class="text-sm text-gray-600 group-hover:text-gray-700">
                   Mapeo de evidencia académica y detección de vacíos de
-                  conocimiento. Conceptos CONARP.
+                  conocimiento. También aplicado a Conceptos CONARP.
                 </p>
               </a>
 
@@ -2582,10 +2627,10 @@
 
               <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
                 <p class="text-sm font-semibold text-gray-900 mb-1">
-                  Inventario CONARP
+                  Estado de la cuestión/Inventario CONARP
                 </p>
                 <p class="text-sm text-gray-600">
-                  Selección y depuración del archivo institucional disponible, 118 decisiones identificadas, emitidas entre 1989 y 2014. Estado de la cuestión.
+                  Estado de la cuestión. Selección y depuración del archivo institucional disponible, 118 decisiones identificadas, emitidas entre 1989 y 2014.
                 </p>
               </div>
 
@@ -2598,10 +2643,10 @@
                 class="group block rounded-lg border border-red-200 bg-red-50 p-4 transition-colors hover:border-red-300 hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               >
                 <p class="text-sm font-semibold text-gray-900 mb-1">
-                  Corpus definitivo
+                  Relatoría de decisiones
                 </p>
                 <p class="text-sm text-gray-600 group-hover:text-gray-700">
-                  46 decisiones de fondo emitidas entre 1998 y 2013.
+                  46 decisiones emitidas entre 1998 y 2013.
                 </p>
               </a>
             </div>
@@ -2654,16 +2699,16 @@
               <p class="text-sm text-gray-600 leading-relaxed mb-5">
                 El cuestionario se diseñó para identificar los temas éticos
                 percibidos como prioritarios entre los profesionales del
-                ecosistema publicitario.
+                sector publicitario en Colombia.
               </p>
 
               <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
-                <li>• Aplicación virtual</li>
-                <li>• 44 participantes</li>
-                <li>• Perfil: abogados, publicistas y académicos</li>
                 <li>
                   • Instrumento con escala Likert y preguntas de priorización
                 </li>
+                <li>• Aplicación virtual</li>
+                <li>• 44 participantes</li>
+                <li>• Perfil: abogados, publicistas y académicos</li>
               </ul>
             </article>
 
@@ -2687,7 +2732,7 @@
               <ul class="space-y-3 text-sm text-gray-600 leading-relaxed">
                 <li>• 11 expertos nacionales e internacionales</li>
                 <li>• Juristas, académicos y directivos de autorregulación</li>
-                <li>• Temas: funcionamiento institucional de la autorregulación, desafíos éticos emergentes y viabilidad del uso de precedentes.</li>
+                <li>• Temas: Desafíos éticos, experiencias con la CONARP, Conocimiento / percepción sobre el ADP, aplicabilidad del ADP</li>
               </ul>
             </article>
           </div>
@@ -3282,22 +3327,6 @@
         Percepción sobre temas deontológicos en la publicidad colombiana
       </h3>
 
-      <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Edad media</p>
-          <p class="font-semibold">41,1 años</p>
-        </div>
-
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Mujeres</p>
-          <p class="font-semibold">52,3 %</p>
-        </div>
-
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500 uppercase mb-1">Participantes</p>
-          <p class="font-semibold">44 profesionales</p>
-        </div>
-      </div>
     </div>
 
     <!-- INSIGHTS -->
@@ -3581,30 +3610,19 @@
         <strong>función normativa</strong> de la autorregulación publicitaria en Colombia.
       </p>
 
-      <p class="text-sm text-gray-600 leading-relaxed mt-3">
-        A partir de un enfoque inductivo, los testimonios se organizaron en
-        <strong>seis bloques temáticos</strong>. El análisis muestra una transición desde un modelo
-        percibido como simbólico y casuístico hacia la necesidad de un sistema con
-        <strong>memoria institucional, coherencia doctrinal, diversidad decisoria y mayor transparencia</strong>.
-      </p>
-
     </div>
 
     <!-- TARJETAS DE SÍNTESIS -->
     <div class="lg:col-span-12 mt-1 grid md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
       <div class="rounded-xl border border-gray-200 bg-white p-5 h-full">
         <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-          Idea fuerza
+          Hallazgos centrales
         </p>
-        <blockquote class="text-sm text-gray-600 italic">
-          “La coherencia es un piso de legitimidad: sin memoria doctrinal, el sistema no resulta previsible ni confiable.”
-        </blockquote>
-        <p class="mt-4 text-sm text-gray-700 leading-relaxed">
-          Las entrevistas muestran que la legitimidad de la autorregulación ya no puede descansar
-          solo en la tradición gremial: requiere <strong>memoria doctrinal visible</strong>,
-          <strong>criterios consistentes</strong>, <strong>diversidad en los órganos decisorios</strong>
-          y capacidad de respuesta frente al <strong>ecosistema digital contemporáneo</strong>.
-        </p>
+        <ul class="text-sm text-gray-600 space-y-2">
+          <li>• Existe un consenso crítico sobre el estado del sistema de autorregulación.</li>
+          <li>• La legitimidad depende de múltiples factores, no solo de normas.</li>
+          <li>• El contexto social y cultural redefine constantemente lo “aceptable”.</li>
+        </ul>
       </div>
 
       <div class="rounded-xl border border-gray-200 bg-white p-5 h-full">
@@ -3612,10 +3630,9 @@
           Hallazgos centrales
         </p>
         <ul class="text-sm text-gray-600 space-y-2">
-          <li>• Transición de CONARP hacia un modelo más técnico y preventivo.</li>
-          <li>• El precedente fortalece previsibilidad, pero no basta por sí solo.</li>
-          <li>• La diversidad del comité es clave para evitar sesgos.</li>
-          <li>• La IA y el entorno digital desbordan la vigilancia tradicional.</li>
+          <li>• El ecosistema publicitario está desbordando los mecanismos tradicionales.</li>
+          <li>• La autorregulación compite (y convive) con otras formas de control.</li>
+          <li>• El problema no es solo técnico, sino cultural e institucional.</li>
         </ul>
       </div>
 
@@ -3628,7 +3645,7 @@
             Entrevistados
           </p>
           <h4 class="text-sm font-semibold text-gray-900 mt-1">
-            Perfiles de expertos consultados
+            Principales perfiles
           </h4>
         </div>
 
@@ -3688,6 +3705,7 @@
             </div>
           </article>
 
+          <!--
           <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
@@ -3701,6 +3719,7 @@
               </p>
             </div>
           </article>
+          -->
 
           <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
@@ -3730,6 +3749,7 @@
             </div>
           </article>
 
+          <!--
           <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
@@ -3743,6 +3763,7 @@
               </p>
             </div>
           </article>
+          -->
 
           <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
@@ -3758,6 +3779,7 @@
             </div>
           </article>
 
+          <!--
           <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
               <img
@@ -3771,6 +3793,7 @@
               </p>
             </div>
           </article>
+          -->
 
           <article class="results-slide rounded-xl border border-gray-200 bg-white p-4">
             <div class="flex flex-col items-center text-center">
@@ -3846,7 +3869,7 @@
       </p>
 
       <p class="text-sm text-gray-600 leading-relaxed mt-3">
-        El análisis se organiza en <strong>tres bloques</strong>: dignidad y no discriminación,
+        El análisis se organiza en <strong>tres bloques</strong>(revisión de decisiones Conarp, encuestas): dignidad y no discriminación,
         veracidad en publicidad comparativa, y distinción entre afirmaciones objetivas y subjetivas
         en entornos digitales. En conjunto, los hallazgos muestran una tendencia estable:
         <strong>la dignidad y la veracidad prevalecen sobre la libertad creativa cuando el mensaje
@@ -3905,7 +3928,13 @@
 
           <div class="rounded-lg border border-gray-200 bg-white p-3">
             <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Decisión hito</p>
-            <img src="avisos/snickers.png" alt="Campaña Snickers" class="w-full h-auto rounded mb-2" />
+            <img
+              src="avisos/snickers.png"
+              alt="Campaña Snickers"
+              data-lightbox-gallery="avisos/snickers.png|avisos/carlos_antes_snickers.jpeg|avisos/carlos_durante.jpeg|avisos/carlos_depues.jpeg"
+              data-lightbox-alts="Campaña Snickers|Carlos antes (Snickers)|Carlos durante|Carlos después"
+              class="w-full h-auto rounded mb-2"
+            />
             <p>
               <strong>Concepto 79 de 2011 (Snickers)</strong>:
               el humor no justifica la desvalorización de género.
@@ -3918,6 +3947,20 @@
               Los estereotipos deben evaluarse por su <strong>efecto simbólico y estructural</strong>,
               no solo por su literalidad.
             </p>
+          </div>
+
+          <div class="rounded-lg border border-gray-200 bg-white p-3">
+            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">
+              Libertad creativa vs. dignidad
+            </p>
+            <button
+              type="button"
+              data-line-image="avisos/dignidad.png"
+              data-line-alt="Representación gráfica de la línea del Bloque 1"
+              class="w-full rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700 transition-colors hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700/40"
+            >
+              Ver representación gráfica de la línea
+            </button>
           </div>
         </div>
       </article>
@@ -3971,6 +4014,20 @@
               La parodia es admisible solo si la pieza, vista en conjunto, no induce a
               <strong>error, confusión o denigración injustificada</strong>.
             </p>
+          </div>
+
+          <div class="rounded-lg border border-gray-200 bg-white p-3">
+            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">
+              Libertad creativa vs. veracidad
+            </p>
+            <button
+              type="button"
+              data-line-image="avisos/veracidad.png"
+              data-line-alt="Representación gráfica de la línea del Bloque 2"
+              class="w-full rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700 transition-colors hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700/40"
+            >
+              Ver representación gráfica de la línea
+            </button>
           </div>
         </div>
       </article>
@@ -4026,6 +4083,20 @@
               debe tratarse como afirmación objetiva, incluso si aparece en tono coloquial.
             </p>
           </div>
+
+          <div class="rounded-lg border border-gray-200 bg-white p-3">
+            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-2">
+              Lenguaje subjetivo vs. afirmaciones objetivas
+            </p>
+            <button
+              type="button"
+              data-line-image="avisos/afirmaciones.png"
+              data-line-alt="Representación gráfica de la línea del Bloque 3"
+              class="w-full rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-700 transition-colors hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700/40"
+            >
+              Ver representación gráfica de la línea
+            </button>
+          </div>
         </div>
       </article>
     </div>
@@ -4047,11 +4118,6 @@
          INICIO
          ============================================= -->
         <div class="fade-in text-center">
-          <span
-            class="text-red-700 font-bold tracking-widest text-xs uppercase"
-          >
-            Sección 05
-          </span>
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-6">
             Discusión y conclusiones
           </h2>
@@ -4108,12 +4174,6 @@
                       H0 · Hipótesis general
                     </p>
 
-                    <h4
-                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
-                    >
-                      Hipótesis general del estudio
-                    </h4>
-
                     <div
                       class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
                     >
@@ -4130,20 +4190,15 @@
                     </div>
 
                     <div>
-                      <p
-                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
-                      >
-                        Conclusiones
-                      </p>
+                      
 
                       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
                         <div
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La hipótesis se valida con matices: el precedente
-                            fortalece la legitimidad y la previsibilidad, aunque
-                            no explica por sí solo toda la confianza.
+                            La hipótesis general se valida: los sistemas que incorporan
+                            precedentes estructurados tienden a generar mayor confianza.
                           </p>
                         </div>
 
@@ -4151,9 +4206,8 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La coherencia funciona como un piso ético mínimo: no
-                            se premia como un valor extra, se exige como
-                            condición básica de legitimidad.
+                            La coherencia doctrinal opera como un umbral mínimo
+                            de legitimidad, aunque suele darse por sentada.
                           </p>
                         </div>
 
@@ -4161,9 +4215,8 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            El precedente reduce la arbitrariedad y aumenta la
-                            predictibilidad, permitiendo anticipar criterios
-                            éticos y orientar la conducta del sector.
+                            La confianza es multifactorial y depende también de
+                            la transparencia, la independencia y la calidad argumentativa.
                           </p>
                         </div>
 
@@ -4171,9 +4224,9 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La confianza es multifactorial: la coherencia debe
-                            articularse con transparencia, independencia,
-                            diversidad institucional y memoria decisional.
+                            El ADP demuestra alto potencial para fortalecer la
+                            coherencia y la predictibilidad, pero requiere
+                            condiciones institucionales para ser efectivo.
                           </p>
                         </div>
                       </div>
@@ -4200,12 +4253,6 @@
                       H1 · Consistencia y confianza
                     </p>
 
-                    <h4
-                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
-                    >
-                      Consistencia en la aplicación de principios éticos
-                    </h4>
-
                     <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
                     <div
                       class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
@@ -4222,33 +4269,8 @@
 
                     <!-- IDEAS FUERZA -->
                     <div>
-                      <p
-                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
-                      >
-                        Conclusiones
-                      </p>
 
                       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-                        <div
-                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
-                        >
-                          <p class="text-sm text-gray-700 leading-relaxed">
-                            La hipótesis se valida con matices: la consistencia
-                            es estructural para la confianza, pero no actúa como
-                            factor único ni suficiente.
-                          </p>
-                        </div>
-
-                        <div
-                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
-                        >
-                          <p class="text-sm text-gray-700 leading-relaxed">
-                            La coherencia doctrinal es esencial en sistemas no
-                            coercitivos, porque permite construir una memoria
-                            institucional reconocible.
-                          </p>
-                        </div>
-
                         <div
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
@@ -4263,9 +4285,32 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La consistencia funciona como un umbral mínimo de
-                            legitimidad y debe complementarse con transparencia,
-                            independencia y cultura ética.
+                            La consistencia doctrinal en la aplicación de
+                            principios éticos contribuye a la confianza, pero no
+                            es el único factor determinante. Otros factores
+                            relevantes identificados son la transparencia, la
+                            independencia, la calidad argumentativa y la claridad
+                            en la toma de decisiones.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La confianza no depende solo de la repetición de
+                            criterios, sino de la percepción de justicia,
+                            imparcialidad y sensibilidad al contexto.
+                          </p>
+                        </div>
+
+                        <div
+                          class="rounded-xl border border-gray-200 bg-gray-50 p-5"
+                        >
+                          <p class="text-sm text-gray-700 leading-relaxed">
+                            La consistencia solo produce efectos sostenidos en la
+                            confianza cuando se articula con transparencia,
+                            calidad argumentativa y legitimidad institucional.
                           </p>
                         </div>
                       </div>
@@ -4293,12 +4338,6 @@
                       H2 · Legitimidad de la línea decisional
                     </p>
 
-                    <h4
-                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
-                    >
-                      Legitimidad y estructura de las decisiones
-                    </h4>
-
                     <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
                     <div
                       class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
@@ -4314,20 +4353,16 @@
 
                     <!-- IDEAS FUERZA -->
                     <div>
-                      <p
-                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
-                      >
-                        Conclusiones
-                      </p>
+                    
 
                       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
                         <div
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La hipótesis se confirma: la legitimidad aumenta
-                            cuando las decisiones se insertan en una línea
-                            argumentativa estructurada y reconocible.
+                            La legitimidad en sistemas normativos no coercitivos
+                            depende de su capacidad para producir decisiones
+                            previsibles, coherentes y fundamentadas.
                           </p>
                         </div>
 
@@ -4335,9 +4370,10 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La autoridad institucional requiere memoria
-                            doctrinal: un sistema sin historia de sus criterios
-                            no puede generar previsibilidad ni confianza.
+                            La ausencia de una línea estructurada genera
+                            fragmentación decisional —“islas”— que debilitan la
+                            racionalidad del sistema y dificultan su comprensión
+                            por los usuarios.
                           </p>
                         </div>
 
@@ -4345,9 +4381,10 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            El ADP permitió reconstruir la estructura normativa
-                            del sistema, visibilizando subreglas y patrones
-                            interpretativos antes dispersos.
+                            La construcción de una memoria institucional
+                            compartida convierte la coherencia en una presión
+                            social legítima que orienta y disciplina la toma de
+                            decisiones.
                           </p>
                         </div>
 
@@ -4355,9 +4392,9 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La estructura decisional reduce la arbitrariedad y
-                            permite seguir la evolución de los criterios éticos
-                            a lo largo del tiempo.
+                            Las decisiones ganan respeto cuando se perciben como
+                            parte de una doctrina coherente y predecible, y no
+                            como respuestas aisladas o contingentes.
                           </p>
                         </div>
                       </div>
@@ -4385,12 +4422,6 @@
                       H3 · Justificación del precedente
                     </p>
 
-                    <h4
-                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
-                    >
-                      Justificación explícita y aceptación de las decisiones
-                    </h4>
-
                     <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
                     <div
                       class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
@@ -4406,21 +4437,14 @@
 
                     <!-- IDEAS FUERZA -->
                     <div>
-                      <p
-                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
-                      >
-                        Conclusiones
-                      </p>
+                      
 
                       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
                         <div
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La hipótesis recibe un respaldo significativo:
-                            justificar explícitamente el precedente aumenta la
-                            claridad y la aceptación de las decisiones entre los
-                            actores del sector.
+                            La hipótesis recibe respaldo significativo en la literatura y las entrevistas, que coinciden en que hacer visible el uso del precedente incrementa la aceptación de las decisiones.
                           </p>
                         </div>
 
@@ -4428,9 +4452,7 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            Explicitar el precedente fortalece la memoria
-                            doctrinal del sistema y conecta cada decisión con
-                            una trayectoria normativa reconocible.
+                            Una decisión que puede afirmar que “esto ya se ha dicho antes” y justificarlo claramente adquiere mayor fuerza persuasiva y reduce el riesgo de arbitrariedad.
                           </p>
                         </div>
 
@@ -4438,9 +4460,7 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La referencia a precedentes permite anticipar
-                            criterios, gestionar riesgos regulatorios y orientar
-                            la conducta de anunciantes y agencias.
+                            Hacer explícito el precedente fortalece la seguridad jurídica al permitir anticipar decisiones, orientar la conducta y evaluar riesgos regulatorios y reputacionales.
                           </p>
                         </div>
 
@@ -4448,10 +4468,7 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La justificación basada en precedentes reduce la
-                            percepción de arbitrariedad, aunque su eficacia
-                            depende también de la transparencia, la reputación
-                            institucional y el contexto cultural.
+                            El juicio ético en contextos no judiciales no puede reducirse a una lógica exclusivamente técnica, por lo que la justificación debe dialogar con el contexto y la comunidad interpretativa.
                           </p>
                         </div>
                       </div>
@@ -4479,12 +4496,6 @@
                       H4 · Complejidad y sistematización
                     </p>
 
-                    <h4
-                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
-                    >
-                      Complejidad decisional y necesidad de precedentes
-                    </h4>
-
                     <!-- TEXTO LITERAL DE LA HIPÓTESIS -->
                     <div
                       class="rounded-xl border-l-4 border-l-red-700 bg-gray-50 px-6 py-5 mb-8"
@@ -4501,20 +4512,14 @@
 
                     <!-- IDEAS FUERZA -->
                     <div>
-                      <p
-                        class="text-[10px] uppercase tracking-[0.22em] text-gray-500 font-bold mb-4"
-                      >
-                        Conclusiones
-                      </p>
+                    
 
                       <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
                         <div
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            Todo sistema decisional necesita construir memoria
-                            institucional para mantener coherencia y evitar
-                            decisiones arbitrarias.
+                            Todo sistema decisional, incluso informal, requiere construir memoria para garantizar coherencia, previsibilidad y evitar la arbitrariedad.
                           </p>
                         </div>
 
@@ -4522,10 +4527,7 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            La creciente complejidad del ecosistema publicitario
-                            —plataformas digitales, influencers y nuevos
-                            formatos— exige metodologías de organización
-                            doctrinal.
+                            La creciente complejidad del entorno publicitario hace indispensable el uso de metodologías estructuradas para organizar y aplicar precedentes.
                           </p>
                         </div>
 
@@ -4533,9 +4535,7 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            Herramientas como el ADP permiten sistematizar casos
-                            dispersos, identificar subreglas y evitar la
-                            fragmentación del sistema.
+                            Sin herramientas de sistematización, los sistemas complejos tienden a fragmentarse en decisiones aisladas, perdiendo capacidad orientadora y legitimidad.
                           </p>
                         </div>
 
@@ -4543,9 +4543,7 @@
                           class="rounded-xl border border-gray-200 bg-gray-50 p-5"
                         >
                           <p class="text-sm text-gray-700 leading-relaxed">
-                            A medida que los sistemas crecen, la sistematización
-                            se vuelve indispensable para garantizar seguridad
-                            jurídica y credibilidad institucional.
+                            En contextos de alta producción decisional, como la Corte Constitucional, estas metodologías dejan de ser opcionales y se convierten en condiciones de funcionamiento del sistema.
                           </p>
                         </div>
                       </div>
@@ -4582,12 +4580,8 @@ INICIO
 ============================================= -->
 <div class="mt-20 fade-in">
   <div class="mb-10">
-    <p class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-      5.1. Conclusiones
-    </p>
-
     <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
-      Síntesis final de la investigación
+      Conclusiones
     </h4>
 
     <p class="text-gray-600 leading-relaxed">
@@ -4695,16 +4689,12 @@ INICIO
 ============================================= -->
 <div class="mt-20 fade-in">
   <div class="mb-8">
-    <p class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-      5.2. Limitaciones del estudio
-    </p>
-
     <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
-      Restricciones del análisis
+      Limitaciones
     </h4>
 
     <p class="text-gray-600 leading-relaxed">
-      La aplicación del Análisis Dinámico de Precedentes evidenció
+      El estudio evidenció
       limitaciones relacionadas con la estructura documental de la CONARP y
       con la naturaleza no judicial de sus decisiones.
     </p>
@@ -4740,31 +4730,11 @@ INICIO
 
       <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
         <h4 class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-          Constelación de casos
-        </h4>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          Las decisiones forman una red temática de casos más que una cadena
-          lineal de precedentes.
-        </p>
-      </article>
-
-      <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
-        <h4 class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
           Heterogeneidad argumentativa
         </h4>
         <p class="text-sm text-gray-600 leading-relaxed">
           Los conceptos presentan distintos niveles de profundidad
           argumentativa y no siempre explicitan claramente la ratio decidendi.
-        </p>
-      </article>
-
-      <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
-        <h4 class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-          Naturaleza no judicial
-        </h4>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          La CONARP emite orientaciones éticas y no precedentes vinculantes,
-          lo que exige adaptar herramientas del análisis jurisprudencial al lenguaje y la función de sus decisiones.
         </p>
       </article>
 
@@ -4816,12 +4786,8 @@ INICIO
 ============================================= -->
 <div class="mt-20 fade-in">
   <div class="mb-8">
-    <p class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-      5.3. Futuras líneas de investigación
-    </p>
-
     <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
-      Proyecciones del campo
+      Futuras líneas de investigación
     </h4>
 
     <p class="text-gray-600 leading-relaxed">
@@ -4884,35 +4850,11 @@ INICIO
 
       <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
         <h4 class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-          Integración de variables sociales y subjetivas en el ADP
-        </h4>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          Estudiar la posibilidad de que la reconstrucción de líneas doctrinales
-          incorpore variables de impacto cultural, social o subjetivo, más allá
-          del análisis técnico-jurídico.
-        </p>
-      </article>
-
-      <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
-        <h4 class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
-          Transferibilidad del modelo judicial a sistemas deontológicos
-        </h4>
-        <p class="text-sm text-gray-600 leading-relaxed">
-          Profundizar en los límites y posibilidades de adaptar el modelo de
-          precedente judicial a ámbitos no coercitivos y situados culturalmente,
-          manteniendo su legitimidad sin recurrir a la coacción.
-        </p>
-      </article>
-
-      <article class="summary-carousel-slide bg-white border border-gray-200 rounded-xl p-6">
-        <h4 class="text-[11px] uppercase tracking-[0.22em] text-red-700 font-bold mb-3">
           Influencia doctrinal en la producción jurisprudencial
         </h4>
         <p class="text-sm text-gray-600 leading-relaxed">
           Identificar y sistematizar el uso de conceptos de análisis de
-          precedentes en fallos judiciales (tutelas, autos, sentencias de
-          unificación) que utilizan estas herramientas sin mencionar
-          explícitamente a sus autores originales.
+          precedentes en decisiones de diferentes contextos sin que se hagan remisiones explícitas a ello (precedente implícito). 
         </p>
       </article>
 
@@ -4991,7 +4933,26 @@ FIN
       >
         &times;
       </button>
+      <button
+        id="lightbox-prev"
+        class="lightbox-nav lightbox-nav-prev"
+        type="button"
+        aria-label="Imagen anterior"
+        hidden
+      >
+        ‹
+      </button>
+      <button
+        id="lightbox-next"
+        class="lightbox-nav lightbox-nav-next"
+        type="button"
+        aria-label="Imagen siguiente"
+        hidden
+      >
+        ›
+      </button>
       <img id="lightbox-image" data-no-zoom="true" src="" alt="" />
+      <p id="lightbox-counter" class="lightbox-counter" aria-live="polite" hidden></p>
     </div>
 
     <!-- Componente global: detalle de etapas ADP -->
@@ -5076,16 +5037,93 @@ FIN
         const lightbox = document.getElementById("image-lightbox");
         const lightboxImage = document.getElementById("lightbox-image");
         const closeButton = document.getElementById("lightbox-close");
+        const lightboxPrevButton = document.getElementById("lightbox-prev");
+        const lightboxNextButton = document.getElementById("lightbox-next");
+        const lightboxCounter = document.getElementById("lightbox-counter");
         const zoomableImages = document.querySelectorAll(
           'img:not([data-no-zoom="true"])',
         );
 
-        const openLightbox = (img) => {
-          lightboxImage.src = img.currentSrc || img.src;
-          lightboxImage.alt = img.alt || "Imagen ampliada";
+        let lightboxGallery = [];
+        let lightboxAlts = [];
+        let lightboxIndex = 0;
+        let lightboxLastTrigger = null;
+
+        const updateLightboxFrame = () => {
+          if (!lightboxGallery.length) {
+            return;
+          }
+
+          lightboxImage.src = lightboxGallery[lightboxIndex];
+          lightboxImage.alt =
+            lightboxAlts[lightboxIndex] ||
+            lightboxAlts[0] ||
+            "Imagen ampliada";
+
+          const hasMultiple = lightboxGallery.length > 1;
+          if (lightboxPrevButton) {
+            lightboxPrevButton.hidden = !hasMultiple;
+          }
+          if (lightboxNextButton) {
+            lightboxNextButton.hidden = !hasMultiple;
+          }
+          if (lightboxCounter) {
+            lightboxCounter.hidden = !hasMultiple;
+            lightboxCounter.textContent = `${lightboxIndex + 1} / ${lightboxGallery.length}`;
+          }
+        };
+
+        const openLightbox = (source) => {
+          lightboxGallery = [];
+          lightboxAlts = [];
+          lightboxIndex = 0;
+          lightboxLastTrigger = source instanceof HTMLElement ? source : null;
+
+          if (source instanceof HTMLImageElement) {
+            const galleryData = (source.dataset.lightboxGallery || "")
+              .split("|")
+              .map((item) => item.trim())
+              .filter(Boolean);
+            const altsData = (source.dataset.lightboxAlts || "")
+              .split("|")
+              .map((item) => item.trim());
+
+            lightboxGallery = galleryData.length
+              ? galleryData
+              : [source.currentSrc || source.src];
+            lightboxAlts = altsData.length
+              ? altsData
+              : [source.alt || "Imagen ampliada"];
+          } else {
+            lightboxGallery = source.src ? [source.src] : [];
+            lightboxAlts = [source.alt || "Imagen ampliada"];
+          }
+
+          if (!lightboxGallery.length) {
+            return;
+          }
+
+          updateLightboxFrame();
           lightbox.classList.add("open");
           lightbox.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
+        };
+
+        const showPrevLightboxImage = () => {
+          if (lightboxGallery.length <= 1) {
+            return;
+          }
+          lightboxIndex =
+            (lightboxIndex - 1 + lightboxGallery.length) % lightboxGallery.length;
+          updateLightboxFrame();
+        };
+
+        const showNextLightboxImage = () => {
+          if (lightboxGallery.length <= 1) {
+            return;
+          }
+          lightboxIndex = (lightboxIndex + 1) % lightboxGallery.length;
+          updateLightboxFrame();
         };
 
         const closeLightbox = () => {
@@ -5093,7 +5131,24 @@ FIN
           lightbox.setAttribute("aria-hidden", "true");
           lightboxImage.src = "";
           lightboxImage.alt = "";
+          lightboxGallery = [];
+          lightboxAlts = [];
+          lightboxIndex = 0;
+          if (lightboxPrevButton) {
+            lightboxPrevButton.hidden = true;
+          }
+          if (lightboxNextButton) {
+            lightboxNextButton.hidden = true;
+          }
+          if (lightboxCounter) {
+            lightboxCounter.hidden = true;
+            lightboxCounter.textContent = "";
+          }
           document.body.style.overflow = "";
+
+          if (lightboxLastTrigger instanceof HTMLElement) {
+            lightboxLastTrigger.focus();
+          }
         };
 
         zoomableImages.forEach((img) => {
@@ -5101,7 +5156,31 @@ FIN
           img.addEventListener("click", () => openLightbox(img));
         });
 
+        const lineGraphButtons = Array.from(
+          document.querySelectorAll("[data-line-image]"),
+        );
+        lineGraphButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const imageSrc = button.dataset.lineImage || "";
+            if (!imageSrc) {
+              return;
+            }
+
+            openLightbox({
+              src: imageSrc,
+              alt:
+                button.dataset.lineAlt || "Representación gráfica de la línea",
+            });
+          });
+        });
+
         closeButton.addEventListener("click", closeLightbox);
+        if (lightboxPrevButton) {
+          lightboxPrevButton.addEventListener("click", showPrevLightboxImage);
+        }
+        if (lightboxNextButton) {
+          lightboxNextButton.addEventListener("click", showNextLightboxImage);
+        }
         lightbox.addEventListener("click", (event) => {
           if (event.target === lightbox) {
             closeLightbox();
@@ -5178,15 +5257,26 @@ FIN
         }
 
         document.addEventListener("keydown", (event) => {
-          if (event.key !== "Escape") {
-            return;
-          }
-
           if (lightbox.classList.contains("open")) {
-            closeLightbox();
+            if (event.key === "Escape") {
+              closeLightbox();
+              return;
+            }
+            if (event.key === "ArrowLeft") {
+              showPrevLightboxImage();
+              return;
+            }
+            if (event.key === "ArrowRight") {
+              showNextLightboxImage();
+              return;
+            }
           }
 
-          if (adpStepModal && adpStepModal.classList.contains("open")) {
+          if (
+            event.key === "Escape" &&
+            adpStepModal &&
+            adpStepModal.classList.contains("open")
+          ) {
             closeAdpStepModal();
           }
         });
