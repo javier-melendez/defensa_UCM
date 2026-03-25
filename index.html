@@ -18,6 +18,7 @@
 
       html {
         scroll-behavior: smooth;
+        font-size: 17px;
       }
 
       body {
@@ -25,6 +26,55 @@
         background-color: white;
         color: var(--ucm-dark);
         line-height: 1.6;
+      }
+
+      /* +2px acumulados en textos de cuerpo (sin tocar títulos/subtítulos) */
+      .text-\[9px\] {
+        font-size: 11px !important;
+      }
+
+      .text-\[10px\] {
+        font-size: 12px !important;
+      }
+
+      .text-\[11px\] {
+        font-size: 13px !important;
+      }
+
+      .text-\[12px\] {
+        font-size: 14px !important;
+      }
+
+      .text-xs {
+        font-size: calc(0.75rem + 2px) !important;
+      }
+
+      .text-sm {
+        font-size: calc(0.875rem + 2px) !important;
+      }
+
+      .text-base {
+        font-size: calc(1rem + 2px) !important;
+      }
+
+      /* Ajusta este valor para mover el nombre del doctorando:
+         más negativo = más a la izquierda, más positivo = más a la derecha. */
+      .doctorando-name-offset {
+        margin-left: -3rem;
+      }
+
+      @media (min-width: 768px) {
+        .md\:text-\[11px\] {
+          font-size: 13px !important;
+        }
+
+        .md\:text-xs {
+          font-size: calc(0.75rem + 2px) !important;
+        }
+
+        .md\:text-base {
+          font-size: calc(1rem + 2px) !important;
+        }
       }
 
       body.loading-screen-active {
@@ -93,6 +143,10 @@
 
       h3 {
         color: var(--ucm-red) !important;
+      }
+
+      .hero-main-title {
+        line-height: 1.2 !important;
       }
 
       /* Ajuste de scroll para los enlaces del menú */
@@ -740,7 +794,7 @@
     <!-- =============================================
          PORTADA (HERO SECTION)
          ============================================= -->
-    <header id="inicio" class="pt-40 pb-20 px-6 lg:px-12 scroll-mt">
+    <header id="inicio" class="pt-36 pb-16 px-6 lg:px-12 scroll-mt">
       <div class="max-w-7xl mx-auto">
         <!-- Subbloque: Identidad académica (tipo de trabajo, título y subtítulo) -->
         <div class="max-w-6xl">
@@ -748,7 +802,7 @@
             Tesis doctoral
           </p>
           <div class="w-12 h-[2px] bg-red-700 mb-8"></div>
-          <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8">
+          <h1 class="hero-main-title text-4xl md:text-6xl font-bold leading-tight mb-8">
             La construcción de líneas de precedente deodontológico en las
             instancias de autorregulación publicitaria
           </h1>
@@ -762,16 +816,7 @@
           <div
             class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-gray-100"
           >
-            <div>
-              <span
-                class="block text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2"
-                >Doctorando</span
-              >
-              <span
-                class="text-sm font-semibold text-gray-800 md:whitespace-nowrap"
-                >Javier Andrés Meléndez Ordóñez</span
-              >
-            </div>
+    
             <div>
               <span
                 class="block text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2"
@@ -779,7 +824,17 @@
               >
               <span
                 class="text-sm font-semibold text-gray-800 md:whitespace-nowrap"
-                >Luis Mañas Viniegra</span
+                >Dr. Luis Mañas Viniegra</span
+              >
+            </div>
+            <div>
+              <span
+                class="doctorando-name-offset block text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-2"
+                >Doctorando</span
+              >
+              <span
+                class="doctorando-name-offset text-sm font-semibold text-gray-800 md:whitespace-nowrap"
+                >Javier Andrés Meléndez Ordóñez</span
               >
             </div>
             <div>
@@ -817,7 +872,7 @@
 <!-- =============================================
  SECCIÓN 1: CONTEXTO
  ============================================= -->
-<section id="contexto" class="pt-12 pb-24 px-6 lg:px-12 bg-white scroll-mt">
+<section id="contexto" class="pt-10 pb-20 px-6 lg:px-12 bg-white scroll-mt">
   <div class="max-w-7xl mx-auto">
     <div class="bg-gray-50 p-6 md:p-8">
     <div class="grid lg:grid-cols-12 gap-16 items-start">
@@ -840,9 +895,9 @@
 
           <!-- Apertura -->
           <p class="text-gray-600 leading-relaxed">
-            La investigación se sitúa en un momento de transición en la
-            autorregulación publicitaria colombiana tras la disolución de
-            CONARP en 2018 y la creación de AUTOCONTROL Colombia en 2019.
+            La investigación se sitúa en un momento de relevo institucional en la
+            autorregulación publicitaria en Colombia tras la disolución de
+            CONARP (Comisión Nacional de Autorregulación Publicitaria) en 2018 y la creación de AUTOCONTROL Colombia en 2019.
           </p>
 
           <!-- Tarjetas -->
@@ -851,7 +906,7 @@
             <div class="rounded-xl border border-gray-100 bg-gray-50 p-5">
               <p class="font-semibold text-gray-800">Relevo institucional</p>
               <p class="mt-2 text-sm">
-                CONARP (1980–2018) → AUTOCONTROL Colombia (2019).
+                El código colombiano de autorregulación publicitaria de 1980 creó la CONARP como organismo de aplicación.
               </p>
             </div>
 
@@ -955,7 +1010,7 @@
  ============================================= -->
 <section
   id="estado-cuestion"
-  class="pt-12 pb-24 px-6 lg:px-12 scroll-mt bg-white"
+  class="pt-10 pb-20 px-6 lg:px-12 scroll-mt bg-white"
 >
   <div class="max-w-7xl mx-auto">
     <div class="grid lg:grid-cols-12 gap-16 items-center">
@@ -973,8 +1028,8 @@
         </h2>
 
         <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
-          La revisión del estado de la cuestión se organizó en cuatro bloques
-          temáticos relevantes para esta investigación.
+          El estado de la cuestión se organizó en cuatro bloques
+          temáticos relevantes para esta investigación. PRISMA-ScR.
         </p>
 
         <p class="mt-4 text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed">
@@ -982,7 +1037,7 @@
           y confianza, la autorregulación publicitaria en el
           contexto colombiano, los estudios sobre el Análisis Dinámico de
           Precedentes y la recepción de la obra de Diego López Medina en la
-          jurisprudencia de la Corte Constitucional colombiana.
+          jurisprudencia constitucional colombiana.
         </p>
 
         <div
@@ -993,7 +1048,7 @@
           </p>
 
           <p class="text-gray-600 text-sm leading-relaxed">
-            El análisis estático se centra en una sentencia individual,
+            El análisis estático se centra en una decisión individual,
             mientras que el análisis dinámico reconstruye la evolución de
             reglas jurídicas a través de una red de decisiones relacionadas
             en el tiempo.
@@ -1078,12 +1133,12 @@
     <!-- =============================================
          SECCIÓN 2.1: MATRIZ DE LITERATURA
          ============================================= -->
-    <section class="py-16 px-6 lg:px-12 bg-white">
+    <section class="py-14 px-6 lg:px-12 bg-white">
       <div class="max-w-7xl mx-auto fade-in">
         <!-- Subbloque: Encabezado de tabla -->
         <div class="text-center md:text-left mb-8">
           <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-            2.1. Resumen de estudios sobre autorregulación, publicidad y confianza
+            2.1. Autorregulación, publicidad y confianza
           </h3>
           <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
             Fuente: Elaboración propia.
@@ -1486,8 +1541,7 @@
 <div class="mt-20 fade-in">
   <div class="text-center md:text-left mb-10">
     <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-      2.3. Análisis dinámico de precedentes como
-      metodología de análisis jurisprudencial
+      2.3. Sobre el Análisis dinámico de precedentes
     </h3>
     <p class="mt-2 text-xs uppercase tracking-widest text-gray-600">
       Síntesis de la literatura revisada
@@ -1568,7 +1622,7 @@
 
             <div class="rounded-lg border border-gray-100 bg-white p-4">
               Permite
-              <strong>reconstruir líneas jurisprudenciales</strong>,
+              <strong>reconstruir líneas de precedente</strong>,
               identificar subreglas y observar la evolución doctrinal de
               los tribunales.
             </div>
@@ -1598,16 +1652,16 @@
             <div class="rounded-lg border border-gray-100 bg-white p-4">
               Presenta limitaciones asociadas a la
               <strong>
-                subjetividad en la identificación de la ratio decidendi
-              </strong>.
+                subjetividad en la identificación de la ratio decidendi.
+              </strong>
             </div>
 
             <div class="rounded-lg border border-gray-100 bg-white p-4">
               Existe riesgo de
               <strong>
                 excesivo formalismo en la clasificación de sentencias o
-                decisiones
-              </strong>.
+                decisiones.
+              </strong>
             </div>
 
             <div class="rounded-lg border border-gray-100 bg-white p-4">
@@ -1668,7 +1722,7 @@
 	        <div class="mt-20 fade-in">
 	          <div class="text-center md:text-left mb-10">
 	            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-	              2.4. El ADP en la docrina de la Corte Constitucional colombiana
+	              2.4. El ADP en la doctrina constitucional colombiana
 	            </h3>
 	          </div>
 	        </div>
@@ -1679,11 +1733,8 @@
 		        <div class="mt-8 fade-in">
 	          <div class="mb-8">
 	            <p class="text-xs uppercase tracking-widest text-gray-600 font-semibold">
-	              Usos del análisis dinámico de precedentes en providencias de la Corte Constitucional
+	              Usos del análisis dinámico de precedentes en providencias constitucionales
 	            </p>
-	            <h4 class="mt-2 text-2xl md:text-3xl font-bold text-gray-900">
-	              Usos por asociación directa
-	            </h4>
 	          </div>
 
 	          <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -1697,10 +1748,10 @@
 	                      Uso 01
 	                    </p>
 	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
-	                      Líneas jurisprudenciales
+	                      Líneas de precedente
 	                    </h5>
 	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
-	                      Identificación o reconstrucción de líneas jurisprudenciales.
+	                      Identificación o reconstrucción de líneas de precedente.
 	                    </p>
 	                  </div>
 	                  <div class="mt-6 flex items-center justify-between">
@@ -1719,12 +1770,55 @@
 	                      Providencias
 	                    </p>
 	                    <h5 class="mt-3 text-lg font-bold">
-	                      Líneas jurisprudenciales
+	                      Líneas de precedente
 	                    </h5>
 	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
 	                      <p>T-049/07</p>
 	                      <p>T-493/18</p>
 	                      <p>T-177/24</p>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+	            <!-- 3 -->
+	            <div class="flip-card">
+	              <div class="flip-card-inner">
+	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
+	                      Uso 03
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
+	                      Nulidad y precedente
+	                    </h5>
+	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
+	                      Justificación de decisiones ante solicitudes de nulidad por presunto desconocimiento del precedente.
+	                    </p>
+	                  </div>
+	                  <div class="mt-6 flex items-center justify-between">
+	                    <span class="text-xs uppercase tracking-widest text-gray-500">
+	                      3 providencias
+	                    </span>
+	                    <span class="text-xs text-gray-400 italic">
+	                      ver detalle
+	                    </span>
+	                  </div>
+	                </div>
+
+	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
+	                  <div>
+	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
+	                      Providencias
+	                    </p>
+	                    <h5 class="mt-3 text-lg font-bold">
+	                      Nulidad y precedente
+	                    </h5>
+	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
+	                      <p>A038/17</p>
+	                      <p>A049/17</p>
+	                      <p>A267/15</p>
 	                    </div>
 	                  </div>
 	                </div>
@@ -1772,49 +1866,6 @@
 	                      <p>A038/17</p>
 	                      <p>A049/17</p>
 	                      <p>T-208/19</p>
-	                    </div>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-
-	            <!-- 3 -->
-	            <div class="flip-card">
-	              <div class="flip-card-inner">
-	                <div class="flip-card-front rounded-2xl border border-gray-100 bg-white p-6 shadow-sm flex flex-col justify-between">
-	                  <div>
-	                    <p class="text-[10px] uppercase tracking-widest text-red-700 font-bold">
-	                      Uso 03
-	                    </p>
-	                    <h5 class="mt-3 text-lg font-bold text-gray-900">
-	                      Nulidad y precedente
-	                    </h5>
-	                    <p class="mt-3 text-sm text-gray-600 leading-relaxed">
-	                      Justificación de decisiones ante solicitudes de nulidad por presunto desconocimiento del precedente.
-	                    </p>
-	                  </div>
-	                  <div class="mt-6 flex items-center justify-between">
-	                    <span class="text-xs uppercase tracking-widest text-gray-500">
-	                      3 providencias
-	                    </span>
-	                    <span class="text-xs text-gray-400 italic">
-	                      ver detalle
-	                    </span>
-	                  </div>
-	                </div>
-
-	                <div class="flip-card-back rounded-2xl border border-red-100 bg-red-700 p-6 shadow-sm text-white flex flex-col justify-between">
-	                  <div>
-	                    <p class="text-[10px] uppercase tracking-widest text-red-100 font-bold">
-	                      Providencias
-	                    </p>
-	                    <h5 class="mt-3 text-lg font-bold">
-	                      Nulidad y precedente
-	                    </h5>
-	                    <div class="mt-4 space-y-2 text-sm leading-relaxed">
-	                      <p>A038/17</p>
-	                      <p>A049/17</p>
-	                      <p>A267/15</p>
 	                    </div>
 	                  </div>
 	                </div>
@@ -2043,7 +2094,7 @@
 	     ========================================================= -->
     <section
       id="metodologia"
-      class="mt-5 md:mt-6 pt-12 pb-24 px-6 lg:px-12 bg-gray-50 scroll-mt"
+      class="mt-5 md:mt-6 pt-10 pb-20 px-6 lg:px-12 bg-gray-50 scroll-mt"
     >
       <div class="max-w-7xl mx-auto">
         <!-- =====================================================
@@ -2394,7 +2445,7 @@
                   >
                     <p class="text-sm text-gray-900 font-semibold mb-2">H1</p>
                     <p class="text-sm text-gray-600">
-                      La consistencia en la aplicación de principios éticos a lo
+                      La <strong>consistencia</strong> en la aplicación de principios éticos a lo
                       largo del tiempo influye en la percepción de confianza.
                     </p>
                   </div>
@@ -2404,7 +2455,7 @@
                   >
                     <p class="text-sm text-gray-900 font-semibold mb-2">H2</p>
                     <p class="text-sm text-gray-600">
-                      Las decisiones de líneas estructuradas aumentan la percepción de
+                      Las decisiones de <strong>líneas estructuradas</strong> aumentan la percepción de
                       legitimidad.
                     </p>
                   </div>
@@ -2415,7 +2466,7 @@
                     <p class="text-sm text-gray-900 font-semibold mb-2">H3</p>
                     <p class="text-sm text-gray-600">
                       Justificar explícitamente el precedente aumenta la
-                      aceptación de la decisión entre anunciantes y agencias.
+                      <strong>aceptación</strong> de la decisión entre anunciantes y agencias.
                     </p>
                   </div>
 
@@ -2424,7 +2475,7 @@
                   >
                     <p class="text-sm text-gray-900 font-semibold mb-2">H4</p>
                     <p class="text-sm text-gray-600">
-                      A mayor complejidad decisional, mayor necesidad de
+                      A mayor <strong>complejidad</strong> del sistema decisional, mayor necesidad de
                       incorporar metodologías estructuradas de precedentes.
                     </p>
                   </div>
@@ -2462,12 +2513,7 @@
             </h3>
 
             <p class="text-gray-600 leading-relaxed">
-              La investigación distingue entre
-              <strong class="text-gray-900">metodología</strong>, entendida como la
-              estrategia global del estudio, y
-              <strong class="text-gray-900">métodos</strong>, referidos a las
-              herramientas operativas utilizadas para recolectar y analizar la
-              información. El diseño se fundamenta en una estrategia de
+              El diseño se fundamenta en una estrategia de
               triangulación para fortalecer la validez interna y la robustez
               interpretativa de los hallazgos.
             </p>
@@ -2590,15 +2636,6 @@
                 <strong class="text-gray-900">Google Scholar</strong>.
               </p>
 
-              <p>
-                Posteriormente se construyó un inventario documental de
-                decisiones de la
-                <strong class="text-gray-900">CONARP</strong>, del que se derivó un
-                corpus analítico de
-                <strong class="text-gray-900"
-                  >46 conceptos emitidos entre 1998 y 2013</strong
-                >.
-              </p>
             </div>
           </div>
 
@@ -2634,21 +2671,6 @@
                 </p>
               </div>
 
-              <div class="flex justify-center text-gray-600 text-xl">↓</div>
-
-              <a
-                href="relatoria/relatoria.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group block rounded-lg border border-red-200 bg-red-50 p-4 transition-colors hover:border-red-300 hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-              >
-                <p class="text-sm font-semibold text-gray-900 mb-1">
-                  Relatoría de decisiones
-                </p>
-                <p class="text-sm text-gray-600 group-hover:text-gray-700">
-                  46 decisiones emitidas entre 1998 y 2013.
-                </p>
-              </a>
             </div>
           </div>
         </div>
@@ -2760,7 +2782,7 @@
             </div>
 
             <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
-              Análisis estructural: aplicación del ADP
+              Aplicación del ADP
             </h3>
 
             <p class="text-gray-600 leading-relaxed mb-5">
@@ -2795,13 +2817,13 @@
                   class="adp-step-card rounded-lg border border-gray-200 bg-gray-50 p-4 text-left"
                   data-adp-card="1"
                   data-adp-step="01"
-                  data-adp-title="Formulación del problema ético-jurídico"
+                  data-adp-title="Formulación del problema deontológico"
                   data-adp-description="El problema jurídico es la pregunta que encabeza el análisis y que el investigador se propone responder mediante la identificación y la interpretación dinámica de varias decisiones relacionadas."
                   data-adp-image="aplicacion_adp/1.jpeg"
                 >
                   <span class="text-red-700 font-bold text-sm">01</span>
                   <p class="text-sm text-gray-600 mt-2">
-                    Formulación del problema ético-jurídico
+                    Formulación del problema deontológico
                   </p>
                 </button>
 
@@ -2974,7 +2996,7 @@
     <!-- =============================================
          SECCIÓN 4: RESULTADOS
          ============================================= -->
-    <section id="resultados" class="pt-12 pb-24 px-6 lg:px-12 scroll-mt bg-white">
+    <section id="resultados" class="pt-10 pb-20 px-6 lg:px-12 scroll-mt bg-white">
       <div class="max-w-7xl mx-auto">
         <div class="fade-in text-center md:text-left">
           <span class="text-red-700 font-bold tracking-widest text-xs uppercase"
@@ -3006,6 +3028,15 @@
                 identificando la estructura institucional de los conceptos, los
                 ejes éticos recurrentes y las dinámicas de funcionamiento del
                 sistema.
+              </p>
+              <p class="mt-4 text-sm text-gray-600 leading-relaxed">
+                Posteriormente se construyó un inventario documental de
+                decisiones de la
+                <strong class="text-gray-900">CONARP</strong>, del que se derivó un
+                corpus analítico de
+                <strong class="text-gray-900"
+                  >46 conceptos emitidos entre 1998 y 2013</strong
+                >.
               </p>
 
               <div class="mt-6 space-y-4 text-sm text-gray-600">
@@ -3090,6 +3121,19 @@
                   <li>Nula o mediada participación del consumidor.</li>
                 </ul>
               </div>
+              <a
+                href="relatoria/relatoria.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group block rounded-xl border border-red-200 bg-red-50 p-4 transition-colors hover:border-red-300 hover:bg-red-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              >
+                <p class="text-sm font-semibold text-gray-900 mb-1">
+                  Relatoría de decisiones
+                </p>
+                <p class="text-sm text-gray-600 group-hover:text-gray-700">
+                  46 decisiones emitidas entre 1998 y 2013.
+                </p>
+              </a>
             </aside>
 
             <div class="lg:col-span-12 mt-2 relative w-full results-carousel-content-fit">
@@ -3616,7 +3660,7 @@
     <div class="lg:col-span-12 mt-1 grid md:grid-cols-2 xl:grid-cols-3 gap-4 items-start">
       <div class="rounded-xl border border-gray-200 bg-white p-5 h-full">
         <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-          Hallazgos centrales
+          Hallazgos centrales 1/2
         </p>
         <ul class="text-sm text-gray-600 space-y-2">
           <li>• Existe un consenso crítico sobre el estado del sistema de autorregulación.</li>
@@ -3627,7 +3671,7 @@
 
       <div class="rounded-xl border border-gray-200 bg-white p-5 h-full">
         <p class="text-[11px] uppercase tracking-[0.14em] text-red-700 font-semibold mb-3">
-          Hallazgos centrales
+          Hallazgos centrales 2/2
         </p>
         <ul class="text-sm text-gray-600 space-y-2">
           <li>• El ecosistema publicitario está desbordando los mecanismos tradicionales.</li>
@@ -3919,7 +3963,7 @@
 
         <div class="space-y-3 text-sm text-gray-600">
           <div class="rounded-lg border border-gray-200 bg-white p-3">
-            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Problema ético-jurídico</p>
+            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Problema deontológico</p>
             <p>
               El <strong>humor</strong> o la <strong>creatividad disruptiva</strong>
               pueden justificar estereotipos de género o evocaciones de violencia simbólica.
@@ -3988,7 +4032,7 @@
 
         <div class="space-y-3 text-sm text-gray-600">
           <div class="rounded-lg border border-gray-200 bg-white p-3">
-            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Problema ético-jurídico</p>
+            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Problema deontológico</p>
             <p>
               La <strong>parodia</strong>, la <strong>ficción</strong> o la
               <strong>omisión estratégica</strong> son compatibles con el deber de veracidad.
@@ -4055,7 +4099,7 @@
 
         <div class="space-y-3 text-sm text-gray-600">
           <div class="rounded-lg border border-gray-200 bg-white p-3">
-            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Problema ético-jurídico</p>
+            <p class="text-[11px] md:text-xs uppercase tracking-[0.14em] text-gray-500 mb-1">Problema deontológico</p>
             <p>
               El lenguaje <strong>informal</strong>, <strong>motivacional</strong> o
               aspiracional del influencer puede eximir el deber de prueba en afirmaciones objetivas.
@@ -4111,7 +4155,7 @@
      SECCIÓN 5: HIPÓTESIS, CONCLUSIONES Y CIERRE
      INICIO
      ============================================= -->
-    <section id="conclusiones" class="mt-5 md:mt-6 pt-12 pb-24 px-6 lg:px-12 scroll-mt bg-gray-50">
+    <section id="conclusiones" class="mt-5 md:mt-6 pt-10 pb-20 px-6 lg:px-12 scroll-mt bg-gray-50">
       <div class="max-w-7xl mx-auto">
         <!-- =============================================
          BLOQUE 5.0: ENCABEZADO GENERAL
